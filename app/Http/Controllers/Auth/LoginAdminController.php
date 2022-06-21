@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Controllers\Auth;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class LoginAdminController extends Controller
+{
+    public function index(){
+        return view('auth.admin.login_admin');
+    }
+
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        $credentials = $request->only('email', 'password');
+        //dd($credentials);
+        if ($this->guard()->attempt($credentials)) {
+            $request->session()->put('auth.id_admin', auth()->guard('admin')->user()->id);
+            return redirect()->route('homeAdmin');
+        }
+  
+        return view('auth.login_admin');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
+}
