@@ -14,9 +14,9 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -32,8 +32,12 @@ Route::prefix('oauth')->group(function(){
 
     Route::get('twitter/redirect', [ Controllers\Auth\OAuth\LoginOAuthController::class, 'redirectToTwitter'])->name('redirectToTwitter');
     Route::get('twitter/callback', [ Controllers\Auth\OAuth\LoginOAuthController::class, 'callbackToTwitter'])->name('callbackToTwitter');
-
 });
+
+//USER
+
+Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
+Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
 
 
 Route::group(['middleware' => ['auth']], function() {
@@ -44,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => ['verified']], function() {
-        Route::get('/home', [Controllers\HomeController::class, 'index'])->name('home');
+        Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
     });
 
 });

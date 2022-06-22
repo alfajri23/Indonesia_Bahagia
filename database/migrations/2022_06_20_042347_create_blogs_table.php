@@ -15,19 +15,19 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->string('meta_title')->nullable();
+            $table->string('meta_description')->nullable();
+            $table->string('meta_keyword')->nullable();
             $table->string('judul');
             $table->integer('id_kategori')->nullable();
             $table->string('kategori')->nullable();
+            $table->string('gambar')->nullable();
             $table->string('link')->nullable();
             $table->string('penulis');
             $table->string('isi');
             $table->integer('pengunjung')->nullable();
             $table->string('komentar')->nullable();
             $table->string('tag')->nullable();
-            $table->string('meta_title')->nullable();
-            $table->string('meta_description')->nullable();
-            $table->string('meta_keyword')->nullable();
-            $table->string('gambar')->nullable();
             $table->string('publish')->nullable();
             $table->softDeletes();
             $table->rememberToken();
