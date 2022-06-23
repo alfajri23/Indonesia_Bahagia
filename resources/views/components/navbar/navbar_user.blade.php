@@ -9,7 +9,8 @@
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li class="scroll-to-section"><a href="{{route('homeUser')}}" class="active">Home</a></li>
-                        {{-- <li class="scroll-to-section"><a href="#services">Services</a></li> --}}
+                        <li class="scroll-to-section"><a href="{{route('blogUser')}}">Blog</a></li>
+
                         {{-- <li class="scroll-to-section"><a href="#courses">Courses</a></li>
                         <li class="has-sub">
                             <a href="javascript:void(0)">Pages</a>

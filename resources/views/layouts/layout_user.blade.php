@@ -18,10 +18,20 @@
     <!-- Additional CSS Files -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/user/fontawesome.css')}}">
+
+    {{-- <link rel="stylesheet" href="{{asset('css/user/fontawesome.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/templatemo-eduwell-style.css')}}">
     <link rel="stylesheet" href="{{asset('css/user/owl.css')}}">
-    <link rel="stylesheet" href="{{asset('css/user/lightbox.css')}}">
+    <link rel="stylesheet" href="{{asset('css/user/lightbox.css')}}"> --}}
+
+    <link rel="stylesheet" href="{{ asset('css/user/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/custom.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/owl/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/aos.min.css') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 <!--
@@ -37,68 +47,29 @@ https://templatemo.com/tm-573-eduwell
 
 
   <!-- ***** Header Area Start ***** -->
-  @include('components.navbar.navbar_user')
+  @include('components.navbar.navbar_users')
   <!-- ***** Header Area End ***** -->
 
   @yield('content')
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-    {{-- <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}
 
-    <script src="{{ asset('js/user/isotope.min.js')}}"></script>
+
+  @include('components.footer.footer_user')
+
+    <script src="{{ asset('js/user/plugin.js') }}"></script>
+    <script src="{{ asset('js/user/aos.min.js') }}"></script>
+    <script src="{{ asset('js/user/scripts.js') }}"></script>
+    <script>
+        AOS.init();
+    </script>
+
+    {{-- <script src="{{ asset('js/user/isotope.min.js')}}"></script>
     <script src="{{ asset('js/user/owl-carousel.js')}}"></script>
     <script src="{{ asset('js/user/lightbox.js')}}"></script>
     <script src="{{ asset('js/user/tabs.js')}}"></script>
     <script src="{{ asset('js/user/video.js')}}"></script>
     <script src="{{ asset('js/user/slick-slider.js')}}"></script>
-    <script src="{{ asset('js/user/custom.js')}}"></script>
-    {{-- <script>
-        //according to loftblog tut
-        $('.nav li:first').addClass('active');
-
-        var showSection = function showSection(section, isAnimate) {
-          var
-          direction = section.replace(/#/, ''),
-          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-          reqSectionPos = reqSection.offset().top - 0;
-
-          if (isAnimate) {
-            $('body, html').animate({
-              scrollTop: reqSectionPos },
-            800);
-          } else {
-            $('body, html').scrollTop(reqSectionPos);
-          }
-
-        };
-
-        var checkSection = function checkSection() {
-          $('.section').each(function () {
-            var
-            $this = $(this),
-            topEdge = $this.offset().top - 80,
-            bottomEdge = topEdge + $this.height(),
-            wScroll = $(window).scrollTop();
-            if (topEdge < wScroll && bottomEdge > wScroll) {
-              var
-              currentId = $this.data('section'),
-              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-              reqLink.closest('li').addClass('active').
-              siblings().removeClass('active');
-            }
-          });
-        };
-
-        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-          e.preventDefault();
-          showSection($(this).attr('href'), true);
-        });
-
-        $(window).scroll(function () {
-          checkSection();
-        });
-    </script> --}}
+    <script src="{{ asset('js/user/custom.js')}}"></script> --}}
+    
 </body>
 
 </html>

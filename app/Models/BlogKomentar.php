@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Blog extends Model
+class BlogKomentar extends Model
 {
-
-    use HasFactory,SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $guarded =[];
 
-    public function kategoris()
+    public function user()
     {
-        return $this->belongsTo(BlogKategori::class, 'id_kategori', 'id');
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 }

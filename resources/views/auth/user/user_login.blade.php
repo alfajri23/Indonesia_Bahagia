@@ -5,13 +5,17 @@
     <form method="post" action="{{ route('login') }}">
         @csrf
         <h3 class="mb-4">Login Form</h3>
-
-        {{-- <div class="illustration">
-            <i class="icon ion-ios-navigate"></i>
-        </div> --}}
+        @error('error')
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ $message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @enderror
 
         <div class="form-group">
-            <input class="form-control" type="text" name="email" placeholder="Email">
+            <input class="form-control" type="text" name="email" placeholder="Email" @error('email') is-invalid @enderror>
             @error('email')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

@@ -6,6 +6,20 @@
     background-color: #BDE0FE;
 }
 
+.gap-10{
+    gap:10px;
+}
+
+.title-h2{
+    font-size: 45px;
+    font-weight: 900;
+    margin-bottom : 10px;
+}
+
+.title-sm{
+    font-size: 1.7rem;
+}
+
 .lh-40{
     line-height: 40px;
     margin-bottom : 5px;
@@ -31,7 +45,7 @@ input{
     margin-bottom: 5px;
 }
 
-textarea{
+/* textarea{
     width: 100%;
     min-height: 140px;
     max-height: 180px;
@@ -45,4 +59,16 @@ textarea{
     color: #7a7a7a;
     padding: 15px;
     margin-bottom: 5px;
+} */
+
+
+.basis-50{
+    flex-basis: 48%;
+}
+
+
+@media (max-width: 576px) {
+    .basis-50{
+        flex-basis: 95%;
+    }
 }
