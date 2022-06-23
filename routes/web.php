@@ -64,6 +64,11 @@ Route::prefix('blog')->group(function(){
     });
 });
 
+Route::prefix('master')->group(function(){
+    Route::get('/kontak', [ Controllers\Master\Kontak\KontakController::class,'index'])->name('masterKontak');
+    Route::post('/kontak', [ Controllers\Master\Kontak\KontakController::class,'store'])->name('masterStoreKontak');
+});
+
 
 //USER
 
