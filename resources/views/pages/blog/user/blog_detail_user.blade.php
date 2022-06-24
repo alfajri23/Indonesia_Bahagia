@@ -88,6 +88,7 @@
                                 </figure>
                             </div>
                             <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9 pl-1 pr-0 clearfix">
+                                @auth
                                 @if ($komentar->id_user == auth()->user()->id)
                                     <a onclick="event.preventDefault();
                                     document.getElementById('logout-form-'+{{$loop->iteration}}).submit();
@@ -100,6 +101,7 @@
                                         <input type="text" name="id" value="{{$komentar->id}}" hidden>
                                     </form>
                                 @endif
+                                @endauth
                                 
                                 <h4 class="mt-1 font-xss text-grey-900 fw-700">{{$komentar->user->nama}}</h4>
                                 <h6 class="text-grey-500 mb-1 mt-0 d-block fw-500 mb-0 ls-2">{{date_format(date_create($komentar->updated_at),"d M Y")}}</h6>

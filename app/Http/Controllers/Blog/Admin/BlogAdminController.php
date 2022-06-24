@@ -6,6 +6,7 @@ use App\Helpers\UploadFile;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogKategori;
+use App\Models\BlogKomentar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -31,7 +32,7 @@ class BlogAdminController extends Controller
             ->addColumn('aksi', function($row){
                 $actionBtn = '
                 <div class="">
-                    <a href="" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>
+                    <a href="'.route('blogPreviewAdmin',$row->id).'" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>
                     <a href="'.route('blogEditAdmin',$row->id).'" class="btn btn-success btn-sm"><i class="fa-solid fa-pencil"></i></a>
                     <a onclick="unpublish('.$row['id'].')" class="delete btn btn-danger btn-sm"><i class="fa-solid fa-eye-slash"></i></a>
                 </div>
@@ -145,6 +146,10 @@ class BlogAdminController extends Controller
         return response()->json([
             'data' => 'sukses'
         ]);
+    }
+
+    public function preview($id){
+        return redirect()->route('blogDetailUser',$id);
     }
 
     //kategori

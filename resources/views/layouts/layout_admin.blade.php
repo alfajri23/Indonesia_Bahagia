@@ -84,16 +84,17 @@
             </div>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#blogCollapse"
-                    aria-expanded="true" aria-controls="blogCollapse">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#masterCollapse"
+                    aria-expanded="true" aria-controls="masterCollapse">
                     <i class="fa-brands fa-blogger ml-1"></i>
                     <span>Master</span>
                 </a>
-                <div id="blogCollapse" class="collapse" aria-labelledby="headingUtilities"
+                <div id="masterCollapse" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('masterKontak')}}">Kontak</a>
+                        <a class="collapse-item" href="{{route('masterInformasi')}}">Informasi</a>
                     </div>
                 </div>
             </li>
