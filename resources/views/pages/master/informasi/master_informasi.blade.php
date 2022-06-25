@@ -1,6 +1,15 @@
 @extends('layouts.layout_admin')
 @section('content')
 
+<style>
+    .text-desc{
+          width: 80%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          height: 80px;
+      }
+</style>
+
 <div class="container">
     <div class="row justify-content-between flex-row">
         <div class="col-5">
@@ -23,7 +32,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Isi</th>
+            <th scope="col">Aksi</th>
           </tr>
         </thead>
 
@@ -32,7 +41,10 @@
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$dt->nama}}</td>
-                <td>{{$dt->isi}}</td>
+                <td>
+                    <a type="button" href="{{route('masterAddInformasi',['id'=>$dt->id])}}" class="btn btn-primary btn-sm">Edit</a>
+                    <a type="button" href="{{route('masterDeleteInformasi',$dt->id)}}" class="btn btn-danger btn-sm">Hapus</a>
+                </td>
               </tr>
             @empty
                 

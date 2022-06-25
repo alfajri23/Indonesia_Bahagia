@@ -15,6 +15,16 @@
                             <a class="nav-link" href="{{route('blogUser')}}">Blog</a>
                         </li>
 
+                        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Tentang<i class="ti-angle-down"></i></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{route('about')}}">Tentang</a>
+                                <a class="dropdown-item" href="{{route('termCondition')}}">Syarat dan Ketentuan</a>
+                                <a class="dropdown-item" href="{{route('privacy')}}">Kebijakan Privasi</a>
+                                
+                            </div>
+                        </li>
+                        
+
                         @auth 
                         <li class="nav-item dropdown d-block d-sm-none"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{auth()->user()->name}}<i class="ti-angle-down"></i></a>
                             <div class="dropdown-menu">

@@ -18,6 +18,12 @@ class InformasiController extends Controller
         return view('pages.master.informasi.master_add_informasi',compact('data'));
     }
 
+    public function delete($id){
+        $data = MasterInformasi::find($id)->delete();
+
+        return redirect()->back();
+    }
+
     public function store(Request $request){
         MasterInformasi::updateOrCreate(['id' => $request->id],[
             'nama' => $request->nama,
@@ -25,5 +31,20 @@ class InformasiController extends Controller
         ]);
 
         return redirect()->route('masterInformasi');
+    }
+
+    public function termCondition(){
+        $data = MasterInformasi::where('nama', 'like', '%Syarat dan Ketentuan%')->first();
+        return view('pages.informasi.term_condition',compact('data'));
+    }
+
+    public function about(){
+        $data = MasterInformasi::where('nama', 'like', '%Tentang Kami%')->first();
+        return view('pages.informasi.term_condition',compact('data'));
+    }
+
+    public function privacy(){
+        $data = MasterInformasi::where('nama', 'like', '%Kebijakan Privasi%')->first();
+        return view('pages.informasi.term_condition',compact('data'));
     }
 }

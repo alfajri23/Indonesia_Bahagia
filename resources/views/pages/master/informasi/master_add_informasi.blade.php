@@ -30,7 +30,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
 
     $(document).ready(function() {
-		 tinymce.init({
+		tinymce.init({
 	            selector: "textarea",
 	            branding: false,
 	            width: "100%",

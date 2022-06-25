@@ -50,7 +50,11 @@ https://templatemo.com/tm-573-eduwell
   @include('components.navbar.navbar_users')
   <!-- ***** Header Area End ***** -->
 
-  @yield('content')
+  <div class="banner-wrapper layer-after app-shape">
+    <div class="container">
+      @yield('content')
+    </div>
+  </div>
 
 
   @include('components.footer.footer_user')
