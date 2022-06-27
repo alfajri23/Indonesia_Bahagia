@@ -55,6 +55,10 @@
   color: #fff !important;
 }
 
+.bg-antiquewhite {
+  background-color: antiquewhite !important;
+}
+
 .bg-facebook {
   background-color: #0d66ff !important;
 }
@@ -153,6 +157,10 @@
 
 .text-yellow {
   color: #ffde00 !important;
+}
+
+.text-green {
+  color: #29a35c !important;
 }
 
 .bg-black-08 {
