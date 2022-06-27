@@ -38,4 +38,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pertanyaan()
+    {
+        return $this->hasMany(ForumPertanyaaan::class, 'id_user', 'id');
+    }
+
+    public function jawaban()
+    {
+        return $this->hasMany(ForumJawaban::class, 'id_user', 'id');
+    }
 }

@@ -35,6 +35,20 @@ Route::prefix('admin')->group(function(){
     Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
 });
 
+Route::prefix('forum')->group(function(){
+    Route::get('/', [ Controllers\Forum\User\ForumUserController::class,'index'])->name('forum');
+    Route::post('/', [ Controllers\Forum\User\ForumUserController::class,'store'])->name('forumStore');
+    Route::get('detail/{id}', [Controllers\Forum\User\ForumUserController::class,'detail'])->name('forumDetail');
+    Route::get('detail-json', [ Controllers\Forum\User\ForumUserController::class,'show'])->name('forumDetailJson');
+    Route::post('delete', [Controllers\Forum\User\ForumUserController::class,'delete'])->name('forumDelete');
+
+    //KOMENTAR
+    Route::post('komentar/jawaban', [Controllers\Forum\User\ForumUserController::class,'komentar'])->name('forumStoreKomentar');
+    Route::get('komentar/detail', [Controllers\Forum\User\ForumUserController::class,'showKomentar'])->name('forumShowKomentar');
+    Route::post('komentar/delete', [Controllers\Forum\User\ForumUserController::class,'deleteKomentar'])->name('forumDeleteKomentar');
+
+});
+
 Route::prefix('blog')->group(function(){
 
     Route::get('/', [ Controllers\Blog\User\BlogUserController::class,'index'])->name('blogUser');
@@ -74,6 +88,8 @@ Route::prefix('master')->group(function(){
     Route::get('/informasi/delete/{id}', [ Controllers\Master\Informasi\InformasiController::class,'delete'])->name('masterDeleteInformasi');
     Route::post('/informasi/store', [ Controllers\Master\Informasi\InformasiController::class,'store'])->name('masterStoreInformasi');
 });
+
+
 
 
 //USER

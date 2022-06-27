@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>EduWell - Education HTML5 Template</title>
+    <title>Hallo Bahagia</title>
 
     <!-- Bootstrap core CSS -->
     {{-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!--
 
 TemplateMo 573 EduWell

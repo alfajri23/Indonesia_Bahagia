@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 navbar pt-0 pb-0">
-                <a href="index.html"><h1 class="fredoka-font ls-3 fw-700 text-current font-xxl">Elomoas <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Online Learning Course</span></h1></a>
+                <a href="/"><h1 class="fredoka-font ls-3 fw-700 text-current font-xxl">Elomoas <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Online Learning Course</span></h1></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -13,6 +13,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('blogUser')}}">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('forum')}}">Forum</a>
                         </li>
 
                         <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Tentang<i class="ti-angle-down"></i></a>

@@ -66,9 +66,14 @@ input{
     flex-basis: 48%;
 }
 
+.w_40{
+    width: 40px;
+}
+
 
 @media (max-width: 576px) {
     .basis-50{
         flex-basis: 95%;
     }
 }
+
