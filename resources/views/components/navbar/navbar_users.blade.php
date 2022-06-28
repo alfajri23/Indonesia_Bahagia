@@ -1,8 +1,12 @@
-<div class="header-wrapper pt-3 pb-3 shadow-none">
+<div class="header-wrapper pt-3 pb-3 shadow-none bg-bluesoft">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 navbar pt-0 pb-0">
-                <a href="/"><h1 class="fredoka-font ls-3 fw-700 text-current font-xxl">Elomoas <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Online Learning Course</span></h1></a>
+                <a href="/">
+                    <h1 class="ls-3 fw-700 poppins font-xs text-white mb-0 bg-primary rounded-xxl p-2 px-3">Indonesia Bahagia
+                    </h1>
+                    <span class="d-block fw-700 font-xsssss ls-1 text-grey-600 open-font text-center">Menuju indonesia bahagia seutuhnya</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -52,7 +56,7 @@
             <div class="col-lg-3 text-right d-none d-lg-block">
                 @auth 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button type="button" class="btn btn-outline-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             {{auth()->user()->name}}
                         </button>
                         <ul class="dropdown-menu">
