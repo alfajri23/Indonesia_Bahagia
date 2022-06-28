@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-9 navbar pt-0 pb-0">
                 <a href="/">
-                    <h1 class="ls-3 fw-700 poppins font-xs text-white mb-0 bg-primary rounded-xxl p-2 px-3">Indonesia Bahagia
+                    <h1 class="ls-3 fw-700 poppins font-xs text-white mb-0 bg-primary rounded-xxl p-2 px-3">Hallo Bahagia
                     </h1>
                     <span class="d-block fw-700 font-xsssss ls-1 text-grey-600 open-font text-center">Menuju indonesia bahagia seutuhnya</span>
                 </a>

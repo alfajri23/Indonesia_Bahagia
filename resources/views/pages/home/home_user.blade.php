@@ -9,7 +9,7 @@
                   <h2 class="fw-700 text-grey-800 display5-size display4-xs-size lh-1 mb-0 aos-init" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
                     # Semua Orang <br>Berhak <span class="text-green">Bahagia</span>
                   </h2>
-                  <h3 class="font-xl font-md-xs mt-4 text-grey-700 fw-400">
+                  <h3 class="font-md font-md-xs mt-4 text-grey-700 fw-400">
                     Mari temukan kebahagiaanmu bersama kami<br>
                     Menuju Indonesia bahagia 100%
                   </h3>

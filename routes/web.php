@@ -31,6 +31,10 @@ Route::prefix('oauth')->group(function(){
     Route::get('twitter/callback', [ Controllers\Auth\OAuth\LoginOAuthController::class, 'callbackToTwitter'])->name('callbackToTwitter');
 });
 
+Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
+Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
+Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
+
 Route::prefix('admin')->group(function(){
     Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
 });
@@ -91,13 +95,6 @@ Route::prefix('master')->group(function(){
 
 
 
-
-//USER
-
-Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
-Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
-
-
 Route::group(['middleware' => ['auth']], function() {
     
     // Verification Routes
@@ -106,7 +103,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => ['verified']], function() {
-        Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
+        
     });
 
 });
