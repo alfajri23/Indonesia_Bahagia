@@ -51,11 +51,11 @@ https://templatemo.com/tm-573-eduwell
   @include('components.navbar.navbar_users')
   <!-- ***** Header Area End ***** -->
 
-  <div class="banner-wrapper layer-after app-shape bg-antiquewhite">
-    <div class="container">
+  {{-- <div class="banner-wrapper layer-after app-shape bg-antiquewhite">
+    <div class="container"> --}}
       @yield('content')
-    </div>
-  </div>
+    {{-- </div>
+  </div> --}}
 
 
   @include('components.footer.footer_user')

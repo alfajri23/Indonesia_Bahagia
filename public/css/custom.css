@@ -1,10 +1,16 @@
+.basis-50{
+    flex-basis: 48%;
+}
+
 .border-md{
     border-radius: 15px;
 }
 
-.bg-blueSoft{
-    background-color: #BDE0FE;
+.bg-bluesoft{
+    background-color: #CBF3F0;
 }
+
+
 
 .gap-10{
     gap:10px;
@@ -61,13 +67,12 @@ input{
     margin-bottom: 5px;
 } */
 
-
-.basis-50{
-    flex-basis: 48%;
-}
-
 .w_40{
     width: 40px;
+}
+
+.w_150{
+    width: 150px;
 }
 
 

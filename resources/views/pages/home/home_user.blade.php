@@ -1,7 +1,7 @@
 @extends('layouts.layout_user')
 @section('content')
 
-<div class="banner-wrapper vh-md-100 layer-after app-shape">
+<div class="banner-wrapper vh-md-100 layer-after app-shape bg-bluesoft">
   <div class="container">
       <div class="row">
           <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex">
@@ -22,6 +22,42 @@
               </div>
           </div>
       </div>
+  </div>
+</div>
+
+<div class="feature-wrapper layer-after pb-lg--7 py-5">
+  <div class="container">
+      <div class="row justify-content-center">
+        <h2 class="text-grey-900 fw-700 font-md pb-3 mb-0 mt-3 d-block lh-3 text-center mb-5">We help not one,But many Companies</h2>
+          <div class="col-xl-10 col-lg-12 pb-lg--5">
+              <div class="row">
+                  <div class="col-lg-3 col-md-3 col-xss-6 text-center">
+                      <img src="{{asset('images/4.jpg')}}" class="w_150" alt="" srcset="">
+                      {{-- <h4 class="font-xssss text-grey-900 fw-700 mt-2">433 rating Based</h4> --}}
+                  </div>
+
+                  <div class="col-lg-3 col-md-3 col-xss-6 text-center">
+                      <img src="{{asset('images/3.jpg')}}" class="w_150" alt="" srcset="">
+                      {{-- <h4 class="font-xssss text-grey-900 fw-700 mt-2">433 rating Based</h4> --}}
+                  </div>
+
+                  <div class="col-lg-3 col-md-3 col-xss-6 text-center">
+                    <img src="{{asset('images/2.jpg')}}" class="w_150" alt="" srcset="">
+                    {{-- <h4 class="font-xssss text-grey-900 fw-700 mt-2">433 rating Based</h4> --}}
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-xss-6 text-center">
+                  <img src="{{asset('images/1.jpg')}}" class="w_150" alt="" srcset="">
+                  {{-- <h4 class="font-xssss text-grey-900 fw-700 mt-2">433 rating Based</h4> --}}
+              </div>
+
+                  
+              </div>
+          </div>
+      </div>
+
+
+      
   </div>
 </div>
 
