@@ -40,19 +40,22 @@
 
                 @forelse ($data as $dt)
                 <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
-                    @if ($dt->id_user == auth()->user()->id)
-                    <span class="edit">
-                        <i onclick="edit({{$dt->id}})" class="fas fa-pencil mr-1"></i>
-                        <i class="fa-solid fa-trash" onclick="event.preventDefault();
-                        document.getElementById('form-delete-' + {{$dt->id}}).submit();"></i>
+                    @auth
+                        @if ($dt->id_user == auth()->user()->id)
+                        <span class="edit">
+                            <i onclick="edit({{$dt->id}})" class="fas fa-pencil mr-1"></i>
+                            <i class="fa-solid fa-trash" onclick="event.preventDefault();
+                            document.getElementById('form-delete-' + {{$dt->id}}).submit();"></i>
 
 
-                        <form id="form-delete-{{$dt->id}}" class="d-none" action="{{route('forumDelete')}}" method="post">
-                            @csrf
-                            <input type="text" name="id" value="{{$dt->id}}" hidden>
-                        </form>
-                    </span>
-                    @endif
+                            <form id="form-delete-{{$dt->id}}" class="d-none" action="{{route('forumDelete')}}" method="post">
+                                @csrf
+                                <input type="text" name="id" value="{{$dt->id}}" hidden>
+                            </form>
+                        </span>
+                        @endif
+                        
+                    @endauth
                     
                     <div class="d-flex mb-3">
                         <div class="flex-shrink-0">

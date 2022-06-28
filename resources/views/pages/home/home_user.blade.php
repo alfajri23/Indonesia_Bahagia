@@ -1,7 +1,7 @@
 @extends('layouts.layout_user')
 @section('content')
 
-<div class="banner-wrapper vh-md-100 layer-after app-shape bg-bluesoft">
+<div class="banner-wrapper vh-md-100 layer-after app-shape bg-pink">
   <div class="container">
       <div class="row">
           <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
@@ -76,7 +76,7 @@
               <span class="font-xsssss mt-2 fw-700 pl-3 pr-3 lh-32 text-uppercase rounded-xl ls-2 alert-success d-inline-block text-success aos-init" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">Event</span>
               <h2 class="poppins text-grey-900 fw-700 display1-size display1-sm-size pb-3 mb-0 mt-3 d-block lh-3 aos-init" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">Event konsultasi mental</h2>
               <p class="fw-400 font-xss lh-28 text-grey-600 aos-init" data-aos="fade-up" data-aos-delay="300" data-aos-duration="500">Kamu Bisa Ngobrol Langsung Sama Psikolog dan berkonsultasi atas masalahmu selama ini</p>
-              <a href="" class="btn border-0 bg-warning p-2 text-white fw-600 rounded-lg d-inline-block font-xssss btn-light mt-3 w150 aos-init" data-aos="fade-up" data-aos-delay="100" data-aos-duration="200">Yuk daftar sekarang</a>
+              <a href="{{route('event')}}" class="btn border-0 bg-warning p-2 text-white fw-600 rounded-lg d-inline-block font-xssss btn-light mt-3 w150 aos-init" data-aos="fade-up" data-aos-delay="100" data-aos-duration="200">Yuk daftar sekarang</a>
           </div>
           
         </div>

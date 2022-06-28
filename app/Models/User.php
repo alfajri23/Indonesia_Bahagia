@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Exception;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,7 +42,12 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function pertanyaan()
     {
-        return $this->hasMany(ForumPertanyaaan::class, 'id_user', 'id');
+        try {
+            return $this->hasMany(ForumPertanyaaan::class, 'id_user', 'id');
+
+        }catch(Exception $e){
+            return $e;
+        }
     }
 
     public function jawaban()

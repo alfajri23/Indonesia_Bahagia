@@ -32,12 +32,23 @@ Route::prefix('oauth')->group(function(){
 });
 
 Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
+
+Route::get('/pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
+
+//* Event
+Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');
+Route::get('/event/{id}', [Controllers\Event\User\EventUserController::class, 'detail'])->name('eventDetail');
+
+//* PROFILE
 Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
 Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
 
-Route::prefix('admin')->group(function(){
-    Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
-});
+//* INFORMASI
+Route::get('/terms-and-conditions', [ Controllers\Master\Informasi\InformasiController::class,'termCondition'])->name('termCondition');
+Route::get('/about', [ Controllers\Master\Informasi\InformasiController::class,'about'])->name('about');
+Route::get('/privacy-policy', [ Controllers\Master\Informasi\InformasiController::class,'privacy'])->name('privacy');
+
+
 
 Route::prefix('forum')->group(function(){
     Route::get('/', [ Controllers\Forum\User\ForumUserController::class,'index'])->name('forum');
@@ -108,7 +119,24 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-Route::get('/terms-and-conditions', [ Controllers\Master\Informasi\InformasiController::class,'termCondition'])->name('termCondition');
-Route::get('/about', [ Controllers\Master\Informasi\InformasiController::class,'about'])->name('about');
-Route::get('/privacy-policy', [ Controllers\Master\Informasi\InformasiController::class,'privacy'])->name('privacy');
+//*Admin 
+Route::get('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'index'])->name('loginAdmin');
+Route::post('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'login'])->name('authAdmin');
 
+Route::middleware(['admin'])->prefix('admin')->group(function () {
+    Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
+
+    //* PRODUK
+    Route::prefix('event')->group(function(){
+        Route::get('/', [Controllers\Event\Admin\EventAdminController::class,'event'])->name('eventAdmin');
+        Route::get('past', [Controllers\Event\Admin\EventAdminController::class,'eventPast'])->name('eventPast');
+        Route::get('restore', [Controllers\Event\Admin\EventAdminController::class,'eventRestore'])->name('restoreEvent');
+        Route::get('edit', [Controllers\Event\Admin\EventAdminController::class,'eventEdit'])->name('editEvent');
+        Route::get('add', [Controllers\Event\Admin\EventAdminController::class,'eventAdd'])->name('addEvent');
+        Route::post('save', [Controllers\Event\Admin\EventAdminController::class,'eventSave'])->name('saveEvent');
+        Route::get('end', [Controllers\Event\Admin\EventAdminController::class,'eventEnd'])->name('endEvent');
+        Route::get('start', [Controllers\Event\Admin\EventAdminController::class,'eventStart'])->name('startEvent');
+        Route::get('delete', [Controllers\Event\Admin\EventAdminController::class,'eventDelete'])->name('deleteEvent');
+    });
+
+});

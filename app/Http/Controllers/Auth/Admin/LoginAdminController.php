@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class LoginAdminController extends Controller
             return redirect()->route('homeAdmin');
         }
   
-        return view('auth.login_admin');
+        return view('auth.admin.login_admin');
     }
 
     protected function guard()

@@ -84,6 +84,21 @@
             </div>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkCollapse"
+                    aria-expanded="true" aria-controls="produkCollapse">
+                    <i class="fa-brands fa-blogger ml-1"></i>
+                    <span>Produk</span>
+                </a>
+                <div id="produkCollapse" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="{{route('eventAdmin')}}">Event</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#masterCollapse"
                     aria-expanded="true" aria-controls="masterCollapse">
                     <i class="fa-brands fa-blogger ml-1"></i>
@@ -224,6 +239,57 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+
+    <script>
+        //SWAL
+        function swalAction(routes,tabel,id,pesan){
+            swal({
+            title: "Are you sure?",
+            text: pesan,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    type : 'GET',
+                    url  : routes,
+                    data : {
+                        id : id
+                    },
+                    dataType: 'json',
+                    success : (data)=>{
+                        swal("Sukses", data.message, "warning");
+                        tabel.DataTable().ajax.reload();
+                    }
+                })
+
+            } else {
+                swal("Aman", "Tidak ada perubahan", "success");
+            }
+        });
+        }
+        //End swall
+        
+        //Number format
+        String.prototype.reverse = function() {
+                return this.split("").reverse().join("");
+            }
+
+            window.currencyFormat = function reformatText(input) {
+                var x = input.value;
+                x = x.replace(/,/g, ""); // Strip out all commas
+                x = x.reverse();
+                x = x.replace(/.../g, function(e) {
+                    return e + ",";
+                }); // Insert new commas
+                x = x.reverse();
+                x = x.replace(/^,/, ""); // Remove leading comma
+                input.value = x;
+            }
+        //End number
+    </script>
 
 
     <!-- Bootstrap core JavaScript-->

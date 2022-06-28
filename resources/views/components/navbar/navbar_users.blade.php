@@ -1,4 +1,4 @@
-<div class="header-wrapper pt-3 pb-3 shadow-none bg-bluesoft">
+<div class="header-wrapper pt-3 pb-3 shadow-none bg-pink">
     <div class="container">
         <div class="row">
             <div class="col-lg-9 navbar pt-0 pb-0">

@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
                 // wajib demo
                 MasterInformasiSeeder::class,
                 MasterKontakSeeder::class,
+                AdminSeeder::class,
+                ProdukKategoriSeeder::class,
             ]
         );
     }
