@@ -77,9 +77,13 @@
     console.log(nama); 
     $('#exampleModal').modal('show');
     $('#id').val(id);
-    $('#nama').val(nama);
-          
-    }
+    $('#nama').val(nama);     
+  }
+
+  function btnAdd(){
+    $('.btnAdd').toggle();
+    $('#formAdd').toggle();
+  }
 
 </script>
 
