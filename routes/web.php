@@ -60,11 +60,15 @@ Route::prefix('forum')->group(function(){
     Route::get('detail/{id}', [Controllers\Forum\User\ForumUserController::class,'detail'])->name('forumDetail');
     Route::get('detail-json', [ Controllers\Forum\User\ForumUserController::class,'show'])->name('forumDetailJson');
     Route::post('delete', [Controllers\Forum\User\ForumUserController::class,'delete'])->name('forumDelete');
+    Route::get('show', [Controllers\Forum\User\ForumUserController::class,'show'])->name('forumDetailAjax');
+    //KATEGORI
+    Route::post('forum/add-kategori', [Controllers\Forum\User\ForumUserController::class,'createKategori'])->name('forumStoreKategori');
 
     //KOMENTAR
     Route::post('komentar/jawaban', [Controllers\Forum\User\ForumUserController::class,'komentar'])->name('forumStoreKomentar');
     Route::get('komentar/detail', [Controllers\Forum\User\ForumUserController::class,'showKomentar'])->name('forumShowKomentar');
     Route::post('komentar/delete', [Controllers\Forum\User\ForumUserController::class,'deleteKomentar'])->name('forumDeleteKomentar');
+
 
 });
 

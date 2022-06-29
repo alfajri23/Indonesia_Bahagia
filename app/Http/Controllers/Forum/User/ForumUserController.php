@@ -15,15 +15,16 @@ class ForumUserController extends Controller
     public function index(){
         $data = ForumPertanyaan::query()
         ->when(request('cari') != null, function ($q){ 
-            return $q = ForumPertanyaan::where('judul','like','%'.request('cari').'%')->get();
+            return $q = ForumPertanyaan::where('judul','like','%'.request('cari').'%');
         })
         ->when(request('kategori') != null, function ($q){ 
-            $id = ForumKategori::where('nama','like','%'.request('kategori').'%')->get();
-            return $q = ForumPertanyaan::whereIn('id_kategori',$id)->get();
+            $id = ForumKategori::where('nama','like','%'.request('kategori').'%')->pluck('id');
+            //dd($id);
+            return $q = ForumPertanyaan::whereIn('id_kategori',$id);
         })
         ->when(request('kategori') == null && request('cari') == null, function ($q){ 
-            return $q = ForumPertanyaan::latest()->paginate(8);
-        });
+            return $q = ForumPertanyaan::latest();
+        })->paginate(8);
 
         $kategori = ForumKategori::all();
 
@@ -34,8 +35,6 @@ class ForumUserController extends Controller
         $this->validate($request, [
 			'gambar' => 'file|image|mimes:jpeg,png,jpg|max:2048',
 		]);
-
-        //dd(auth()->user());
 
         $datas = [
             'id_user' => auth()->user()->id,
@@ -78,6 +77,28 @@ class ForumUserController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+    //KATEGORI
+    public function createKategori(Request $request){
+
+        $cek = ForumKategori::where('nama',$request->nama)->get();
+        if(count($cek) > 0){
+            return response()->json([
+                'data' => 'gagal',
+                'pesan' => $request->nama
+            ]);
+        }else{
+            $data = ForumKategori::updateOrCreate(['id' => $request->id],[
+                'nama' => $request->nama,
+            ]);
+    
+            return response()->json([
+                'data' => 'sukses',
+                'pesan' => $request->nama
+            ]);
+        }
+    }
+
 
     //KOMENTAR
 
