@@ -34,17 +34,17 @@
 
         <div class="mb-3">
             <label class="form-label">Telepon utama</label>
-            <input type="tel1" value="{{ $data == null ? '' :$data->telepon_1 }}" name="tel1" class="form-control">
+            <input type="tel" value="{{ $data == null ? '' :$data->telepon_1 }}" name="tel1" class="form-control">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Telepon partnership</label>
-            <input type="tel2" value="{{ $data == null ? '' :$data->telepon_2 }}" name="tel3" class="form-control">
+            <input type="tel" value="{{ $data == null ? '' :$data->telepon_2 }}" name="tel2" class="form-control">
         </div>
 
         <div class="mb-3">
             <label class="form-label">Telepon secondary</label>
-            <input type="tel3" value="{{ $data == null ? '' :$data->telepon_2 }}" name="tel3" class="form-control">
+            <input type="tel" value="{{ $data == null ? '' :$data->telepon_3 }}" name="tel3" class="form-control">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
