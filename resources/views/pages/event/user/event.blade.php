@@ -4,7 +4,8 @@
 <div class="page-nav bg-pink pt-lg--7 pb-lg--7 pb-5 pt-5">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12 text-center"><h1 class="text-grey-800 fw-700 display3-size">Default <span class="font-xsss text-grey-600 fw-600 d-block mt-2">Home / Blog</span></h1></div>
+            <div class="col-lg-12 text-center"><h1 class="text-grey-800 fw-700 display3-size">Event
+                <span class="font-xsss text-grey-600 fw-600 d-block mt-2">Produk / Event</span></h1></div>
         </div>
     </div>
 </div>

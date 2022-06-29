@@ -33,7 +33,7 @@ Route::prefix('oauth')->group(function(){
 
 Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
 
-Route::get('/pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
+Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
 
 //* Event
 Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');

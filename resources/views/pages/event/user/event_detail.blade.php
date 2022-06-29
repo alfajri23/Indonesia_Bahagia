@@ -40,7 +40,7 @@
                         @endif
                     </h3>
 
-                    <a href="" class="btn btn-block border-0 w-100 bg-success p-2 text-white fw-600 rounded-lg d-inline-block font-xs btn-light mt-2">{{$data->harga == null ? 'Daftar' : 'Beli sekarang'}}</a>
+                    <a href="{{route('pembayaran',$data->id_produk)}}" class="btn btn-block border-0 w-100 bg-success p-2 text-white fw-600 rounded-lg d-inline-block font-xs btn-light mt-2">{{$data->harga == null ? 'Daftar' : 'Beli sekarang'}}</a>
                 </div>
 
                 <div class="font-xss mb-4">
