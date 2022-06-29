@@ -38,6 +38,7 @@
                                 <a class="dropdown-item" href="{{route('profile')}}">Profile saya</a>
                                 <a class="dropdown-item" href="{{route('changePassword')}}">Ubah password</a>
                                 <a class="dropdown-item" href="{{route('pembayaranRiwayat')}}">Riwayat transaksi</a>
+                                <a class="dropdown-item" href="{{route('eventRiwayat')}}">Event saya</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
                             </div>
@@ -65,6 +66,7 @@
                         <li><a class="dropdown-item" href="{{route('profile')}}">Profil saya</a></li>
                         <li><a class="dropdown-item" href="{{route('changePassword')}}">Ubah password</a></li>
                         <li><a class="dropdown-item" href="{{route('pembayaranRiwayat')}}">Riwayat transaksi</a></li>
+                        <li><a class="dropdown-item" href="{{route('eventRiwayat')}}">Event saya</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout</a>
