@@ -33,9 +33,6 @@ Route::prefix('oauth')->group(function(){
 
 Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
 
-//* Pembayaran
-Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
-
 //* PRODUK
 Route::get('/produk/{id}', [Controllers\Produk\User\ProdukUserController::class, 'index'])->name('produkDetail');
 
@@ -124,6 +121,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::group(['middleware' => ['verified']], function() {
         //* PEMBAYARAN
+        Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
         Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
         Route::get('/pembayaran/detail/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayatDetail'])->name('pembayaranRiwayatDetail');
         Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
