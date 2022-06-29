@@ -36,6 +36,7 @@
                         <li class="nav-item dropdown d-block d-sm-none"><a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">{{auth()->user()->name}}<i class="ti-angle-down"></i></a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{route('profile')}}">Profile saya</a>
+                                <a class="dropdown-item" href="{{route('changePassword')}}">Ubah password</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
                             </div>
@@ -61,6 +62,7 @@
                         </button>
                         <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('profile')}}">Profil saya</a></li>
+                        <li><a class="dropdown-item" href="{{route('changePassword')}}">Ubah password</a></li>
                         <li><a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">Logout</a>

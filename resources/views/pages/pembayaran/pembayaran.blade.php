@@ -9,6 +9,8 @@
                     <div class="row">
                         <div class="col-lg-5 order-2 order-sm-1">
                             <div class="col-lg-12 pl-0">
+                                <form action="{{route('pembayaranBank')}}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <h4 class="mb-4 font-lg fw-700 mont-font mb-2">Upload Bukti Pembayaran</h4>
 
                                 <ul class="font-xssss text-grey-800 fw-600">
@@ -26,12 +28,17 @@
                                     <small class="form-text text-muted">
                                         Format file yang diterima pdf, jpg, png, jpeg | Max 5 Mb
                                     </small>
+                                    @error('bukti')
+                                        <span class="" role="alert alert-danger">
+                                            <small  class="text-danger">{{ $message }}</small>
+                                        </span>
+                                    @enderror
                                 </div>
 
                             </div>
                             <div class="cleafrfix"></div>
 
-                            <a href="#" class="rounded-lg bg-success mb-2 mt-4 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Pesan</a>
+                            <button type="submit" class="rounded-lg bg-success mb-2 mt-4 p-3 w-100 fw-600 fw-700 text-center font-xssss mont-font text-uppercase ls-3 text-white d-block">Pesan</button>
 
                         </div>
 
@@ -45,23 +52,23 @@
                                 </div> 
 
                                 <div class="col-lg-12 mt-2">
-                                    <form>
-                                        <div class="form-group mb-1">
-                                            <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Nama</label>
-                                            <h4 class="mb-2 font-sm fw-600 mont-font">{{$data->nama}}</h4>
-                                        </div>
+                                    <input type="text" name="id_produk" value="{{$data->id}}" hidden>
+                                    <div class="form-group mb-1">
+                                        <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Nama</label>
+                                        <h4 class="mb-2 font-sm fw-600 mont-font">{{$data->nama}}</h4>
+                                    </div>
 
-                                        <div class="form-group mb-1">
-                                            <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Harga</label>
-                                            <h4 class="mb-2 font-sm fw-600 mont-font">Rp. {{number_format($data->harga)}}</h4>
-                                        </div>
+                                    <div class="form-group mb-1">
+                                        <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Harga</label>
+                                        <h4 class="mb-2 font-sm fw-600 mont-font">Rp. {{number_format($data->harga)}}</h4>
+                                    </div>
 
-                                        <div class="form-group mb-1">
-                                            <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Tanggal</label>
-                                            <h4 class="mb-2 font-sm fw-600 mont-font">{{now()}}</h4>
-                                        </div>
+                                    <div class="form-group mb-1">
+                                        <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Tanggal</label>
+                                        <h4 class="mb-2 font-sm fw-600 mont-font">{{now()}}</h4>
+                                    </div>
 
-                                    </form>
+                                </form>
                                 </div>       
                             </div>
                         </div>

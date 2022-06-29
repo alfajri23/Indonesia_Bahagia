@@ -33,7 +33,9 @@ Route::prefix('oauth')->group(function(){
 
 Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
 
+//pembayaran
 Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
+
 
 //* Event
 Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');
@@ -41,7 +43,9 @@ Route::get('/event/{id}', [Controllers\Event\User\EventUserController::class, 'd
 
 //* PROFILE
 Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
+Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');
 Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
+Route::post('/update-password', [ Controllers\Akun\User\UserController::class,'updatePassword'])->name('passwordUpdate');
 
 //* INFORMASI
 Route::get('/terms-and-conditions', [ Controllers\Master\Informasi\InformasiController::class,'termCondition'])->name('termCondition');
@@ -114,6 +118,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => ['verified']], function() {
+        Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
         
     });
 
