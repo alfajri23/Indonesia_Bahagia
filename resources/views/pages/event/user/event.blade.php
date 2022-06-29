@@ -25,7 +25,7 @@
                         <div class="clearfix"></div>
 
                         <h2 class="post-title mt-0 mb-2 pr-3">
-                            <a href="{{route('eventDetail',$data->id)}}" class="lh-30 font-md mont-font text-grey-800 fw-700">{{$data->judul}}</a>
+                            <a href="{{route('produkDetail',$data->id_produk)}}" class="lh-30 font-md mont-font text-grey-800 fw-700">{{$data->judul}}</a>
                         </h2>                                
                         @if($data->harga_bias)
                         <p class="font-xss fw-400 text-grey-700 my-0 pr-3"><del>Rp.{{$data->harga_bias}}</del></p>
@@ -40,8 +40,7 @@
 
                     </div>                            
                 </article>
-            </div>
-                
+            </div>  
             @empty
                 
             @endforelse

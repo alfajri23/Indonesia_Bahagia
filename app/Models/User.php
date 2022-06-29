@@ -54,4 +54,14 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(ForumJawaban::class, 'id_user', 'id');
     }
+
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'id_user', 'id');
+    }
+
+    public function event_enroll()
+    {
+        return $this->hasMany(EventEnroll::class, 'id_user', 'id');
+    }
 }

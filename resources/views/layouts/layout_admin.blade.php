@@ -84,6 +84,14 @@
             </div>
 
             <li class="nav-item">
+                <a class="nav-link" href="{{route('transaksiAdmin',['tipe' => 'semua'])}}">
+                    <i class="fa-solid fa-book mx-1"></i>
+                    <span>Transaksi</span>
+                </a>
+            </li>
+
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkCollapse"
                     aria-expanded="true" aria-controls="produkCollapse">
                     <i class="fa-brands fa-blogger ml-1"></i>
@@ -94,6 +102,21 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('eventAdmin')}}">Event</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pendaftaranCollapse"
+                    aria-expanded="true" aria-controls="pendaftaranCollapse">
+                    <i class="fa-brands fa-blogger ml-1"></i>
+                    <span>Pendaftaran</span>
+                </a>
+                <div id="pendaftaranCollapse" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header"></h6>
+                        <a class="collapse-item" href="{{route('pendaftaranEvent')}}">Event</a>
                     </div>
                 </div>
             </li>
@@ -113,13 +136,6 @@
                     </div>
                 </div>
             </li>
-
-            {{-- <li class="nav-item">
-                <a class="nav-link" href="{{route('masterKontak')}}">
-                    <i class="fa-solid fa-book mx-1"></i>
-                    <span>Blog</span>
-                </a>
-            </li> --}}
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">

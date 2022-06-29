@@ -13,7 +13,18 @@ class Transaksi extends Model
 
     protected $guarded =[];
 
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'id_produk', 'id');
+    }
+
+
     public function event_enroll(){
-        return $this->belongsTo(ProdukEvent::class,'id','id_transaksi');
+        return $this->belongsTo(EnrollEvent::class,'id','id_transaksi');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 }

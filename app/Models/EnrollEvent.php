@@ -13,8 +13,18 @@ class EnrollEvent extends Model
 
     protected $guarded =[];
 
+    public function event()
+    {
+        return $this->belongsTo(ProdukEvent::class, 'id_event', 'id');
+    }
+
     public function transaksi()
     {
         return $this->hasOne(Transaksi::class, 'id','id_transaksi');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id');
     }
 }

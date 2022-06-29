@@ -13,4 +13,9 @@ class ProdukEvent extends Model
 
     protected $guarded =[];
 
+    public function enroll()
+    {
+        return $this->hasMany(EventEnroll::class, 'id_produk', 'id');
+    }
+
 }

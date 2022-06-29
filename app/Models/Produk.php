@@ -13,4 +13,14 @@ class Produk extends Model
 
     protected $guarded =[];
 
+    public function transaksi()
+    {
+        return $this->hasMany(Transaksi::class, 'id_produk', 'id');
+    }
+
+    public function kategori()
+    {
+        return $this->belongsTo(ProdukKategori::class, 'id_kategori', 'id');
+    }
+
 }

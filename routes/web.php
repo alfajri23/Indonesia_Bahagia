@@ -33,13 +33,14 @@ Route::prefix('oauth')->group(function(){
 
 Route::get('/', [Controllers\Home\User\UserHomeController::class, 'index'])->name('homeUser');
 
-//pembayaran
+//* Pembayaran
 Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
 
+//* PRODUK
+Route::get('/produk/{id}', [Controllers\Produk\User\ProdukUserController::class, 'index'])->name('produkDetail');
 
 //* Event
 Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');
-Route::get('/event/{id}', [Controllers\Event\User\EventUserController::class, 'detail'])->name('eventDetail');
 
 //* PROFILE
 Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
@@ -122,8 +123,18 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => ['verified']], function() {
+        //* PEMBAYARAN
+        Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
+        Route::get('/pembayaran/detail/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayatDetail'])->name('pembayaranRiwayatDetail');
         Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
         
+        Route::get('/produk/enroll/{id}', [Controllers\Produk\User\ProdukUserController::class, 'enroll'])->name('produkDetailEnroll');
+
+        //RIWAYAT
+        Route::get('/my/event', [Controllers\Event\User\EventUserController::class, 'riwayat'])->name('eventRiwayat');
+
+
+        //Enroll
     });
 
 });
@@ -134,6 +145,27 @@ Route::post('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'lo
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
+
+    //* TRANSAKSI
+    Route::prefix('transaksi')->group(function(){
+        Route::get('/', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'index'])->name('transaksiAdmin');
+        Route::get('/detail', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_detail'])->name('transaksiDetail');
+        Route::get('/delete', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_delete'])->name('transaksiDelete');
+        Route::get('/delete-multi', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_delete_multi'])->name('transaksiDeleteMulti');
+        Route::get('/konfirm-bank', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_konfirmasi_bank'])->name('transaksiBankKonfirmasi');
+        Route::get('/tolak-bank', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_tolak'])->name('transaksiTolak');
+    });
+
+    //* PENDAFTARAN
+    Route::prefix('pendaftaran')->group(function(){
+
+        //* EVENT
+        Route::get('event', [Controllers\Event\Admin\EventPendaftaranController::class,'event'])->name('pendaftaranEvent');
+        Route::get('event/delete', [Controllers\Event\Admin\EventPendaftaranController::class,'deleteEnrollEvent'])->name('deleteEnrollEvent');
+        // Route::get('event/download', [Controllers\Event\Admin\EventPendaftaranController::class,'downloadEvent'])->name('downloadEvent');
+    
+    
+    });
 
     //* PRODUK
     Route::prefix('event')->group(function(){

@@ -64,4 +64,20 @@ class PembayaranUserController extends Controller
 
         return redirect()->route('homeUser');
     }
+
+    public function riwayat(){
+        $datas = Transaksi::where('id_user',auth()->user()->id)->get();
+        //dd($datas);
+
+        return view('pages.pembayaran.user.pembayaran_riwayat',compact('datas'));
+    }
+
+    public function riwayatDetail($id){
+        $data = Transaksi::where([
+            'id' => $id,
+            'id_user' => auth()->user()->id,
+        ])->first();
+
+        return view('pages.pembayaran.user.pembayaran_detail',compact('data'));
+    }
 }
