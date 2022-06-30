@@ -141,6 +141,9 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'index'])->name('loginAdmin');
 Route::post('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'login'])->name('authAdmin');
 
+
+
+
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
 
@@ -176,6 +179,28 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('end', [Controllers\Event\Admin\EventAdminController::class,'eventEnd'])->name('endEvent');
         Route::get('start', [Controllers\Event\Admin\EventAdminController::class,'eventStart'])->name('startEvent');
         Route::get('delete', [Controllers\Event\Admin\EventAdminController::class,'eventDelete'])->name('deleteEvent');
+    });
+
+    Route::prefix('konsultan')->group(function(){
+        Route::get('/', [ Controllers\Akun\Konsultan\KonsultanController::class,'index'])->name('konsultanAdmin');
+        Route::get('edit/{id}', [Controllers\Akun\Konsultan\KonsultanController::class,'edit'])->name('konsultanAdminEdit');
+        Route::get('detail/{id}', [Controllers\Akun\Konsultan\KonsultanController::class,'detail'])->name('konsultanAdminDetail');
+        Route::post('/', [Controllers\Akun\Konsultan\KonsultanController::class,'store'])->name('konsultanAdminStore');
+        Route::get('/add', [Controllers\Akun\Konsultan\KonsultanController::class,'create'])->name('konsultanAdminCreate');
+        Route::get('reset-pass', [Controllers\Akun\Konsultan\KonsultanController::class,'resetPass'])->name('konsultanAdminReset');
+
+        //LAYANAN
+        Route::post('/layanan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'store'])->name('layananKonsultasiStore');
+        Route::get('/layanan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'index'])->name('layananKonsultasiAdmin');
+        Route::get('/layanan/add', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'add'])->name('layananKonsultasiAdminAdd');
+        Route::get('/layanan/edit/{id}', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'edit'])->name('layananKonsultasiAdminEdit');
+        
+        Route::get('/layanan/konsultan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'showKonsultanLayanan'])->name('showKonsultanLayanan');
+        Route::post('/layanan/konsultan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'addLayananKonsultan'])->name('addLayananKonsultan');
+
+        //PENDIDIKAN
+        Route::post('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'storePendidikan'])->name('storePendidikan');
+        Route::get('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'getPendidikan'])->name('getPendidikan');
     });
 
 });

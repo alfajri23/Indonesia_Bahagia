@@ -102,7 +102,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('eventAdmin')}}">Event</a>
-                        <a class="collapse-item" href="{{route('layananKonsultasiAdmin')}}">Layanan konsultasi</a>
                     </div>
                 </div>
             </li>
@@ -151,21 +150,6 @@
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('blogAdmin')}}">Publish</a>
                         <a class="collapse-item" href="{{ route('blogAdminUnpublish') }}">Unpublish</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#akunCollapse"
-                    aria-expanded="true" aria-controls="akunCollapse">
-                    <i class="fa-brands fa-blogger ml-1"></i>
-                    <span>Akun</span>
-                </a>
-                <div id="akunCollapse" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="{{route('konsultanAdmin')}}">Konsultan</a>
                     </div>
                 </div>
             </li>

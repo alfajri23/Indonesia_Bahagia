@@ -16,6 +16,7 @@ class UserHomeController extends Controller
         //$datas = ProdukEvent::latest()->get();
         $datas = ProdukEvent::join('produks', 'produk_events.id', '=', 'produks.id_produk')
                 ->where('produks.id_kategori',1)
+                ->where('produk_events.status',1)
                 ->get(['produk_events.*', 'produks.id AS id_produk']);
         
         //dd($datas);

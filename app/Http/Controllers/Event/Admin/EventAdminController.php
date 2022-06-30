@@ -24,7 +24,8 @@ class EventAdminController extends Controller
                 })
                 ->addColumn('poster', function($row){
                     $image = asset($row['poster']);
-                    $actionBtn = '<img src="'.$image.'" style="width:100px">';
+
+                    $actionBtn = $image != null ? '<img src="'.$image.'" style="width:100px">' : 'kosong';
                     return $actionBtn;
                 })
                 ->addColumn('vendor', function($row){
