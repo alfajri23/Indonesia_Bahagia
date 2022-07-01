@@ -6,6 +6,7 @@ use App\Helpers\UploadFile;
 use App\Http\Controllers\Controller;
 use App\Models\ForumPertanyaan;
 use App\Models\Konsultan;
+use App\Models\KonsultanJadwal;
 use App\Models\KonsultanPendidikan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -77,8 +78,12 @@ class KonsultanController extends Controller
 
     public function detail($id){
         $data = Konsultan::find($id);
+
+        $jadwals = KonsultanJadwal::where('id_konsultan',$id)->get();
+        $jadwals = collect($jadwals);
+        $jadwals = $jadwals->groupBy('hari')->sort();
         
-        return view('pages.konsultan.admin.konsultan_detail',compact('data'));
+        return view('pages.konsultan.admin.konsultan_detail',compact('data','jadwals'));
     }
 
     public function resetPass(Request $request){

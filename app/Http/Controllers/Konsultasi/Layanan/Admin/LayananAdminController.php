@@ -37,7 +37,7 @@ class LayananAdminController extends Controller
 
     public function showKonsultanLayanan(Request $request){
         $data = KonsultanLayanan::where([
-            'id_konsultan' => $request->id_konsultan,
+            'id_konsultan' => $request->id,
         ])->pluck('id_layanan');
 
         $datas = KonsultasiLayanan::whereNotIn('id',$data)->get();
@@ -58,5 +58,23 @@ class LayananAdminController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    public function deleteLayananKonsultan(Request $request){
+        $data = KonsultanLayanan::find($request->id)->forceDelete();
+
+        if($data){
+            return response()->json([
+                'data' => $data,
+                'message' => 'sukses menghapus',
+                'status' => 'berhasil'
+            ]);
+        }else{
+            return response()->json([
+                'data' => $data,
+                'message' => 'error',
+                'status' => 'error'
+            ]);
+        }
     }
 }

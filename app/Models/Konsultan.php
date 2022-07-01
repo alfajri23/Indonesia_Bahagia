@@ -23,5 +23,10 @@ class Konsultan extends Model
         return $this->hasMany(KonsultanLayanan::class, 'id_konsultan', 'id');
     }
 
+    public function jadwals()
+    {
+        return $this->hasMany(KonsultanJadwal::class, 'id_konsultan', 'id');
+    }
+
 
 }

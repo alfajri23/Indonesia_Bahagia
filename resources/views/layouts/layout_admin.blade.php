@@ -303,6 +303,39 @@
         });
         }
         //End swall
+
+        //SWAL
+        function swalActionWithoutTable(routes,id,pesan){
+            swal({
+            title: "Are you sure?",
+            text: pesan,
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                $.ajax({
+                    type : 'GET',
+                    url  : routes,
+                    data : {
+                        id : id
+                    },
+                    dataType: 'json',
+                    success : (data)=>{
+                        return true;
+                        swal("Sukses", data.message, "warning");
+                    }
+                })
+
+
+            } else {
+                swal("Aman", "Tidak ada perubahan", "success");
+                return false;
+            }
+        });
+        }
+        //End swall
         
         //Number format
         String.prototype.reverse = function() {

@@ -56,15 +56,58 @@
                 </div>
 
                 @forelse ($data->layanans as $layanan)
-                <div class="ms-2 my-2">
-                    
+                <div class="ms-2 my-3" id="layanan-{{ $layanan->id }}"> 
+                    <i onclick="deleteLayanan({{$layanan->id}})" style="cursor:pointer" class="fas fa-trash float-end" aria-hidden="true"></i>
                     <h6 class="font-weight-bold mb-1">{{$layanan->layanan->nama}}</h6>
-        
                 </div>
                 @empty   
                 @endforelse
+            </div>
+        </div>
+    </div>
 
+    <div class="card shadow mb-4 p-3">
+        <div class="row">
+            <div class="container">
+                <div class="mb-5">
+                    <div>
+                        <button onclick="add_jadwal({{$data->id}})" type="button" class="btn btn-success btn-sm float-end ">Tambah</button>
+                    </div>
+                    <h4 class="font-weight-bold">Jadwal</h4>
+                </div>
 
+                @forelse ($jadwals as $key => $hari)
+                <div class="ms-2 my-3"> 
+                    <h6 class="font-weight-bold mb-2 text-gray-800">{{$key}}</h6>
+
+                    
+                    <div class="row">
+                        @forelse ($hari as $jam)
+                        <div class="col-2" id="jadwal-{{$jam->id}}">
+                            <div class="card">
+                                <div class="card-body p-2">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                {{$jam->jam}}
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i onclick="deleteJadwal({{$jam->id}})" style="cursor:pointer" class="fas fa-trash text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @empty    
+                        @endforelse
+                    </div>
+                    
+                        
+                    
+                </div>
+                @empty   
+                @endforelse
             </div>
         </div>
     </div>
@@ -151,6 +194,58 @@
     </div>
 </div>
 
+{{-- Modal Jadwal --}}
+<div class="modal fade" id="modalJadwal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Jadwal</h5>
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body py-4">
+            <div class="card-body">
+                <div class="row">
+                    <form action="{{route('addJadwalKonsultan')}}" method="post">
+                    @csrf
+                    <input type="text" name="id_konsultan" value="{{$data->id}}" hidden>
+
+                    <label for="exampleInputEmail1" class="form-label">Hari</label>
+                    <select class="form-select" aria-label="Default select example" name="hari">
+                        <option selected>Open this select menu</option>
+                        <option value="senin">senin</option>
+                        <option value="selasa">selasa</option>
+                        <option value="rabu">rabu</option>
+                        <option value="kamis">kamis</option>
+                        <option value="jumat">jumat</option>
+                        <option value="sabtu">sabtu</option>
+                        <option value="minggu">minggu</option>
+                    </select>
+
+                    <div class="row my-3">
+                        <div class="col">
+                            <label for="exampleInputEmail1" class="form-label">Jam mulai</label>
+                            <input type="time" class="form-control" name="time_start">
+                        </div>
+                        <div class="col">
+                            <label for="exampleInputEmail1" class="form-label">Jam selesai</label>
+                            <input type="time" class="form-control" name="time_end">
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-success mb-2">Tambahkan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     function reset(id){
         $.ajax({
@@ -203,6 +298,60 @@
 
             }
         });
+
+    }
+
+    function deleteLayanan(id){
+        // let route = "{{ route('deleteLayananKonsultan') }}";
+        // let status = swalActionWithoutTable(route,id,'hapus layanan untuk konsultan ini ?')
+        // if(status){
+        //     $('#layanan-' + id).remove();
+        // }
+
+        $.ajax({
+            type : 'GET',
+            url  : "{{ route('deleteLayananKonsultan') }}",
+            data : {
+                id : id
+            },
+            dataType: 'json',
+            success : (data)=>{
+                swal("Sukses", data.message, "warning");
+                $('#layanan-' + id).remove();
+            }
+        });
+    }
+
+    function add_jadwal(){
+        $('#modalJadwal').modal('show');
+    }
+
+    function deleteJadwal(id){
+        //let route = "{{ route('deleteJadwalKonsultan') }}";
+        $.ajax({
+            type : 'GET',
+            url  : "{{ route('deleteJadwalKonsultan') }}",
+            data : {
+                id : id
+            },
+            dataType: 'json',
+            success : (data)=>{
+                swal("Sukses", data.message, "warning");
+                $('#jadwal-' + id).remove();
+            }
+        });
+
+        // let status = swalActionWithoutTable(route,id,'hapus jadwal untuk konsultan ini ?');
+        // console.log(status);
+        
+
+        // setTimeout(()=>{
+        //     console.log(status);
+        //     if(status){
+        //         $('#jadwal-' + id).remove();
+        //     }
+        // }, 9000);
+
 
     }
 

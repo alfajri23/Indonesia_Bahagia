@@ -64,6 +64,32 @@
   </div>
 </div>
 
+<div class="feature-wrapper layer-after pb-lg--7 pb-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="page-title style1 col-xl-6 col-lg-8 col-md-10 text-center mb-5">
+          <h2 class="text-grey-900 fw-700 font-xxl pb-3 mb-0 mt-3 d-block lh-3 text-center">Selalu ada cara untuk bahagia</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      @forelse ($layanans as $layanan)
+      <div class="col-lg-4 col-md-6">
+          <div class="card mb-4 w-100 border-0 pt-4 pb-4 pr-4 pl-7 shadow-xss rounded-lg aos-init" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="500">
+              <i class="fas fa-laugh-wink text-success font-xl position-absolute left-15 ml-2"></i>
+              <a href="{{route('tipeKonsultasi',['tipe' => $layanan->id])}} " class="fw-700 font-xss text-grey-900 mt-1">{{$layanan->nama}}</a>
+              
+          </div>
+      </div>
+        
+      @empty  
+      @endforelse
+    </div>
+
+
+  </div>
+</div>
+
 <div class="feature-wrapper layer-after my-5  pt-lg--7 pt-5 mt-4">
   <div class="container">
         <div class="row">

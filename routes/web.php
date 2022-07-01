@@ -39,6 +39,10 @@ Route::get('/produk/{id}', [Controllers\Produk\User\ProdukUserController::class,
 //* Event
 Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');
 
+//* Konsultasi
+Route::get('/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'listKonsultan'])->name('tipeKonsultasi');
+Route::get('/konsultasi/detail/{id}', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'detailKonsultan'])->name('detailKonsultasi');
+
 //* PROFILE
 Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
 Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');
@@ -141,9 +145,6 @@ Route::group(['middleware' => ['auth']], function() {
 Route::get('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'index'])->name('loginAdmin');
 Route::post('adm/login', [Controllers\Auth\Admin\LoginAdminController::class,'login'])->name('authAdmin');
 
-
-
-
 Route::middleware(['admin'])->prefix('admin')->group(function () {
     Route::get('/', [ Controllers\Home\Admin\AdminHomeController::class,'index'])->name('homeAdmin');
 
@@ -197,10 +198,16 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         
         Route::get('/layanan/konsultan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'showKonsultanLayanan'])->name('showKonsultanLayanan');
         Route::post('/layanan/konsultan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'addLayananKonsultan'])->name('addLayananKonsultan');
+        Route::get('/layanan/konsultan/delete', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'deleteLayananKonsultan'])->name('deleteLayananKonsultan');
 
         //PENDIDIKAN
         Route::post('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'storePendidikan'])->name('storePendidikan');
         Route::get('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'getPendidikan'])->name('getPendidikan');
+    
+        //JADWAL
+        Route::post('/jadwal', [Controllers\Konsultasi\Jadwal\Admin\JadwalAdminController::class,'addJadwalKonsultan'])->name('addJadwalKonsultan');
+        Route::get('/jadwal/delete', [Controllers\Konsultasi\Jadwal\Admin\JadwalAdminController::class,'deleteJadwalKonsultan'])->name('deleteJadwalKonsultan');
+
     });
 
 });
