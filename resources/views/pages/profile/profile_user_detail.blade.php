@@ -50,7 +50,7 @@
 
                                 <fieldset>
                                     <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Alamat</label>
-                                    <input class="input-profile" type="text" value="{{$user->alamat}}" name="alamat" placeholder="Alamat" autocomplete="on">
+                                    <textarea name="alamat" class="form-control" placeholder="Alamat">{{$user->alamat}}</textarea>
                                 </fieldset>
 
                                 <fieldset>

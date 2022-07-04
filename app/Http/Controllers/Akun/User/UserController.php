@@ -46,7 +46,7 @@ class UserController extends Controller
         $user->password = Hash::make($request->get('password'));
         $user->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Berhasil menganti password');
     }
 
     public function update(Request $request){
