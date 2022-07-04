@@ -43,13 +43,6 @@ Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])
 Route::get('/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'listKonsultan'])->name('tipeKonsultasi');
 Route::get('/konsultasi/detail/{id}', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'detailKonsultan'])->name('detailKonsultasi');
 
-Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
-
-//* PROFILE
-Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
-Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');
-Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
-Route::post('/update-password', [ Controllers\Akun\User\UserController::class,'updatePassword'])->name('passwordUpdate');
 
 //* INFORMASI
 Route::get('/terms-and-conditions', [ Controllers\Master\Informasi\InformasiController::class,'termCondition'])->name('termCondition');
@@ -81,10 +74,6 @@ Route::prefix('blog')->group(function(){
     Route::get('/', [ Controllers\Blog\User\BlogUserController::class,'index'])->name('blogUser');
     Route::get('/detail/{id}', [ Controllers\Blog\User\BlogUserController::class,'detail'])->name('blogDetailUser');
     Route::get('/filter', [ Controllers\Blog\User\BlogUserController::class,'filterByCategory'])->name('filterByCategory');
-
-    //Komentar
-    Route::post('/komentar/store', [ Controllers\Blog\User\BlogUserController::class,'storeKomentar'])->name('blogStoreKomentar');
-    Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
 
     Route::prefix('admin')->group(function(){
         Route::get('/', [ Controllers\Blog\Admin\BlogAdminController::class,'index'])->name('blogAdmin');
@@ -126,6 +115,19 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
     Route::group(['middleware' => ['verified']], function() {
+
+        //* PROFILE
+        Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
+        Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');
+        Route::post('/update-profile', [ Controllers\Akun\User\UserController::class,'update'])->name('profileUpdate');
+        Route::post('/update-password', [ Controllers\Akun\User\UserController::class,'updatePassword'])->name('passwordUpdate');
+
+        Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
+
+        //Komentar
+        Route::post('/komentar/store', [ Controllers\Blog\User\BlogUserController::class,'storeKomentar'])->name('blogStoreKomentar');
+        Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
+
         //* PEMBAYARAN
         Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
         Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
