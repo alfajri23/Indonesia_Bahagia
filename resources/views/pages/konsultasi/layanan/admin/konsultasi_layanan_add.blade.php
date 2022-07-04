@@ -9,6 +9,7 @@
     @csrf
         <div class="mb-3">
           <label class="form-label">Nama</label>
+          <input type="text" value="{{ $produk == null ? '' :$produk->id }}" name="id_produk" hidden>
           <input type="text" value="{{ $data == null ? '' :$data->id }}" name="id" class="form-control" hidden>
           <input type="text" value="{{ $data == null ? '' :$data->nama }}" name="nama" class="form-control">
         </div>

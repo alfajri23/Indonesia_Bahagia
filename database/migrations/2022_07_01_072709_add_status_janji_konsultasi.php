@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeStringToTextKonsultanDesc extends Migration
+class AddStatusJanjiKonsultasi extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class ChangeStringToTextKonsultanDesc extends Migration
      */
     public function up()
     {
-
+        Schema::table('konsultan_jadwal_janjis', function (Blueprint $table) {
+            $table->string('status')->nullable();
+        });
     }
 
     /**
@@ -23,6 +25,6 @@ class ChangeStringToTextKonsultanDesc extends Migration
      */
     public function down()
     {
-        
+        //
     }
 }

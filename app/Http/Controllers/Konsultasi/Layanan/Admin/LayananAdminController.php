@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Konsultasi\Layanan\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\KonsultanLayanan;
 use App\Models\KonsultasiLayanan;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class LayananAdminController extends Controller
@@ -22,7 +23,13 @@ class LayananAdminController extends Controller
 
     public function edit($id){
         $data = KonsultasiLayanan::find($id);
-        return view('pages.konsultasi.layanan.admin.konsultasi_layanan_add',compact('data'));
+
+        $produk = Produk::where([
+            'id_produk' => $data->id,
+            'id_kategori' => 2          //!HARDCODE
+        ])->first();
+
+        return view('pages.konsultasi.layanan.admin.konsultasi_layanan_add',compact('data','produk'));
     }
 
     public function store(Request $request){
@@ -30,6 +37,14 @@ class LayananAdminController extends Controller
             'nama' => $request->nama,
             'harga' => $request->harga,
             'desc' => $request->desc,
+        ]);
+
+        $produk = Produk::updateOrCreate(['id' => $request->id_produk],[
+            'id_kategori' => 2,         //!HARDCODE
+            'id_produk' => $datas->id,
+            'nama' => $request->nama,
+            'desc' => $request->desc,
+            'harga' => str_replace(",", "", $request->harga),
         ]);
 
         return redirect()->route('layananKonsultasiAdmin');

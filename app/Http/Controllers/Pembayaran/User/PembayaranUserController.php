@@ -11,12 +11,11 @@ use Illuminate\Http\Request;
 
 class PembayaranUserController extends Controller
 {
-    public function pembayaran($id){
+    public function pembayaran($id,Request $request){
         $produk = Produk::find($id);
 
         if($produk->harga != null || $produk->harga != ''){
             $data = $produk;
-            //dd($data);
             return view('pages.pembayaran.pembayaran',compact('data'));
         }else{
             switch ($produk->id_kategori) {
@@ -28,7 +27,9 @@ class PembayaranUserController extends Controller
                     ]);
                     
                     return redirect()->route('homeUser');
-                  break;      
+                  break;   
+
+                
                 default:
                   
             }

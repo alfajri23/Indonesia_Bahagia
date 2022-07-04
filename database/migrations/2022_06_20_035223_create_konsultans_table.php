@@ -22,7 +22,6 @@ class CreateKonsultansTable extends Migration
             $table->string('telepon')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('tentang')->nullable();
             $table->string('foto')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->string('alamat')->nullable();

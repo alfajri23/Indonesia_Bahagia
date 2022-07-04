@@ -11,7 +11,7 @@
 }
 
 .bg-mainblue{
-    background-color: #2EC4B6;
+    background-color: #2EC4B6 !important;
 }
 
 .bg-mainorange{
@@ -68,8 +68,12 @@
     margin-bottom: 5px;
 }
 
+.textarea{
+    line-height: 1rem !important;
+}
+
 /* textarea{
-    width: 100%;
+    width: 100%;rgb(96, 81, 81)
     min-height: 140px;
     max-height: 180px;
     border-radius: 5px;

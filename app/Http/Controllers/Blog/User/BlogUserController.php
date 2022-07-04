@@ -33,7 +33,7 @@ class BlogUserController extends Controller
     }
 
     public function filterByCategory(Request $request){
-        $blogs = Blog::where('id_kategori',$request->kategori)->get();
+        $blogs = Blog::where('id_kategori',$request->kategori)->paginate(6);
         $populars = Blog::limit(3)->orderBy('pengunjung','desc')->get();
         $kategories = BlogKategori::all();
 

@@ -43,6 +43,8 @@ Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])
 Route::get('/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'listKonsultan'])->name('tipeKonsultasi');
 Route::get('/konsultasi/detail/{id}', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'detailKonsultan'])->name('detailKonsultasi');
 
+Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
+
 //* PROFILE
 Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
 Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');

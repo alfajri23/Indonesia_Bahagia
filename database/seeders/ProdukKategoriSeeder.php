@@ -18,6 +18,9 @@ class ProdukKategoriSeeder extends Seeder
             [
                 'nama' => 'Webinar',
             ],
+            [
+                'nama' => 'Konsultasi',
+            ],
         );
     }
 }

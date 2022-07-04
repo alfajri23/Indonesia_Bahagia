@@ -18,15 +18,39 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-5 pt-3">
                     <h2 class="fw-600 font-sm mb-1">Pendidikan</h2>
                     @forelse ($data->pendidikans as $pendidikan)
-                        <p class="font-xssss fw-500 lh-28 text-grey-600 mb-0 pl-2">{{$pendidikan->universitas}}</p>
-                        <p class="font-xssss fw-500 lh-28 text-grey-600 mb-0 pl-2">{{$pendidikan->tahun}} - {{$pendidikan->jurusan}}</p>
-                        
-                    @empty
-                        
+                        <p class="font-xsss fw-500 text-grey-600 mb-0 pl-3">{{$pendidikan->universitas}}</p>
+                        <p class="font-xssss fw-500 text-grey-600 mb-2 pl-3">{{$pendidikan->tahun}} - {{$pendidikan->jurusan}}</p> 
+                    @empty   
                     @endforelse
+
+                    <h2 class="fw-600 font-sm mb-1 mt-3">Tentang psikolog</h2>
+                    <div class="font-xsss fw-400 text-grey-700 mb-0 pl-3">{!!$data->tentang!!}</div>
+                </div>
+
+                <div class="row mt-4 pt-3">
+                    <h2 class="fw-600 font-sm mb-3">Layanan</h2>
+                    <div class="container">
+
+                        @forelse ($layanans as $layanan)
+                        <div class="card p-4 mb-4 border-1 shadow-xss rounded-lg">
+                            <div class="card-body">
+                                <h2 class="text-grey-700 font-xsssss fw-700 text-uppercase ls-3 ">Starter</h2>
+                                <h1 class="font-lg text-grey-700 fw-700">{{$layanan->nama }}</h1>
+                                <h4 class="text-grey-700 fw-400 mb-4 lh-24 font-xsss">{!!$layanan->desc !!}</h4>
+                                <div>
+    
+                                    <a href="{{route('buatJanji',['id_konsultan'=>$data->id, 'id_layanan'=>$layanan->id])}}" class="btn p-2 text-grey-900 fw-600 rounded-lg font-xssss btn-outline-info">Atur jadwal</a>
+                                </div>
+    
+                            </div>
+                        </div>
+                        @empty
+                            
+                        @endforelse
+                    </div>
                 </div>
 
 

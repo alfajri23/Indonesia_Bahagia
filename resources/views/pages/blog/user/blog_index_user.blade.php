@@ -67,6 +67,7 @@
                         </div>
                     </div>
                     @empty
+                    <h3 class="font-lg fw-700 text-grey-900">Blog tidak ditemukan</h3>
                     @endforelse
 
 
@@ -99,6 +100,7 @@
                         </article>
                     </div>
                     @empty
+                    <h3 class="font-lg fw-500 text-grey-900 text-center">Blog tidak ditemukan</h3>
                     
                     @endforelse
                      
@@ -106,7 +108,10 @@
             </div>    
             
             <div>
+                @empty(!$blogs)
+                    
                 {!! $blogs->links() !!}
+                @endempty
             </div>
 
         </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ChangeStringToTextKonsultanDesc extends Migration
+class ChangeIdTransaksiToNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class ChangeStringToTextKonsultanDesc extends Migration
      */
     public function up()
     {
-
+        Schema::table('konsultan_jadwal_janjis', function (Blueprint $table) {
+            $table->integer('id_transaksi')->nullable()->change();
+        });
     }
 
     /**
@@ -23,6 +25,8 @@ class ChangeStringToTextKonsultanDesc extends Migration
      */
     public function down()
     {
-        
+        Schema::table('nullable', function (Blueprint $table) {
+            //
+        });
     }
 }
