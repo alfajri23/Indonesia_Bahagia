@@ -23,7 +23,7 @@
               
               <div>
                 <a href="{{route('layananKonsultasiAdminEdit',$dt->id)}}" class="btn btn-primary btn-sm">Edit</a>
-                <a type="button" class="btn btn-secondary btn-sm">Detail</a>
+                <a href="{{route('layananKonsultasiDetailAdmin',$dt->id)}}" class="btn btn-secondary btn-sm">Detail</a>
               </div>
             </div>
         </div>

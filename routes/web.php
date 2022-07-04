@@ -123,13 +123,14 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/update-password', [ Controllers\Akun\User\UserController::class,'updatePassword'])->name('passwordUpdate');
 
         Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
+        Route::post('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'createJanji'])->name('createJanji');
 
         //Komentar
         Route::post('/komentar/store', [ Controllers\Blog\User\BlogUserController::class,'storeKomentar'])->name('blogStoreKomentar');
         Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
 
         //* PEMBAYARAN
-        Route::get('/pembayaran/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
+        Route::get('/pembayaran/{id}/{janji?}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
         Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
         Route::get('/pembayaran/detail/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayatDetail'])->name('pembayaranRiwayatDetail');
         Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
@@ -138,7 +139,7 @@ Route::group(['middleware' => ['auth']], function() {
 
         //RIWAYAT
         Route::get('/my/event', [Controllers\Event\User\EventUserController::class, 'riwayat'])->name('eventRiwayat');
-
+        Route::get('/my/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'riwayat'])->name('konsultasiRiwayat');
 
         //Enroll
     });
@@ -169,7 +170,12 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('event', [Controllers\Event\Admin\EventPendaftaranController::class,'event'])->name('pendaftaranEvent');
         Route::get('event/delete', [Controllers\Event\Admin\EventPendaftaranController::class,'deleteEnrollEvent'])->name('deleteEnrollEvent');
         // Route::get('event/download', [Controllers\Event\Admin\EventPendaftaranController::class,'downloadEvent'])->name('downloadEvent');
-    
+        
+
+        //* KONSULTASI
+        Route::get('konsultasi', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'konsultasi'])->name('pendaftaranKonsultasi');
+        Route::get('konsultasi/detail', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'detail'])->name('pendaftaranKonsultasiDetail');
+        Route::get('konsultasi/detail-transaksi', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'detail_transaksi'])->name('pendaftaranDetailTransaksi');
     
     });
 
@@ -197,6 +203,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         //LAYANAN
         Route::post('/layanan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'store'])->name('layananKonsultasiStore');
         Route::get('/layanan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'index'])->name('layananKonsultasiAdmin');
+        Route::get('/layanan/detail/{id}', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'detail'])->name('layananKonsultasiDetailAdmin');
         Route::get('/layanan/add', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'add'])->name('layananKonsultasiAdminAdd');
         Route::get('/layanan/edit/{id}', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'edit'])->name('layananKonsultasiAdminEdit');
         

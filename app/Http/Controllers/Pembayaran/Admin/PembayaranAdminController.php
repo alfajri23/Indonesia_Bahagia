@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pembayaran\Admin;
 use App\Helpers\Telepon;
 use App\Http\Controllers\Controller;
 use App\Models\EnrollEvent;
+use App\Models\KonsultanJadwalJanji;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -80,6 +81,8 @@ class PembayaranAdminController extends Controller
                     $tel = $row->user->telepon;
                     $tel = Telepon::changeTo62($tel);
 
+
+                    //* DELETE
                     $btnDel = '
                         <a onclick="deletes('.$row['id'].')" class="delete btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                     ';
@@ -87,9 +90,17 @@ class PembayaranAdminController extends Controller
                         $btnDel = '';    
                     }
 
+                    //* DETAIL
+                    if($row->produk->id_kategori == 2){     //Detail untuk konsultasi
+                        $btnDetail = '<a onclick="detailKonsultasi('.$row['id'].')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
+                    }else{
+                        $btnDetail = '<a onclick="detail('.$row['id'].')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
+                    }
+
+
                     $actionBtn = '
                     <div class="btn-group"">
-                        <a onclick="detail('.$row['id'].')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>
+                        '.$btnDetail.'
                         <a href="https://wa.me/'.$tel.'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
                         '.$btnDel.'
                     </div>
@@ -118,8 +129,7 @@ class PembayaranAdminController extends Controller
 
     public function transaksi_konfirmasi_bank(Request $request){
         $data = Transaksi::find($request->id);
-        
-        
+         
         switch ($data->produk->id_kategori){
             case 1:
                 $enroll = EnrollEvent::create([
@@ -127,6 +137,12 @@ class PembayaranAdminController extends Controller
                     'id_event' => $data->produk->id_produk,
                     'id_transaksi' => $data->id,
                 ]);
+                break;
+
+            case 2:
+                $enroll = KonsultanJadwalJanji::where('id_transaksi',$request->id)->first();
+                $enroll->status = 'menunggu_konsultasi';
+                $enroll->save();
                 break;
             
             default:

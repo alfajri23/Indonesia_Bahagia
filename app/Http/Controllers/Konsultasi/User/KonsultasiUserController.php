@@ -8,6 +8,7 @@ use App\Models\KonsultanJadwal;
 use App\Models\KonsultanJadwalJanji;
 use App\Models\KonsultanLayanan;
 use App\Models\KonsultasiLayanan;
+use App\Models\Produk;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -50,14 +51,15 @@ class KonsultasiUserController extends Controller
                 ->join('konsultasi_layanans','konsultasi_layanans.id','=','konsultan_layanans.id_layanan')
                 ->where('konsultans.id',$request->id_konsultan)
                 ->where('konsultasi_layanans.id',$request->id_layanan)
-                ->get(['konsultasi_layanans.*']);
+                ->get(['konsultasi_layanans.*'])
+                ->first();
 
         $data = Konsultan::find($request->id_konsultan);
 
-        $janjis = KonsultanJadwalJanji::where([
-            'id_konsultan' => $request->id_konsultan,
-            'status' => 'menunggu'
-        ])->get();
+        $janjis = KonsultanJadwalJanji::where(
+            'id_konsultan',$request->id_konsultan,)
+        ->where('status', '!=' , 'menunggu_konsultasi')
+        ->get();
 
         $jadwals = KonsultanJadwal::where('id_konsultan',$request->id_konsultan)->get();
         $jadwals_konsul =[];
@@ -89,8 +91,6 @@ class KonsultasiUserController extends Controller
             }
         }
 
-       //dd($jadwal_final);
-
         return view('pages.konsultasi.user.konsultasi_janji',compact('data','layanans','jadwal_final'));
     }
 
@@ -107,8 +107,25 @@ class KonsultasiUserController extends Controller
             'status' => 'menunggu_bayar'
         ]);
 
+        $produk = Produk::where([
+            'id_produk' => $request->id_layanan,
+            'id_kategori' => 2
+        ])->first();
 
+        return redirect()->route('pembayaran',['id' => $produk->id, 'janji' => $data->id]);
 
+    }
 
+    public function riwayat(){
+        $datas = KonsultasiLayanan::join('konsultan_jadwal_janjis', 'konsultasi_layanans.id', '=', 'konsultan_jadwal_janjis.id_layanan')
+                ->join('users', 'users.id', '=', 'konsultan_jadwal_janjis.id_user')
+                ->join('konsultans', 'konsultans.id', '=', 'konsultan_jadwal_janjis.id_konsultan')
+                ->where('users.id',auth()->user()->id)
+                ->get(['konsultasi_layanans.*','konsultans.nama AS nama_konsultan',
+                        'konsultan_jadwal_janjis.*']);
+
+        //dd($datas);
+
+        return view('pages.konsultasi.user.konsultasi_riwayat',compact('datas'));
     }
 }

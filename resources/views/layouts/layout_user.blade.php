@@ -57,6 +57,8 @@ https://templatemo.com/tm-573-eduwell
     {{-- </div>
   </div> --}}
 
+  @include('components.floating_button.floating_button')
+
 
   @include('components.footer.footer_user')
 

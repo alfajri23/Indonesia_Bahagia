@@ -11,6 +11,9 @@
                             <div class="col-lg-12 pl-0">
                                 <form action="{{route('pembayaranBank')}}" method="post" enctype="multipart/form-data">
                                 @csrf
+
+                                <input type="text" name="janji" value="{{$janji}}">
+
                                 <h4 class="mb-4 font-lg fw-700 mont-font mb-2">Upload Bukti Pembayaran</h4>
 
                                 <ul class="font-xssss text-grey-800 fw-600">

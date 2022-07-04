@@ -14,10 +14,11 @@
                                     <img src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="image" class="float-right p-1 bg-white w-100">
                                 </figure>
                             </div>
-                            <div class="col-lg-6">                   
-                                <h4 class="fw-700 font-lg text-dark mt-3 mb-1">{{$data->nama}}<i class="ti-check font-xssss btn-round-xs bg-success text-white ml-1"></i></h4>
-                                <p class="font-xsss fw-600 text-grey-600 mb-0">STR : {{$data->STR}}</p>
-                                <p class="font-xsss fw-600 text-grey-600 mb-1">SIPP : {{$data->SIPP}}</p>
+                            <div class="col-lg-6">                 
+                                <h4 class="fw-700 font-lg text-dark mb-1">{{$layanans->nama}}</h4>  
+                                <h6 class="fw-400 font-xsss">Bersama</h6>
+                                <h4 class="fw-500 font-xs text-dark my-1">{{$data->nama}}<i class="ti-check font-xssss btn-round-xs bg-success text-white ml-1"></i></h4>
+        
                             </div>
                         </div>
                     </div>
@@ -28,7 +29,11 @@
                     <div class="card">
                         <div class="card-body p-3">
                             <h2 class="fw-600 font-sm mb-2">Jadwal</h2>
+                            <form action="{{route('createJanji')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <div>
+                                <input type="text" value="{{$layanans->id}}" name="id_layanan" id="id_layanan" >
+                                <input type="text" value="{{$data->id}}" name="id_konsultan" id="id_konsultan" >
                                 <input type="text" name="jam" id="jam" >
                                 <input type="text" name="tanggal" id="tanggal">
                                 <input type="text" name="hari" id="hari">
@@ -72,8 +77,9 @@
 
                     </div>
                     <div>
-                        <a href="#" class="ml-1 mr-1 rounded-lg alert-primary text-primary font-xss border-size-md border-0 fw-600 open-font p-3 w200 btn">Pesan sekarang</a>
+                        <button type="submit" class="ml-1 mr-1 rounded-lg alert-primary text-primary font-xss border-size-md border-0 fw-600 open-font p-3 w200 btn">Pesan sekarang</button>
                     </div>
+                    </form>
                 </div>
 
 

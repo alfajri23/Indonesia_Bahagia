@@ -5,18 +5,21 @@ namespace App\Http\Controllers\Pembayaran\User;
 use App\Helpers\UploadFile;
 use App\Http\Controllers\Controller;
 use App\Models\EnrollEvent;
+use App\Models\KonsultanJadwalJanji;
 use App\Models\Produk;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
 class PembayaranUserController extends Controller
 {
-    public function pembayaran($id,Request $request){
+    public function pembayaran($id,$janji = null){
         $produk = Produk::find($id);
+
+        //dd($janji);
 
         if($produk->harga != null || $produk->harga != ''){
             $data = $produk;
-            return view('pages.pembayaran.pembayaran',compact('data'));
+            return view('pages.pembayaran.pembayaran',compact('data','janji'));
         }else{
             switch ($produk->id_kategori) {
                 case 1:
@@ -28,14 +31,9 @@ class PembayaranUserController extends Controller
                     
                     return redirect()->route('homeUser');
                   break;   
-
-                
-                default:
-                  
+                default:     
             }
-
         }
-
     }
 
     public function bank(Request $request){
@@ -61,7 +59,10 @@ class PembayaranUserController extends Controller
         ];
 
         $datas= UploadFile::file($request,'bukti','storage/transaksi',$datas);
-        Transaksi::create($datas);
+        $transaksi = Transaksi::create($datas);
+
+        //KONSULTASI
+        $this->cekJanjiKonsultasi($request,$transaksi);
 
         return redirect()->route('homeUser');
     }
@@ -80,5 +81,14 @@ class PembayaranUserController extends Controller
         ])->first();
 
         return view('pages.pembayaran.user.pembayaran_detail',compact('data'));
+    }
+
+    public function cekJanjiKonsultasi($request,$transaksi){
+        if($request->janji != null){
+            $janji = KonsultanJadwalJanji::updateOrCreate(['id' => $request->janji],[
+                'status' => 'menunggu_konfirmasi',
+                'id_transaksi' => $transaksi->id
+            ]);
+        }
     }
 }

@@ -16,6 +16,8 @@ class EventUserController extends Controller
                 ->where('enroll_events.id_user',auth()->user()->id)
                 ->get(['produk_events.*', 'produks.id AS id_produk']);
 
+        //dd($datas);
+
         return view('pages.event.user.event_riwayat',compact('datas'));
     }
 

@@ -21,6 +21,29 @@ class LayananAdminController extends Controller
         return view('pages.konsultasi.layanan.admin.konsultasi_layanan_add',compact('data'));
     }
 
+    public function detail($id,Request $request){
+        $data = KonsultasiLayanan::find($id);
+
+        $datas = KonsultanLayanan::join('konsultans','konsultan_layanans.id_konsultan', '=','konsultans.id')
+                ->join('konsultasi_layanans','konsultasi_layanans.id','=','konsultan_layanans.id_layanan')
+                ->where('konsultasi_layanans.id',$id)
+                ->get(['konsultans.nama AS nama','konsultans.*']);
+
+
+        if ($request->ajax()) {
+            return datatables()->of($datas)
+            ->addColumn('aksi', function($row){
+                
+                $btnDetail = '<a href="'.route('konsultanAdminDetail',$row->id).'" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
+                return $btnDetail;
+            })
+            ->rawColumns(['aksi'])
+            ->make(true);
+        }
+
+        return view('pages.konsultasi.layanan.admin.konsultasi_layanan_detail',compact('data'));
+    }
+
     public function edit($id){
         $data = KonsultasiLayanan::find($id);
 

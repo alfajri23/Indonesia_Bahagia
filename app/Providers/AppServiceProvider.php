@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        config(['app.locale'=>'id']);
         Paginator::useBootstrap();
 
         View()->composer('components.footer.footer_user', function ($view) {

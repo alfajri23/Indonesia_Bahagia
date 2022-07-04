@@ -27,6 +27,51 @@
 }
 
 
+.float{
+    /* display:none; */
+    z-index: 5;
+    display:block;
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:10px;
+    background-color:#0C9;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px rgb(216, 216, 216);
+}
+
+.my-float{
+    margin-top: 13px;
+}
+
+.float:hover{
+    background-color:#fff;
+}
+
+.my-float:hover{
+    color: #0C9;
+}
+
+@media screen and (min-width: 960px) {  
+    .share-member{
+        bottom: 0 !important;
+    }
+
+    .float-member{
+        bottom: 10px !important;
+    }
+
+    .float{
+        width:190px;
+        bottom:40px;
+        right:30px;
+    }
+}
+
+
 
 
 .gap-10{
