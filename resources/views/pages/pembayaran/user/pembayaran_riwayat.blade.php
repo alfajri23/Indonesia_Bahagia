@@ -30,8 +30,9 @@
                         <p class="font-xsss text-grey-700 fw-500 ">Rp. {{number_format($data->harga)}}</p>
 
                         <div>
-
+                            @if($data->produk->id_kategori == 1)
                             <a href="{{route('produkDetailEnroll',$data->id_produk)}}" class="btn btn-info btn-sm fw-700 font-xsss text-white me-3">Masuk</a>
+                            @endif
                             <a href="{{route('pembayaranRiwayatDetail',$data->id)}}" class="fw-700 font-xsss text-primary">Detail</a>
                         </div>
                     </div>

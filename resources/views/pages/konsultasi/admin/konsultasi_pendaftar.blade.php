@@ -25,7 +25,7 @@
 
 </div>
 
-<!-- Modal -->
+<!-- Modal Detail -->
 <div class="modal fade" id="modalDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -47,6 +47,28 @@
                         <p>Lanjutan</p>
                     </div>
                     <div class="col-8" id="modalKonsultasi">
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Status -->
+<div class="modal fade" id="modalStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Status</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8 mx-auto" id="modalStatus">
                     </div>
                 </div>
             </div>
@@ -84,7 +106,7 @@
                 {data: 'pasien', name: 'pasien',width: "10%"},
                 {data: 'tanggal', name: 'tanggal',width: "10%"},
                 {data: 'status', name: 'status',width: "5%"},
-                {data: 'aksi', name: 'aksi',width: "10%"},
+                {data: 'aksi', name: 'aksi',width: "13%"},
             ],
             // dom: 'Bfrtlip',
             buttons: [
@@ -114,6 +136,15 @@
             ]
         })
     })
+
+    function doneStatus(id){
+        const route = "{{ route('pendaftaranKonsultasiDoneStatus') }}";
+        const tabel = $('.tablePendaftaran');
+        const pesan_hapus = "Konsultasi telah selesai";
+
+        swalAction(route,tabel,id,pesan_hapus);
+
+    }
 
     function detail(id){
         console.log("hallo");
@@ -177,7 +208,6 @@
     }
 
     function konfirmasi_bank(id){
-        // $('.tablePendaftaran').DataTable().ajax.reload();
         $.ajax({
             type : 'GET',
             url  : "{{ route('transaksiBankKonfirmasi') }}",

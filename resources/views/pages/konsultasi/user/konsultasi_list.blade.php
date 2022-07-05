@@ -53,6 +53,11 @@
                         </div>
                     </div>
                     @empty  
+                    <div class="row">
+                        <img data-src="https://img.freepik.com/free-vector/empty-concept-illustration_114360-1233.jpg?t=st=1656991365~exp=1656991965~hmac=880daf368824c3ea4c6a3cce69972436c9386f670f1cacfa5160c8d9231de87d&w=740" class="img-responsive lozad" alt="">
+                    </div>
+                    <h6 class="font-xs text-center fw-700 mb-0 text-grey-800">Tidak ada konsultan</h6>
+
                     @endforelse
 
                 </div>

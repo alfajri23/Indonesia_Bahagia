@@ -96,6 +96,22 @@ class KonsultanController extends Controller
         ]);
     }
 
+    public function nonaktif(Request $request){
+        $data = Konsultan::find($request->id);
+        $data->status = 0;
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function aktif(Request $request){
+        $data = Konsultan::find($request->id);
+        $data->status = 1;
+        $data->save();
+
+        return redirect()->back();
+    }
+
     //PENDIDIKAN
 
     public function storePendidikan(Request $request){

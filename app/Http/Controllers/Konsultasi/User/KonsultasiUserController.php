@@ -20,6 +20,7 @@ class KonsultasiUserController extends Controller
         if($request->tipe != null){
             $datas = Konsultan::join('konsultan_layanans','konsultans.id','=','konsultan_layanans.id_konsultan')
                     ->where('konsultan_layanans.id_layanan',$request->tipe)
+                    ->where('konsultans.status',1)
                     ->get(['konsultans.*']);
     
             $jenis = KonsultasiLayanan::find($request->tipe);
@@ -122,7 +123,7 @@ class KonsultasiUserController extends Controller
                 ->join('konsultans', 'konsultans.id', '=', 'konsultan_jadwal_janjis.id_konsultan')
                 ->where('users.id',auth()->user()->id)
                 ->get(['konsultasi_layanans.*','konsultans.nama AS nama_konsultan',
-                        'konsultan_jadwal_janjis.*']);
+                        'konsultan_jadwal_janjis.*','konsultans.id AS id_konsultan']);
 
         //dd($datas);
 

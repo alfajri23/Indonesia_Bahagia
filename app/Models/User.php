@@ -60,6 +60,11 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany(Transaksi::class, 'id_user', 'id');
     }
 
+    public function testimoni()
+    {
+        return $this->hasMany(Testimoni::class, 'id_user', 'id');
+    }
+
     public function event_enroll()
     {
         return $this->hasMany(EventEnroll::class, 'id_user', 'id');

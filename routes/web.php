@@ -130,7 +130,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
 
         //* PEMBAYARAN
-        Route::get('/pembayaran/{id}/{janji?}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
+        Route::get('/pembayaran/create/{id}/{janji?}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'pembayaran'])->name('pembayaran');
         Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
         Route::get('/pembayaran/detail/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayatDetail'])->name('pembayaranRiwayatDetail');
         Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
@@ -141,7 +141,8 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/my/event', [Controllers\Event\User\EventUserController::class, 'riwayat'])->name('eventRiwayat');
         Route::get('/my/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'riwayat'])->name('konsultasiRiwayat');
 
-        //Enroll
+        //* Testimoni
+        Route::post('/testimoni/store', [ Controllers\Testimoni\User\TestimoniUserController::class,'store'])->name('testimoniStore');
     });
 
 });
@@ -176,7 +177,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('konsultasi', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'konsultasi'])->name('pendaftaranKonsultasi');
         Route::get('konsultasi/detail', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'detail'])->name('pendaftaranKonsultasiDetail');
         Route::get('konsultasi/detail-transaksi', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'detail_transaksi'])->name('pendaftaranDetailTransaksi');
-    
+        Route::get('konsultasi/status-done', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'doneStatus'])->name('pendaftaranKonsultasiDoneStatus');
     });
 
     //* PRODUK
@@ -199,6 +200,8 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::post('/', [Controllers\Akun\Konsultan\KonsultanController::class,'store'])->name('konsultanAdminStore');
         Route::get('/add', [Controllers\Akun\Konsultan\KonsultanController::class,'create'])->name('konsultanAdminCreate');
         Route::get('reset-pass', [Controllers\Akun\Konsultan\KonsultanController::class,'resetPass'])->name('konsultanAdminReset');
+        Route::get('nonaktif', [Controllers\Akun\Konsultan\KonsultanController::class,'nonaktif'])->name('konsultanAdminNonaktif');
+        Route::get('aktif', [Controllers\Akun\Konsultan\KonsultanController::class,'aktif'])->name('konsultanAdminAktif');
 
         //LAYANAN
         Route::post('/layanan', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'store'])->name('layananKonsultasiStore');

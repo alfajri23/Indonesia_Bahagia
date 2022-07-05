@@ -10,9 +10,17 @@
             </div>
             <div class="col-8">
                 <button onclick="reset({{$data->id}})" type="button" class="btn btn-warning btn-sm float-end ">Reset password</button>
-                <a href="{{route('konsultanAdminEdit',$data->id)}}" class="btn btn-success btn-sm float-end me-2">Edit</a>
+                <a href="{{route('konsultanAdminEdit',$data->id)}}" class="btn btn-success btn-sm float-end mx-1">Edit</a>
+                
+                @if ($data->status == 1)
+                <a href="{{ route('konsultanAdminNonaktif',['id'=>$data->id]) }}" class="btn btn-danger btn-sm float-end ">Nonaktif</a>
+                @else
+                <a href="{{route('konsultanAdminAktif',['id'=>$data->id])}}" class="btn btn-success btn-sm float-end ">Aktifkan</a>
+                @endif
+                
                 <div class="card-body">
-                    <h5 class="card-title fw-bold text-dark">{{$data->nama}}</h5>
+                    <h5 class="card-title fw-bold text-dark mb-0">{{$data->nama}}</h5>
+                    <span class="badge {{$data->status == 1 ? 'bg-success' : 'bg-danger mb-4'}}">{{$data->status == 1 ? 'aktif' : 'nonaktif'}}</span>
                     <p class="text-gray-800 mb-0">STR   : {{$data->STR}}</p>
                     <p class="text-gray-800 mb-0">SIPP  : {{$data->SIPP}}</p>
                     <p class="text-gray-800 mb-0">Email : {{$data->email}}</p>
@@ -257,6 +265,34 @@
             dataType: 'json',
             success : (data)=>{
                alert("Password baru : " + data.data);
+            }
+        });
+    }
+
+    function nonaktif(id){
+        $.ajax({
+            type : 'POST',
+            url  : "{{ route('konsultanAdminNonaktif') }}",
+            data : {
+                id : id
+            },
+            dataType: 'json',
+            success : (data)=>{
+               alert(data.data);
+            }
+        });
+    }
+
+    function aktif(id){
+        $.ajax({
+            type : 'POST',
+            url  : "{{ route('konsultanAdminAktif') }}",
+            data : {
+                id : id
+            },
+            dataType: 'json',
+            success : (data)=>{
+               alert(data.data);
             }
         });
     }

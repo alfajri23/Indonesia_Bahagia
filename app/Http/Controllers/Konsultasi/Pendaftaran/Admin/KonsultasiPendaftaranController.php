@@ -48,15 +48,20 @@ class KonsultasiPendaftaranController extends Controller
                 return $nama;
             })
             ->addColumn('aksi', function($row){
-                $btnTransaksi = '';
-                
+                $btnTelepon = '<a href="https://wa.me/'.Telepon::changeTo62($row->telepon_konsultan).'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>';                
                 $btnTransaksi = '<a onclick="detail('.$row->id.')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
                 
+                if($row->status == 'menunggu_konsultasi'){
+                    $btnStatus = '<a onclick="doneStatus('.$row->id.')" class="btn btn-info btn-sm"><i class="fas fa-question-circle"></i></a>';
+                }else{
+                    $btnStatus = null;
+                }
 
                 $actionBtn = '
                     <div class="">
                         '.$btnTransaksi.'
-                        <a href="https://wa.me/'.Telepon::changeTo62($row->telepon_konsultan).'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+                        '.$btnTelepon.'
+                        '.$btnStatus.'
                     </div>
                 ';
                 
@@ -99,5 +104,17 @@ class KonsultasiPendaftaranController extends Controller
             'data' => $data
         ]);
 
+    }
+
+    public function doneStatus(Request $request){
+        $data = KonsultanJadwalJanji::find($request->id);
+        $data->status = 'selesai';
+        $data->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $data,
+            'message' => 'sukses merubah status'
+        ]);
     }
 }
