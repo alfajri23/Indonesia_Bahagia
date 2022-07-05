@@ -72,7 +72,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                    {{auth()->user()}}
+                </a>
             </li>
 
             <!-- Divider -->
@@ -81,6 +83,7 @@
             <!-- Heading -->
             <div class="sidebar-heading">
                 Header
+                
             </div>
 
             <li class="nav-item">
