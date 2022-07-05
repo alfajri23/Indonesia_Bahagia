@@ -58,8 +58,8 @@ class KonsultasiUserController extends Controller
         $data = Konsultan::find($request->id_konsultan);
 
         $janjis = KonsultanJadwalJanji::where(
-            'id_konsultan',$request->id_konsultan,)
-        ->where('status', '!=' , 'menunggu_konsultasi')
+            'id_konsultan',$request->id_konsultan)
+        ->where('status', 'like' , '%menunggu_konsultasi%')
         ->get();
 
         $jadwals = KonsultanJadwal::where('id_konsultan',$request->id_konsultan)->get();
@@ -68,7 +68,7 @@ class KonsultasiUserController extends Controller
         for($i=0;$i<count($jadwals);$i++){
             if(count($janjis)>0){
                 for($y=0; $y<count($janjis);$y++){
-                    if($jadwals[$i]['hari'] != $janjis[$y]['hari'] || $jadwals[$i]['jam'] != $janjis[$y]['jam']){
+                    if(ucfirst($jadwals[$i]['hari']) != $janjis[$y]['hari'] || $jadwals[$i]['jam'] != $janjis[$y]['jam']){
                         $jadwals_konsul[] = $jadwals[$i];
                     }
                 }
