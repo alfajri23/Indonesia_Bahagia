@@ -33,9 +33,11 @@
                                 <h6 class="font-xssss text-grey-600 fw-600 mb-1"><i class="ti-time mr-1"></i> {{$data->jam}}</h6>
                                 <h6 class="font-xssss text-grey-600 fw-600"><i class="ti-calendar mr-1"></i> {{date_format(date_create($data->tanggal),"d M Y")}}</h6> 
                                 
+                                @if($data->status == 'selesai')
                                 <div class="text-end">
                                     <a onclick="testiModal('{{base64_encode($data->id_konsultan)}}')" class="cursor-pointer font-xsss text-primary fw-600">beri penilaian</a>
                                 </div>
+                                @endif
                             </div>  
                             @empty
                             <h2 class="font-xl fw-600 font-grey-700 text-center">Belum ada event yang kamu ikuti</h2>
