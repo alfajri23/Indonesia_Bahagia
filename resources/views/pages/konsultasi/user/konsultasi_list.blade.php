@@ -24,7 +24,7 @@
                             <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Jenis konsultasi
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="width: 300px;">
                                 <li><a class="fw-600 text-grey-800 font-xsss ps-2" href="{{route('tipeKonsultasi')}}">Semua</a></li>
                                 @forelse ($layanans as $layanan)
                                 <li><hr class="dropdown-divider"></li>

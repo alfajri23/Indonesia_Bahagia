@@ -32,11 +32,11 @@
                             <form action="{{route('createJanji')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div>
-                                <input type="text" value="{{$layanans->id}}" name="id_layanan" id="id_layanan" >
-                                <input type="text" value="{{$data->id}}" name="id_konsultan" id="id_konsultan" >
-                                <input type="text" name="jam" id="jam" >
-                                <input type="text" name="tanggal" id="tanggal">
-                                <input type="text" name="hari" id="hari">
+                                <input type="text" value="{{$layanans->id}}" name="id_layanan" id="id_layanan" hidden>
+                                <input type="text" value="{{$data->id}}" name="id_konsultan" id="id_konsultan" hidden>
+                                <input type="text" name="jam" id="jam" hidden>
+                                <input type="text" name="tanggal" id="tanggal" hidden>
+                                <input type="text" name="hari" id="hari" hidden>
                             </div>
                             <div class="container">
                                 @forelse ($jadwal_final as $key => $jadwal)
