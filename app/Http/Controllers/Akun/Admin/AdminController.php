@@ -24,16 +24,13 @@ class AdminController extends Controller
     public function store(Request $request){
 
         $datas = [
-            'nama' => $request->nama,
+            'name' => $request->nama,
             'email' => $request->email,
-            'SIPP' => $request->SIPP,
-            'STR' => $request->STR,
-            'tentang' => $request->tentang,
+            'alamat' => $request->alamat,
             'telepon' => $request->telepon,
         ];
 
         $validate = [
-            'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
             'telepon' => ['required', 'string','regex:/\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/','min:9','max:14']
         ];
 
@@ -51,7 +48,7 @@ class AdminController extends Controller
         $this->validate($request, $validate ,$messages);
 
         if(!empty($request->foto)){
-            $datas = UploadFile::file($request,'foto','storage/konsultan',$datas);
+            $datas = UploadFile::file($request,'foto','storage/admin',$datas);
         
             $data = Admin::find($request->id);
             if(isset($data)){
@@ -62,5 +59,32 @@ class AdminController extends Controller
         $data = Admin::updateOrCreate(['id' => $request->id],$datas);
 
         return redirect()->route('adminAdmin');
+    }
+
+    public function edit($id){
+        $data = Admin::find($id);
+        return view('pages.akun.admin.admin_edit',compact('data'));
+    }
+
+    public function detail($id){
+        $data = Admin::find($id);
+        
+        return view('pages.akun.admin.admin_detail',compact('data'));
+    }
+
+    public function delete($id){
+        $data = Admin::find($id)->delete();
+        
+        return redirect()->route('adminAdmin');
+    }
+
+    public function resetPass(Request $request){
+        $data = Admin::find($request->id);
+        $data->password = Hash::make('12345678');
+        $data->save();
+
+        return response()->json([
+            'data' => 12345678
+        ]);
     }
 }

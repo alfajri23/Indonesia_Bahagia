@@ -168,6 +168,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('konsultanAdmin')}}">Konsultan</a>
+                        <a class="collapse-item" href="{{route('adminAdmin')}}">Admin</a>
                     </div>
                 </div>
             </li>

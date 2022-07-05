@@ -17,11 +17,8 @@
     <div class="container d-flex mt-3">
         @forelse ($datas as $dt) 
         <a href="{{route('adminAdminDetail',$dt->id)}}" class="card mx-2" style="width: 14rem;">
-            <div class="card-image w-100 mb-3">
-                <img src="{{asset($dt->foto)}}" alt="image" class="w-100">
-            </div>
             <div class="card-body">
-              <p class="fw-700 text-grey-800 display2-md-size card-title">{{$dt->nama}}</p>
+              <p class="fw-700 text-uppercase text-grey-800 display2-md-size card-title">{{$dt->name}}</p>
               {{-- <a href="{{route('produkDetail',$dt->id)}}" class="btn btn-primary">Go somewhere</a> --}}
             </div>
         </a>

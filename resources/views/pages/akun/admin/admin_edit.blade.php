@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <div class="row">
-        <h2 class="text-grey-700 fw-700 display1-size">Tambah admin</h2>
+        <h2 class="text-grey-700 fw-700 display1-size">Edit konsultan</h2>
     </div>
 
     <div class="row">
@@ -20,24 +20,13 @@
             <div class="p-3">
                 <div class="mb-3">
                     <label class="fw-700 text-grey-800 display2-md-size">Nama</label>
-                    <input type="text" name="nama" value="" class="form-control">
+                    <input type="text" name="nama" value="{{$data->name}}" class="form-control">
+                    <input type="hidden" name="id" value="{{$data->id}}" class="form-control">
                 </div>
 
                 <div class="mb-3">
                     <label class="fw-700 text-grey-800 display2-md-size">Email</label>
-                    <input type="email" name="email" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Telepon</label>
-                    <input type="tel" name="telepon" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Alamat</label>
-                    <textarea class="form-control" name="alamat">
-
-                    </textarea>
+                    <input type="text" name="email" value="{{$data->email}}" class="form-control">
                 </div>
 
                 <div class="mb-3">
@@ -50,6 +39,12 @@
                     <input type="password" name="password_confirmation" class="form-control">
                 </div>
 
+                <div class="mb-3">
+                    <label class="fw-700 text-grey-800 display2-md-size">Alamat</label>
+                    <textarea class="form-control" name="alamat">
+                        {{$data->alamat}}
+                    </textarea>
+                </div>
             </div>
         </div>
 
@@ -67,15 +62,20 @@
                         <label class="custom-file-label" for="customFileLang">Upload gambar</label>
                     </div>
                 </div>
-            </div>
 
-            
+                <div class="mb-3">
+                    <label class="fw-700 text-grey-800 display2-md-size">Telepon</label>
+                    <input type="tel" name="telepon"  value="{{$data->telepon}}" class="form-control">
+                </div>
+
+            </div>
             </form>
         </div>
     </div>
     
 
 </div>
+
 
 <script>
 

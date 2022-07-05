@@ -161,8 +161,7 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('detail/{id}', [Controllers\Akun\Admin\AdminController::class,'detail'])->name('adminAdminDetail');
         Route::post('/', [Controllers\Akun\Admin\AdminController::class,'store'])->name('adminAdminStore');
         Route::get('reset-pass', [Controllers\Akun\Admin\AdminController::class,'resetPass'])->name('adminAdminReset');
-        Route::get('nonaktif', [Controllers\Akun\Admin\AdminController::class,'nonaktif'])->name('adminAdminNonaktif');
-        Route::get('aktif', [Controllers\Akun\Admin\AdminController::class,'aktif'])->name('adminAdminAktif');
+        Route::get('delete/{id}', [Controllers\Akun\Admin\AdminController::class,'delete'])->name('adminAdminDelete');
     });
 
     Route::prefix('konsultan')->group(function(){

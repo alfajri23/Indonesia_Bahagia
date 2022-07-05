@@ -15,7 +15,7 @@
                 @if ($data->status == 1)
                 <a href="{{ route('konsultanAdminNonaktif',['id'=>$data->id]) }}" class="btn btn-danger btn-sm float-end ">Nonaktif</a>
                 @else
-                <a href="{{route('konsultanAdminAktif',['id'=>$data->id])}}" class="btn btn-success btn-sm float-end ">Aktifkan</a>
+                <a href="{{route('konsultanAdminNonaktif',['id'=>$data->id])}}" class="btn btn-success btn-sm float-end ">Aktifkan</a>
                 @endif
                 
                 <div class="card-body">
