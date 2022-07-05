@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/email/verify/{id}/{hash}', [ Controllers\Auth\VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
     Route::post('/email/resend', [ Controllers\Auth\VerificationController::class, 'resend'])->name('verification.resend');
 
-    Route::group(['middleware' => ['verified']], function() {
+    //Route::group(['middleware' => ['verified']], function() {
 
         //* PROFILE
         Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
@@ -143,7 +143,7 @@ Route::group(['middleware' => ['auth']], function() {
 
         //* Testimoni
         Route::post('/testimoni/store', [ Controllers\Testimoni\User\TestimoniUserController::class,'store'])->name('testimoniStore');
-    });
+    //});
 
 });
 
