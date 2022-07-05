@@ -52,16 +52,12 @@ Route::get('/privacy-policy', [ Controllers\Master\Informasi\InformasiController
 
 Route::prefix('forum')->group(function(){
     Route::get('/', [ Controllers\Forum\User\ForumUserController::class,'index'])->name('forum');
-    Route::post('/', [ Controllers\Forum\User\ForumUserController::class,'store'])->name('forumStore');
+    
     Route::get('detail/{id}', [Controllers\Forum\User\ForumUserController::class,'detail'])->name('forumDetail');
     Route::get('detail-json', [ Controllers\Forum\User\ForumUserController::class,'show'])->name('forumDetailJson');
     Route::post('delete', [Controllers\Forum\User\ForumUserController::class,'delete'])->name('forumDelete');
     Route::get('show', [Controllers\Forum\User\ForumUserController::class,'show'])->name('forumDetailAjax');
-    //KATEGORI
-    Route::post('forum/add-kategori', [Controllers\Forum\User\ForumUserController::class,'createKategori'])->name('forumStoreKategori');
-
-    //KOMENTAR
-    Route::post('komentar/jawaban', [Controllers\Forum\User\ForumUserController::class,'komentar'])->name('forumStoreKomentar');
+    
     Route::get('komentar/detail', [Controllers\Forum\User\ForumUserController::class,'showKomentar'])->name('forumShowKomentar');
     Route::post('komentar/delete', [Controllers\Forum\User\ForumUserController::class,'deleteKomentar'])->name('forumDeleteKomentar');
 
@@ -136,12 +132,21 @@ Route::group(['middleware' => ['auth']], function() {
         
         Route::get('/produk/enroll/{id}', [Controllers\Produk\User\ProdukUserController::class, 'enroll'])->name('produkDetailEnroll');
 
-        //RIWAYAT
+        //*RIWAYAT
         Route::get('/my/event', [Controllers\Event\User\EventUserController::class, 'riwayat'])->name('eventRiwayat');
         Route::get('/my/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'riwayat'])->name('konsultasiRiwayat');
 
-        //* Testimoni
+        //* TESTIMONI
         Route::post('/testimoni/store', [ Controllers\Testimoni\User\TestimoniUserController::class,'store'])->name('testimoniStore');
+    
+        //* FORUM
+        Route::post('/', [ Controllers\Forum\User\ForumUserController::class,'store'])->name('forumStore');
+        //KATEGORI
+        Route::post('forum/add-kategori', [Controllers\Forum\User\ForumUserController::class,'createKategori'])->name('forumStoreKategori');
+
+        //KOMENTAR
+        Route::post('komentar/jawaban', [Controllers\Forum\User\ForumUserController::class,'komentar'])->name('forumStoreKomentar');
+    
     //});
 
 });
