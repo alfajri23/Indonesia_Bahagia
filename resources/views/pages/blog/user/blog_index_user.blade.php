@@ -79,24 +79,25 @@
                     @forelse ($blogs as $blog)
                     <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                         <article class="post-article p-0 border-0 shadow-xss rounded-lg overflow-hidden">
-                            <div class="row">
-                                <div class="col-6 col-xs-12">
-                                    <img data-src="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="w-100 lozad">
+                            <a href="{{route('blogDetailUser',$blog->id)}}" class="row">
+                                <div class="col-4 col-xs-12 d-flex aligh-items-center">
+                                    <div class="p-3">
+                                        <img data-src="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="w-100 rounded-lg lozad center-img">
+                                    </div>
                                 </div>
-                                <div class="col-6 col-xs-12 pl-md--0">
-                                    <div class="post-content p-4">
+                                <div class="col-8 col-xs-12 pl-md--0">
+                                    <div class="post-content p-3">
                                         <h6 class="font-xssss text-grey-500 fw-600 float-left"><i class="ti-folder mr-2"></i>{{$blog->kategori}}</h6> 
                                         <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-time mr-2"></i> {{date_format(date_create($blog->updated_at),"d M Y")}}</h6> 
                                         <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-user mr-2"></i>{{$blog->penulis}}</h6>
                                         <div class="clearfix"></div>
                                         <h2 class="post-title mt-2 mb-2 pr-3">
-                                            <a href="{{route('blogDetailUser',$blog->id)}}" class="lh-30 font-sm mont-font text-grey-800 fw-700">{{$blog->judul}}</a>
+                                            <span class="lh-30 font-sm mont-font text-grey-800 fw-700">{{$blog->judul}}</span>
                                         </h2>                                
                                         <div class="font-xsss fw-400 text-grey-500 lh-26 mt-0 mb-2 pr-3 text-desc">{!!$blog->isi!!}</div>
-                                        <a href="#" class="rounded-xl text-white bg-current w125 p-2 lh-32 font-xsss text-center fw-500 d-inline-block mb-0 mt-2">Read More</a>
                                     </div>                              
                                 </div>
-                            </div>
+                            </a>
                         </article>
                     </div>
                     @empty

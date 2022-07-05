@@ -50,7 +50,6 @@ Route::get('/about', [ Controllers\Master\Informasi\InformasiController::class,'
 Route::get('/privacy-policy', [ Controllers\Master\Informasi\InformasiController::class,'privacy'])->name('privacy');
 
 
-
 Route::prefix('forum')->group(function(){
     Route::get('/', [ Controllers\Forum\User\ForumUserController::class,'index'])->name('forum');
     Route::post('/', [ Controllers\Forum\User\ForumUserController::class,'store'])->name('forumStore');
@@ -125,7 +124,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
         Route::post('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'createJanji'])->name('createJanji');
 
-        //Komentar
+        //Komentar Blog
         Route::post('/komentar/store', [ Controllers\Blog\User\BlogUserController::class,'storeKomentar'])->name('blogStoreKomentar');
         Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
 
