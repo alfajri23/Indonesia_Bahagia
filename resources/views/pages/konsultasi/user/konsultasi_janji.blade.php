@@ -1,6 +1,40 @@
 @extends('layouts.layout_user')
 @section('content')
 
+<style>
+    .radio {
+        display: inline-block;
+        border-radius: 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        color: #000;
+        font-weight: 500;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+    .radio:hover {
+        box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .radio.selected {
+        box-shadow: 0px 8px 16px 0px #EEEEEE;
+        -webkit-filter: grayscale(0%);
+        -moz-filter: grayscale(0%);
+        -o-filter: grayscale(0%);
+        -ms-filter: grayscale(0%);
+        filter: grayscale(0%);
+        background-color: #E0F2F1;
+    }
+
+    .selected {
+        
+    }
+</style>
+
 <div class="blog-page pt-lg--7 pb-lg--7 pt-5 pb-5 bg-white">
     <div class="container">
         <div class="row">
@@ -38,7 +72,7 @@
                                 <input type="text" name="tanggal" id="tanggal" hidden>
                                 <input type="text" name="hari" id="hari" hidden>
                             </div>
-                            <div class="container">
+                            <div class="container radio-group ">
                                 @forelse ($jadwal_final as $key => $jadwal)
                                 <div class="my-4">
                                     <h4 class="fw-600 font-xss mt-1 mb-3">
@@ -47,7 +81,7 @@
                                         <div class="row">
                                             @forelse ($jadwal['jadwal'] as $jam)
                                             <a class="col-6 col-sm-2 cursor-pointer" onclick="selectJadwal('{{$jadwal['tanggal']}}','{{$jadwal['hari']}}','{{$jam['jam']}}')">
-                                                <div class="card">
+                                                <div class="card radio">
                                                     <div class="card-body p-2">
                                                     <h5 class="card-title mb-0 text-center">{{$jam['jam']}}</h5>
                                                     </div>
@@ -90,11 +124,21 @@
 </div>
 
 <script>
+    $(document).ready(function () {
+        $('.radio-group .radio').click(function () {
+            $('.selected .fa').removeClass('fa-check');
+            $('.radio').removeClass('selected');
+            $(this).addClass('selected');
+        });
+    });
+
     function selectJadwal(tanggal,hari,jam){
         $('#tanggal').val(tanggal);
         $('#hari').val(hari);
         $('#jam').val(jam);
     }
+
+    
 </script>
 
 @endsection
