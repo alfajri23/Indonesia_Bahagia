@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-8 pl-1">
                                 <h6 class="font-xssss text-grey-500 fw-600 my-0">{{$popular->kategori}}</h6>
-                                <h2 class="fw-600 text-grey-800 font-xsss lh-3">{{$popular->judul}}</h2>
+                                <a href="{{route('blogDetailUser',$popular->id)}}" class="fw-600 text-grey-800 font-xsss lh-3">{{$popular->judul}}</a>
                             </div>
                         </div>
                     </div>
