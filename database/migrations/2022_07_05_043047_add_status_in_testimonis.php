@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusInKonsultansTables extends Migration
+class AddStatusInTestimonis extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class AddStatusInKonsultansTables extends Migration
      */
     public function up()
     {
-        Schema::table('konsultans', function (Blueprint $table) {
-            $table->integer('status')->default(1);
+        Schema::table('testimonis', function (Blueprint $table) {
+            $table->integer('status')->default(0);
         });
-     
     }
 
     /**
@@ -26,6 +25,8 @@ class AddStatusInKonsultansTables extends Migration
      */
     public function down()
     {
-        
+        Schema::table('testimonis', function (Blueprint $table) {
+            //
+        });
     }
 }

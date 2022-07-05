@@ -135,6 +135,7 @@
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('masterKontak')}}">Kontak</a>
                         <a class="collapse-item" href="{{route('masterInformasi')}}">Informasi</a>
+                        <a class="collapse-item" href="{{route('testimoniAdmin')}}">Testimoni</a>
                     </div>
                 </div>
             </li>

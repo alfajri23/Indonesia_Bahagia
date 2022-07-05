@@ -109,4 +109,31 @@
   </div>
 </div>
 
+<div class="feedback-wrapper  pb-5 pt-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 text-left mb-5 pb-0">
+              <h2 class="text-grey-800 fw-700 display1-size display2-md-size lh-2">Apa kata mereka</h2>
+          </div>
+      
+          <div class="col-lg-12">
+              <div class="feedback-slider owl-carousel owl-theme overflow-visible dot-none right-nav pb-4">
+                @forelse ($testimonis as $testi)
+                <div class="owl-items text-center">
+                    <div class="card w-100 p-5 text-left border-0 shadow-xss rounded-lg">
+                        <div class="card-body pl-0 pt-0">
+                            <img src="{{ $testi->user->foto != null ? asset($testi->user->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="user" class="w45 float-left mr-3">
+                            <h4 class="text-grey-900 fw-700 font-xsss mt-0 pt-1">{{$testi->user->name}}</h4>    
+                        </div>
+                        <p class="font-xsss fw-400 text-grey-600 lh-28 mt-0 mb-0 ">{{$testi->pesan}}</p>
+                    </div>
+                </div>            
+                @empty    
+                @endforelse
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
 @endsection

@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden !important;
+}
+
 .basis-50{
     flex-basis: 48%;
 }

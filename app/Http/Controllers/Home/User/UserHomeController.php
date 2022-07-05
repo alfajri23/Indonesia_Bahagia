@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Home\User;
 use App\Http\Controllers\Controller;
 use App\Models\KonsultasiLayanan;
 use App\Models\ProdukEvent;
+use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
 class UserHomeController extends Controller
 {
     public function index(){
         $layanans = KonsultasiLayanan::latest()->get();
+        $testimonis = Testimoni::where('status', 1)->get(); 
 
-        return view('pages.home.home_user',compact('layanans'));
+        return view('pages.home.home_user',compact('layanans','testimonis'));
     }
 
     public function event(){

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/user/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user/feather.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/user/owl/owl.carousel.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/user/owl/owl.carousel.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user/aos.min.css') }}">
 

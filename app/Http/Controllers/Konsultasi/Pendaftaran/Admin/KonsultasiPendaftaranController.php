@@ -18,7 +18,6 @@ class KonsultasiPendaftaranController extends Controller
                     'konsultan_jadwal_janjis.id AS id',
                     'konsultans.nama AS nama_konsultan','konsultans.telepon AS telepon_konsultan',
                     'users.name']);
-        //dd($data);
 
         if ($request->ajax()) {
             return datatables()->of($data)

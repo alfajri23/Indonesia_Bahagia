@@ -224,4 +224,10 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
     });
 
+    Route::prefix('testimoni')->group(function(){
+        Route::get('/', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'index'])->name('testimoniAdmin');
+        Route::get('/aktif', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'aktif'])->name('testimoniAdminAktif');
+        Route::get('/nonaktif', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'nonaktif'])->name('testimoniAdminNonaktif');
+    });
+
 });
