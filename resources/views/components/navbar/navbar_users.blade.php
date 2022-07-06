@@ -19,6 +19,9 @@
                             <a class="nav-link" href="{{route('blogUser')}}">Blog</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route('kelas')}}">Kelas</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route('forum')}}">Forum</a>
                         </li>
 

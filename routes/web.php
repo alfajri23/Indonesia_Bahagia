@@ -39,6 +39,9 @@ Route::get('/produk/{id}', [Controllers\Produk\User\ProdukUserController::class,
 //* Event
 Route::get('/event', [Controllers\Home\User\UserHomeController::class, 'event'])->name('event');
 
+//* Kelas
+Route::get('/kelas', [Controllers\Home\User\UserHomeController::class, 'kelas'])->name('kelas');
+
 //* Konsultasi
 Route::get('/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'listKonsultan'])->name('tipeKonsultasi');
 Route::get('/konsultasi/detail/{id}', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'detailKonsultan'])->name('detailKonsultasi');
@@ -111,6 +114,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Route::group(['middleware' => ['verified']], function() {
 
+        Route::get('/produk/enroll/{id}', [Controllers\Produk\User\ProdukUserController::class, 'enroll'])->name('produkDetailEnroll');
+
+        //* KELAS
+        Route::get('course/{id}/materi/{ids}', [Controllers\Kelas\User\KelasUserController::class,'detail_member'])->name('enrollMateriKelas');
+
         //* PROFILE
         Route::get('/profile', [ Controllers\Akun\User\UserController::class,'profile'])->name('profile');
         Route::get('/change-password', [ Controllers\Akun\User\UserController::class,'changePassword'])->name('changePassword');
@@ -120,7 +128,7 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'buatJanji'])->name('buatJanji');
         Route::post('/buat-janji', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'createJanji'])->name('createJanji');
 
-        //Komentar Blog
+        //* Komentar Blog
         Route::post('/komentar/store', [ Controllers\Blog\User\BlogUserController::class,'storeKomentar'])->name('blogStoreKomentar');
         Route::post('/komentar/delete', [ Controllers\Blog\User\BlogUserController::class,'deleteKomentar'])->name('blogDeleteKomentar');
 
@@ -129,18 +137,18 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/riwayat-pembayaran', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayat'])->name('pembayaranRiwayat');
         Route::get('/pembayaran/detail/{id}', [Controllers\Pembayaran\User\PembayaranUserController::class, 'riwayatDetail'])->name('pembayaranRiwayatDetail');
         Route::post('/pembayaran/bank', [Controllers\Pembayaran\User\PembayaranUserController::class, 'bank'])->name('pembayaranBank');
-        
-        Route::get('/produk/enroll/{id}', [Controllers\Produk\User\ProdukUserController::class, 'enroll'])->name('produkDetailEnroll');
 
-        //*RIWAYAT
+        //* RIWAYAT
         Route::get('/my/event', [Controllers\Event\User\EventUserController::class, 'riwayat'])->name('eventRiwayat');
         Route::get('/my/konsultasi', [Controllers\Konsultasi\User\KonsultasiUserController::class, 'riwayat'])->name('konsultasiRiwayat');
+        Route::get('/my/kelas', [Controllers\Kelas\User\KelasUserController::class, 'riwayat'])->name('kelasRiwayat');
 
         //* TESTIMONI
         Route::post('/testimoni/store', [ Controllers\Testimoni\User\TestimoniUserController::class,'store'])->name('testimoniStore');
     
         //* FORUM
         Route::post('/', [ Controllers\Forum\User\ForumUserController::class,'store'])->name('forumStore');
+
         //KATEGORI
         Route::post('forum/add-kategori', [Controllers\Forum\User\ForumUserController::class,'createKategori'])->name('forumStoreKategori');
 

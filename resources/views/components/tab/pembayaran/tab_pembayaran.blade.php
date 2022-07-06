@@ -9,6 +9,11 @@
             Event saya
         </a>
     </li>
+    <li class="{{Request::segment('2') == 'kelas' ? 'active' : ''}} list-inline-item mx-2">
+        <a class="fw-700 pb-sm-5 pt-sm-5 xs-mb-2 font-xssss text-grey-500 ls-3 d-inline-block text-uppercase {{Request::segment('2') == 'kelas' ? 'active' : ''}}" href="{{route('kelasRiwayat')}}" >
+            Kelas saya
+        </a>
+    </li>
     <li class="{{Request::segment('2') == 'konsultasi' ? 'active' : ''}} list-inline-item mx-2">
         <a class="fw-700 pb-sm-5 pt-sm-5 xs-mb-2 font-xssss text-grey-500 ls-3 d-inline-block text-uppercase {{Request::segment('2') == 'konsultasi' ? 'active' : ''}}" href="{{route('konsultasiRiwayat')}}" >
             Jadwal Konsultasi Saya

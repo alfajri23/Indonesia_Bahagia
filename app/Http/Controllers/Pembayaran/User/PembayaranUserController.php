@@ -14,9 +14,7 @@ class PembayaranUserController extends Controller
 {
     public function pembayaran($id,$janji = null){
         $produk = Produk::find($id);
-
-        //dd($janji);
-
+        
         if($produk->harga != null || $produk->harga != ''){
             $data = $produk;
             return view('pages.pembayaran.pembayaran',compact('data','janji'));

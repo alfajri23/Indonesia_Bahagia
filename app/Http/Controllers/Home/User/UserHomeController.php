@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home\User;
 use App\Http\Controllers\Controller;
 use App\Models\KonsultasiLayanan;
 use App\Models\ProdukEvent;
+use App\Models\ProdukKelas;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
 
@@ -24,5 +25,15 @@ class UserHomeController extends Controller
                 ->get(['produk_events.*', 'produks.id AS id_produk']);
         
         return view('pages.event.user.event',compact('datas'));
+    }
+
+    public function kelas(){
+        $datas = ProdukKelas::join('produks', 'produk_kelas.id', '=', 'produks.id_produk')
+                ->where('produks.id_kategori',3)
+                ->where('produk_kelas.status',1)
+                ->get(['produk_kelas.*', 'produks.id AS id_produk']);
+
+        return view('pages.kelas.user.kelas',compact('datas'));
+    
     }
 }

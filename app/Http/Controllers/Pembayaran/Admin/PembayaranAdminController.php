@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Pembayaran\Admin;
 use App\Helpers\Telepon;
 use App\Http\Controllers\Controller;
 use App\Models\EnrollEvent;
+use App\Models\EnrollKelas;
 use App\Models\KonsultanJadwalJanji;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -143,6 +144,14 @@ class PembayaranAdminController extends Controller
                 $enroll = KonsultanJadwalJanji::where('id_transaksi',$request->id)->first();
                 $enroll->status = 'menunggu_konsultasi';
                 $enroll->save();
+                break;
+
+            case 3:
+                $enroll = EnrollKelas::create([
+                    'id_user' => $data->id_user,
+                    'id_kelas' => $data->produk->id_produk,
+                    'id_transaksi' => $data->id,
+                ]);
                 break;
             
             default:
