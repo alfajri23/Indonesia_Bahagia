@@ -9,6 +9,7 @@ use App\Models\BlogKategori;
 use App\Models\BlogKomentar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class BlogAdminController extends Controller
 {
@@ -89,7 +90,7 @@ class BlogAdminController extends Controller
 
         $datas = [
             'judul' => $request->judul,
-            'link' => $request->link,
+            'link' => Str::slug($request->judul, '-'),
             'penulis' => $request->penulis,
             'isi' => $request->isi,
             'tag' => $request->tag,

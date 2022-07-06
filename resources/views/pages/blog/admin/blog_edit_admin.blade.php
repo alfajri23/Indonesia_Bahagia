@@ -11,17 +11,12 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Judul</label>
                     <input type="hidden" name="id" value="{{$data->id}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-                    <input type="text" name="judul" value="{{$data->judul}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Link</label>
-                    <input type="text" name="link" value="{{$data->link}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    <input type="text" name="judul" value="{{$data->judul}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="exampleInputnama1">Isi</label>
-                    <textarea name="isi" class="form-control isi">
+                    <textarea name="isi" class="form-control isi" required>
                         {{ old('isi') ?? $data->isi ?? '' }}
                     </textarea>
                 </div>
@@ -36,7 +31,7 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Kategori</label>
-                    <select name="id_kategori" class="form-control" id="exampleFormControlSelect1">
+                    <select name="id_kategori" class="form-control" id="exampleFormControlSelect1" required>
                         <option value="{{$data->id_kategori}}" selected>Pilih</option>
                         @forelse ( $kat as $dt)
                             <option value="{{$dt->id}}">{{$dt->nama}}</option>
@@ -49,7 +44,7 @@
 
             <div class="form-group">
                 <label for="exampleFormControlInput1">Penulis</label>
-                <input type="text" name="penulis" value="{{$data->penulis}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <input type="text" name="penulis" value="{{$data->penulis}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">tag</label>

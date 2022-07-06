@@ -10,17 +10,12 @@
                 @csrf
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Judul</label>
-                    <input type="text" name="judul" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    <input type="text" name="judul" class="form-control" id="exampleFormControlInput1" placeholder="" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Link</label>
-                    <input type="text" name="link" class="form-control" id="exampleFormControlInput1" placeholder="">
-                </div>
-                
-                <div class="form-group">
                     <label for="exampleInputnama1">Isi</label>
-                    <textarea name="isi" class="form-control isi">
+                    <textarea name="isi" class="form-control isi" required>
                         
                     </textarea>
                 </div>
@@ -35,8 +30,7 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Kategori</label>
-                    <select name="id_kategori" class="form-control" id="exampleFormControlSelect1">
-                        <option value="">Kosong</option>
+                    <select name="id_kategori" class="form-control" id="exampleFormControlSelect1" required>
                         @forelse ( $data as $dt)
                             <option value="{{$dt->id}}">{{$dt->nama}}</option>
                         @empty
@@ -47,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Penulis</label>
-                <input type="text" name="penulis" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <input type="text" name="penulis" class="form-control" id="exampleFormControlInput1" placeholder="" required>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">tag</label>
