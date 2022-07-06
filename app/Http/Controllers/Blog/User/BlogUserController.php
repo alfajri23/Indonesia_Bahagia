@@ -26,7 +26,8 @@ class BlogUserController extends Controller
 
     public function detail($id){
         $blog = Blog::find($id);
-        $populars = Blog::limit(6)->where('id_kategori',$blog->id_kategori)->get();
+        $blog->update(['pengunjung' => $blog->pengunjung + 1]);
+        $populars = Blog::inRandomOrder()->where('id_kategori',$blog->id_kategori)->limit(6)->get();
         $komentars = BlogKomentar::where('id_blog',$id)->latest()->get();
 
         return view('pages.blog.user.blog_detail_user',compact('blog','populars','komentars'));   

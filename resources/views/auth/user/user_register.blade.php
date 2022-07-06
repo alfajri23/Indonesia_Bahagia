@@ -6,7 +6,7 @@
             @csrf
             <h2 class="sr-only">Register Form</h2>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="Nama">
+                <input class="form-control" type="text" name="name" placeholder="Nama" value="{{ old('name') }}">
                 @error('name')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -15,7 +15,7 @@
             </div>
 
             <div class="form-group">
-                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email">
+                <input class="form-control @error('email') is-invalid @enderror" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="form-group">
-                <input class="form-control @error('telepon') is-invalid @enderror" type="tel" name="telepon" placeholder="Telepon">
+                <input class="form-control @error('telepon') is-invalid @enderror" type="tel" name="telepon" placeholder="Telepon" value="{{ old('telepon') }}">
                 @error('telepon')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
