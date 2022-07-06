@@ -1,4 +1,4 @@
-@extends('layouts.layout_admin')
+@extends('layouts.layout_konsultan')
 
 @section('content')
 
@@ -11,9 +11,9 @@
                 <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Konsultan</th>
                     <th>Pasien</th>
                     <th>Tanggal</th>
+                    <th>Jam</th>
                     <th>Status</th>
                     <th>Aksi</th>
                 </tr>
@@ -38,37 +38,15 @@
         <div class="modal-body">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4">
-                        <p>Nama Konsultan</p>
+                    <div class="col-3">
                         <p>Nama Pasien</p>
                         <p>Hari</p>
                         <p>Tanggal konsul</p>
                         <p>Jam Konsul</p>
                         <p>Lanjutan</p>
+                        <p>Catatan pasien</p>
                     </div>
                     <div class="col-8" id="modalKonsultasi">
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Status -->
-<div class="modal fade" id="modalStatus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Status</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-8 mx-auto" id="modalStatus">
                     </div>
                 </div>
             </div>
@@ -92,7 +70,7 @@
         $('.tablePendaftaran').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('pendaftaranKonsultasi') }}",
+            ajax: "{{ route('pendaftaranKonsultasiKonsultan') }}",
             columns: [
                 {
                     data: 'DT_RowIndex', 
@@ -102,9 +80,9 @@
                     width: "5%"
                 },
                 {data: 'nama', name: 'nama',width:"20%"},
-                {data: 'konsultan', name: 'konsultan',width:"10%"},
                 {data: 'pasien', name: 'pasien',width: "10%"},
                 {data: 'tanggal', name: 'tanggal',width: "10%"},
+                {data: 'jam', name: 'jam',width: "15%"},
                 {data: 'status', name: 'status',width: "5%"},
                 {data: 'aksi', name: 'aksi',width: "13%"},
             ],
@@ -138,74 +116,103 @@
     })
 
     function doneStatus(id){
-        const route = "{{ route('pendaftaranKonsultasiDoneStatus') }}";
+        const route = "{{ route('pendaftaranKonsultasiDoneStatusKonsultan') }}";
         const tabel = $('.tablePendaftaran');
         const pesan_hapus = "Konsultasi telah selesai";
 
-        swalAction(route,tabel,id,pesan_hapus);
 
-        swal({
-            text: 'Search for a movie. e.g. "La La Land".',
-            content: "input",
-            button: {
-                text: "Search!",
-                closeModal: false,
+        swal("Konsultasi telah selesai ?",{
+            buttons: {
+                selesai: "selesai",
+                catch: {
+                    text: "selesai dan beri catatan",
+                    value: "catch",
+                },
+                cancel: "cancel",
             },
         })
-        .then(name => {
-            if (!name) throw null;
+        .then((value) => {
+            switch (value) {
             
-                return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
-        })
-        .then(results => {
-            return results.json();
-        })
-        .then(json => {
-            const movie = json.results[0];
-        
-            if (!movie) {
-                return swal("No movie was found!");
-            }
-        
-            const name = movie.trackName;
-            const imageURL = movie.artworkUrl100;
+                case "catch":
+                    swal({
+                        text: 'Beri catatan ke pasien',
+                        content: "input",
+                        button: {
+                            text: "Kirim",
+                            closeModal: false,
+                        },
+                    })
+                    .then(name => {
+                        if (!name) throw null;
+
+                        $.ajax({
+                            type : 'GET',
+                            url  : route,
+                            data : {
+                                id : id,
+                                catatan : name
+                            },
+                            dataType: 'json',
+                            success : (data)=>{
+                                swal("Sukses", data.message, "warning");
+                                tabel.DataTable().ajax.reload();
+                            }
+                        })
+                    })
+                    .catch(err => {
+                        if (err) {
+                            swal("Oh noes!", "The AJAX request failed!", "error");
+                        } else {
+                            swal.stopLoading();
+                            swal.close();
+                        }
+                    });
+                    break;
+                
+                case "selesai":
+                    $.ajax({
+                        type : 'GET',
+                        url  : route,
+                        data : {
+                            id : id,
+                            catatan : name
+                        },
+                        dataType: 'json',
+                        success : (data)=>{
+                            swal("Sukses", data.message, "warning");
+                            tabel.DataTable().ajax.reload();
+                        }
+                    })
+                    //swal("Selesai", "Tidak ada perubahan", "success");
+                    break;
             
-            swal({
-                title: "Top result:",
-                text: name,
-                icon: imageURL,
-            });
-        })
-        .catch(err => {
-            if (err) {
-                swal("Oh noes!", "The AJAX request failed!", "error");
-            } else {
-                swal.stopLoading();
-                swal.close();
+                default:
+                    swal("Aman", "Tidak ada perubahan", "success");
             }
         });
 
     }
 
     function detail(id){
-        console.log("hallo");
         $.ajax({
             type : 'GET',
-            url  : "{{ route('pendaftaranKonsultasiDetail') }}",
+            url  : "{{ route('pendaftaranKonsultasiDetailKonsultan') }}",
             data : {
                 id : id
             },
             dataType: 'json',
             success : (data)=>{
                 let konsul = data.data;
-                console.log(konsul);
+
+                let lanjutan = konsul.lanjutan == 0 ? 'tidak' : 'iya';
                 let element_konsul = ` 
-                    <p>:  ${konsul.nama}</p>
                     <p>:  ${konsul.name}</p>
                     <p>:  ${konsul.hari}</p>
                     <p>:  ${konsul.tanggal}</p>
                     <p>:  ${konsul.jam}</p>
-                    <p>:  ${konsul.lanjutan}</p>
+                    <p>:  ${lanjutan}</p>
+                    <p>:  ${konsul.masalah}</p>
                 `;
 
                 $('#modalKonsultasi')[0].innerHTML = element_konsul;

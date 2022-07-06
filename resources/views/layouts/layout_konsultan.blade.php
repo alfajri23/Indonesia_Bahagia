@@ -90,8 +90,12 @@
                 </a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('pendaftaranKonsultasiKonsultan')}}">
+                    <i class="fa-solid fa-book mx-1"></i>
+                    <span>Konsultasi Saya</span>
+                </a>
+            </li>
 
            
             <!-- Nav Item - Tables -->

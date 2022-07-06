@@ -180,7 +180,6 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     });
 
     //* TRANSAKSI
-
     Route::prefix('transaksi')->group(function(){
         Route::get('/', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'index'])->name('transaksiAdmin');
         Route::get('/detail', [Controllers\Pembayaran\Admin\PembayaranAdminController::class,'transaksi_detail'])->name('transaksiDetail');
@@ -227,10 +226,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
 });
 
-
-//*Admin 
-Route::get('konsultan/login', [Controllers\Auth\Konsultan\LoginKonsultanController::class,'index'])->name('loginKonsultan');
-Route::post('konsultan/login', [Controllers\Auth\Konsultan\LoginKonsultanController::class,'login'])->name('authKonsultan');
+//*Konsultan
+Route::get('/konsultan/login', [Controllers\Auth\Konsultan\LoginKonsultanController::class,'index'])->name('loginKonsultan');
+Route::post('/konsultan/login', [Controllers\Auth\Konsultan\LoginKonsultanController::class,'login'])->name('authKonsultan');
 
 
 Route::middleware(['konsultan'])->prefix('konsultan')->group(function () {
@@ -238,9 +236,20 @@ Route::middleware(['konsultan'])->prefix('konsultan')->group(function () {
     Route::post('/', [Controllers\Akun\Konsultan\KonsultanController::class,'store'])->name('konsultanStore');
     Route::get('/detail', [Controllers\Akun\Konsultan\KonsultanController::class,'detail'])->name('konsultanDetail');
     Route::get('/edit', [Controllers\Akun\Konsultan\KonsultanController::class,'edit'])->name('konsultanEdit');
+
+    //* PENDAFTARAN
+    Route::prefix('pendaftaran')->group(function(){
+        Route::get('konsultasi', [Controllers\Konsultasi\Pendaftaran\Konsultan\KonsultasiPendaftaranController::class,'konsultasi'])->name('pendaftaranKonsultasiKonsultan');
+        Route::get('konsultasi/detail', [Controllers\Konsultasi\Pendaftaran\Konsultan\KonsultasiPendaftaranController::class,'detail'])->name('pendaftaranKonsultasiDetailKonsultan');
+        Route::get('konsultasi/detail-transaksi', [Controllers\Konsultasi\Pendaftaran\Konsultan\KonsultasiPendaftaranController::class,'detail_transaksi'])->name('pendaftaranDetailTransaksiKonsultan');
+        Route::get('konsultasi/status-done', [Controllers\Konsultasi\Pendaftaran\Konsultan\KonsultasiPendaftaranController::class,'doneStatus'])->name('pendaftaranKonsultasiDoneStatusKonsultan');
+    });
+
+
 });
 
 
+//ADMIN & KONSULTAN
 Route::prefix('akun')->group(function () {
     Route::prefix('konsultan')->group(function () {
         
@@ -269,4 +278,10 @@ Route::prefix('akun')->group(function () {
     
     });
     
+});
+
+Route::prefix('double')->group(function(){
+    Route::prefix('pendaftaran')->group(function(){
+
+    });
 });
