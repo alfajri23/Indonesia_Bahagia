@@ -305,8 +305,8 @@ Route::prefix('akun')->group(function () {
         Route::get('/layanan/konsultan/delete', [Controllers\Konsultasi\Layanan\Admin\LayananAdminController::class,'deleteLayananKonsultan'])->name('deleteLayananKonsultan');
 
         //PENDIDIKAN
-        Route::post('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'storePendidikan'])->name('storePendidikan');
-        Route::get('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanController::class,'getPendidikan'])->name('getPendidikan');
+        Route::post('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanAdminController::class,'storePendidikan'])->name('storePendidikan');
+        Route::get('/pendidikan', [ Controllers\Akun\Konsultan\KonsultanAdminController::class,'getPendidikan'])->name('getPendidikan');
     
         //JADWAL
         Route::post('/jadwal', [Controllers\Konsultasi\Jadwal\Admin\JadwalAdminController::class,'addJadwalKonsultan'])->name('addJadwalKonsultan');
