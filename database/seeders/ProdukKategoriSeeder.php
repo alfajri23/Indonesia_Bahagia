@@ -21,6 +21,9 @@ class ProdukKategoriSeeder extends Seeder
             [
                 'nama' => 'Konsultasi',
             ],
+            [
+                'nama' => 'Kelas',
+            ],
         );
     }
 }

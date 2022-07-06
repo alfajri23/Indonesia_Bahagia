@@ -106,6 +106,7 @@
                         <h6 class="collapse-header"></h6>
                         <a class="collapse-item" href="{{route('eventAdmin')}}">Event</a>
                         <a class="collapse-item" href="{{route('layananKonsultasiAdmin')}}">Layanan konsultasi</a>
+                        <a class="collapse-item" href="{{route('kelasIndex')}}">Kelas</a>
                     </div>
                 </div>
             </li>

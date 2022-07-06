@@ -218,6 +218,34 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('delete', [Controllers\Event\Admin\EventAdminController::class,'eventDelete'])->name('deleteEvent');
     });
 
+    Route::prefix('kelas')->group(function(){
+        Route::get('/', [Controllers\Kelas\Admin\KelasAdminController::class,'index'])->name('kelasIndex');
+        Route::get('/init', [Controllers\Kelas\Admin\KelasAdminController::class,'init'])->name('kelasInit');
+        Route::get('/delete', [Controllers\Kelas\Admin\KelasAdminController::class,'delete'])->name('kelasDelete');
+        Route::get('/detail/{id}', [Controllers\Kelas\Admin\KelasAdminController::class,'detail'])->name('kelasDetail');
+        Route::post('/update', [Controllers\Kelas\Admin\KelasAdminController::class,'update'])->name('kelasUpdate');
+    
+        Route::prefix('bab')->group(function(){
+            Route::post('/add', [Controllers\Kelas\Admin\KelasBabAdminController::class,'create'])->name('babCreate');
+            Route::post('/edit', [Controllers\Kelas\Admin\KelasBabAdminController::class,'edit'])->name('babEdit');
+            Route::get('/delete/{id}', [Controllers\Kelas\Admin\KelasBabAdminController::class,'delete'])->name('babDelete');
+        });
+
+        Route::prefix('materi')->group(function(){
+            Route::get('/detail/{id}', [Controllers\Kelas\Admin\KelasMateriAdminController::class,'detail'])->name('materiDetail');
+            Route::get('/create', [Controllers\Kelas\Admin\KelasMateriAdminController::class,'index'])->name('materiCreate');
+            Route::get('/delete', [Controllers\Kelas\Admin\KelasMateriAdminController::class,'delete'])->name('materiDelete');
+            Route::post('/store', [Controllers\Kelas\Admin\KelasMateriAdminController::class,'store'])->name('materiStore');
+        });
+
+        //kategories
+        Route::get('/kategori', [Controllers\Kelas\Admin\KelasAdminController::class,'kelasKategori'])->name('kelasKategori');
+        Route::post('/kategori/store', [Controllers\Kelas\Admin\KelasAdminController::class,'storeKelasKategori'])->name('storeKelasKategori');
+        Route::get('/kategori/delete/{id}', [Controllers\Kelas\Admin\KelasAdminController::class,'deleteKelasKategori'])->name('deleteKelasKategori');
+    
+    });
+
+
     Route::prefix('testimoni')->group(function(){
         Route::get('/', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'index'])->name('testimoniAdmin');
         Route::get('/aktif', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'aktif'])->name('testimoniAdminAktif');
