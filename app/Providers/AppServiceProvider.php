@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Helpers\Telepon;
 use App\Models\MasterKontak;
+use App\Models\MasterSettingProgram;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 
@@ -33,9 +35,15 @@ class AppServiceProvider extends ServiceProvider
             $view->with('data', $data);
         });
 
+        View()->composer('components.navbar.navbar_users', function ($view) {
+            $data = MasterSettingProgram::find(1);
+            $view->with('data', $data->foto);
+        });
+
         View()->composer('components.floating_button.floating_button', function ($view) {
             $data = MasterKontak::first();
-            $view->with('data', $data->telepon_3);
+            $data = Telepon::changeTo62($data);
+            $view->with('data', $data);
         });
     }
 }

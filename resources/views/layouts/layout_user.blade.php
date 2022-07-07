@@ -11,10 +11,6 @@
 
     <title>Hallo Bahagia</title>
 
-    <!-- Bootstrap core CSS -->
-    {{-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> --}}
-
-
     <!-- Additional CSS Files -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">

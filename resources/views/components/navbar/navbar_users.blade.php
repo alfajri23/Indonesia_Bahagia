@@ -2,11 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-9 navbar pt-0 pb-0">
-                <a href="/">
-                    <h1 class="ls-3 fw-700 poppins font-xs text-white mb-0 bg-primary rounded-xxl p-2 px-3">Hallo Bahagia
-                    </h1>
-                    <span class="d-block fw-700 font-xsssss ls-1 text-grey-600 open-font text-center">Menuju indonesia bahagia seutuhnya</span>
-                </a>
+                <img src="{{$data != null ? asset($data) : 'https://via.placeholder.com/96x50.png?text=Set your logo in admin'}}" class="h-50px rounded-lg" alt="...">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

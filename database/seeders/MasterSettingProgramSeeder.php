@@ -26,6 +26,7 @@ class MasterSettingProgramSeeder extends Seeder
             [
                 'nama' => 'Transaksi',
                 'tipe' => 'foto-text',
+                'deskripsi' => 'pembayaran dapat dilakukan pada'
             ],
         ]);
     }
