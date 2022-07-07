@@ -2,6 +2,16 @@ body{
     overflow-x: hidden !important;
 }
 
+/* Tipe Cover Image */
+.back-img{
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    background-size: cover;
+    aspect-ratio: 16 / 9;
+    background-position: center;
+    margin: auto;
+}
+
 .basis-50{
     flex-basis: 48%;
 }

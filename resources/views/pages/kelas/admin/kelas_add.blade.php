@@ -126,11 +126,12 @@
 
                 <div class="mb-3">
                     <label for="inputState">Status</label>
-                <select id="inputState" class="form-control" name="status">
-                    <option value="{{$data->status}}" selected>{{$data->status}}</option>
-                    <option value="1">1</option>
-                    <option value="0">0</option>
-                </select>
+                    <select id="inputState" class="form-control" name="status">
+                        <option value="{{$data->status}}" selected>Pilih status</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Nonaktif</option>
+                    </select>
+                    <div id="emailHelp" class="form-text text-danger">kelas akan ditampilkan diuser jika Aktif dan tidak ditampilkan jika status nonaktif</div>
                 </div>
 
             </form>
@@ -259,7 +260,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                     </h2>
                     <div id="collapse-${data.data.id}" class="accordion-collapse collapse py-3" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="container">
-                            <a href="http://localhost:8000/materi/create?id_bab=${data.data.id}&id_produk=${data.data.id_produk}" type="button" class="btn btn-sm btn-outline-primary">Tambah materi</a>
+                            <a href="/admin/kelas/materi/create?id_bab=${data.data.id}&id_kelas=${data.data.id_kelas}" type="button" class="btn btn-sm btn-outline-primary">Tambah materi</a>
                             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
                             <button type="button" class="btn btn-sm btn-outline-success">Hapus</button>
                         </div>

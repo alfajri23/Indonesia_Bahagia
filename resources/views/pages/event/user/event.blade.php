@@ -14,11 +14,14 @@
     <div class="container">
         <div class="row">
             @forelse ($datas as $data)
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 mb-4">
-                <article class="post-article p-0 border-0 shadow-xss rounded-lg overflow-hidden">
-                    <a href="">
-                        <img src="{{asset($data->poster)}}" alt="blog-image" class="w-100 lozad">
-                    </a>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 mb-4">
+                <article class="post-article p-0 border-0 shadow-xss rounded-lg overflow-hidden h-100">
+                    <div class="">
+                        <div 
+                            class="lozad back-img rounded-lg"
+                            data-background-image="{{ $data->poster != null ? asset($data->poster) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}"
+                        >
+                    </div>
                     <div class="post-content p-4"> 
                         <h6 class="font-xssss text-grey-600 fw-600 ml-3 float-right"><i class="ti-time mr-1"></i> {{$data->waktu}}</h6>
                         <h6 class="font-xsss fw-600 text-green fw-600 float-right"><i class="ti-calendar mr-1"></i> {{date_format(date_create($data->tanggal),"d M Y")}}</h6> 
@@ -30,7 +33,7 @@
                         @if($data->harga_bias)
                         <p class="font-xss fw-400 text-grey-700 my-0 pr-3"><del>Rp.{{$data->harga_bias}}</del></p>
                         @endif
-                        <p class="font-xs fw-700 text-freen mt-0 pr-3">
+                        <p class="font-xs fw-700 text-freen my-0 pr-3">
                             @if ($data->harga == null)
                                 GRATIS
                             @else

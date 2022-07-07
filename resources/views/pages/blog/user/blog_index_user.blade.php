@@ -8,15 +8,6 @@
         text-overflow: ellipsis;
         height: 80px;
     }
-
-    .back{
-        background-repeat: no-repeat;
-        background-origin: content-box;
-        background-size: cover;
-        aspect-ratio: 16 / 9;
-        background-position: center;
-        margin: auto;
-    }
 </style>
 
 <div class="page-nav bg-lightblue pt-lg--7 pb-lg--7 pb-5 pt-5">
@@ -69,7 +60,7 @@
                             <div class="col-4">
                                 <div class="w-100">
                                     <div 
-                                       class="lozad back rounded-lg"
+                                       class="lozad back-img rounded-lg"
                                        data-background-image="{{ $popular->gambar != null ? asset($popular->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}"
                                     >
                                     </div>

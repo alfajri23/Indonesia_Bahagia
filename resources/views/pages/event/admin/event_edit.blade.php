@@ -57,6 +57,7 @@
             <div class="form-group">
                 <label for="exampleFormControlInput1">Poster</label><br>
                 <input type="file" name="poster" class="" id="exampleFormControlInput1" placeholder="">
+                <div id="emailHelp" class="form-text text-danger">Ukuran rasio rekomendasi poster 16:9</div>
             </div>
     
             <div class="form-group">
