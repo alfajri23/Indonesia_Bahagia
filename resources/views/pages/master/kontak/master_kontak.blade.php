@@ -43,8 +43,9 @@
         </div>
 
         <div class="mb-3">
-            <label class="form-label">Telepon secondary</label>
+            <label class="form-label">Telepon bantuan</label>
             <input type="tel" value="{{ $data == null ? '' :$data->telepon_3 }}" name="tel3" class="form-control">
+            <div id="emailHelp" class="form-text text-success">Nomor akan digunakan unutuk tombol bantuan WhatsApp disebelah pojok kanan bawah</div>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>

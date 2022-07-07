@@ -1,11 +1,22 @@
 @extends('layouts.layout_user')
 @section('content')
 
+<style>
+    .list > p{
+        margin-bottom : 0.1rem !important;
+    }
+</style>
+
 <div class="page-nav pt-lg--7 pb-lg--7 pb-5 pt-5">
     <div class="container">
         <div class="row">
             <div class="card w-100 border-0 bg-white shadow-xs p-0 mb-4">
                 <div class="card-body p-lg-5 p-4 w-100 border-0">
+                    @if($errors)
+                        @foreach ($errors->all() as $error)
+                            <div class="alert alert-danger">{{ $error }}</div>
+                        @endforeach
+                    @endif
                     <div class="row">
                         <div class="col-lg-5 order-2 order-sm-1">
                             <div class="col-lg-12 pl-0">
@@ -14,16 +25,13 @@
 
                                 <input type="text" name="janji" value="{{$janji}}" hidden>
 
-                                <h4 class="mb-4 font-lg fw-700 mont-font mb-2">Upload Bukti Pembayaran</h4>
+                                <h4 class="mb-0 font-lg fw-700 mont-font">Upload Bukti Pembayaran</h4>
+                                <h4 class="mb-2 font-md fw-600 mont-font ">{{$pembayaran->deskripsi}}</h4>
 
-                                <ul class="font-xssss text-grey-800 fw-600">
-                                    <li>BCA : No. Rek. 8030112343 A. N. Tri Astuti</li>
-                                    <li>BRI : No. Rek. 144701001148505 A. N. Tri Astuti</li>
-                                    <li>BNI : No. Rek. 0850844796 A. N. Tri Astuti</li>
-                                    <li>Mandiri : No. Rek. 1360010201660 A. N. Tri Astuti</li>
-                                    <li>EWALLET= GOPAY, OVO, DANA : 08579993240 A.N. Tri Astuti</li>
-                                </ul>
+                                <div class="font-xssss text-grey-800 fw-600 list">
+                                    {!! $pembayaran->isi !!}
 
+                                </div>
 
                                 <div class="custom-file mt-3">
                                     <label class="font-weight-bold text-grey-800" for="customFile">Bukti pembayaran</label><br>
@@ -51,7 +59,7 @@
                                     <!-- <h4 class="mb-4 font-xs fw-700 mont-font mt-0">Add Card </h4> -->
                                 </div>
                                 <div class="col-lg-12">
-                                    <img src="{{asset($data->poster)}}" alt="blog-image" class="img-fluid rounded-lg">
+                                    <img src="{{$data->poster != null ? asset($data->poster) : 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'}}" alt="blog-image" class="img-fluid rounded-lg">
                                 </div> 
 
                                 <div class="col-lg-12 mt-2">

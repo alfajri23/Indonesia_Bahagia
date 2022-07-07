@@ -30,9 +30,12 @@ class AppServiceProvider extends ServiceProvider
 
         View()->composer('components.footer.footer_user', function ($view) {
             $data = MasterKontak::first();
-            
-            
             $view->with('data', $data);
+        });
+
+        View()->composer('components.floating_button.floating_button', function ($view) {
+            $data = MasterKontak::first();
+            $view->with('data', $data->telepon_3);
         });
     }
 }

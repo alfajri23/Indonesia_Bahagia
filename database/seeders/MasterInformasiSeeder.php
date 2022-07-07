@@ -14,7 +14,7 @@ class MasterInformasiSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('master_informasis')->insert(
+        DB::table('master_informasis')->insert([
             [
                 'nama' => 'Tentang Kami',
                 'isi' => 'isi',
@@ -27,6 +27,6 @@ class MasterInformasiSeeder extends Seeder
                 'nama' => 'Kebijakan Privasi',
                 'isi' => 'isi',
             ],
-        );
+        ]);
     }
 }

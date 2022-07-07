@@ -33,7 +33,7 @@
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$dt->nama}}</td>
                 <td>
-                    <a type="button" href="{{route('masterAddInformasi',['id'=>$dt->id])}}" class="btn btn-primary btn-sm">Edit</a>
+                    <a type="button" href="{{route('masterAddProgram',['id'=>$dt->id])}}" class="btn btn-primary btn-sm">Edit</a>
                     {{-- <a type="button" href="{{route('masterDeleteInformasi',$dt->id)}}" class="btn btn-danger btn-sm">Hapus</a> --}}
                 </td>
               </tr>

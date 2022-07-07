@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
                 MasterKontakSeeder::class,
                 AdminSeeder::class,
                 ProdukKategoriSeeder::class,
+                MasterSettingProgramSeeder::class,
             ]
         );
     }

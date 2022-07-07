@@ -101,6 +101,11 @@ Route::prefix('master')->group(function(){
     Route::get('/informasi/edit', [ Controllers\Master\Informasi\InformasiController::class,'add'])->name('masterAddInformasi');
     Route::get('/informasi/delete/{id}', [ Controllers\Master\Informasi\InformasiController::class,'delete'])->name('masterDeleteInformasi');
     Route::post('/informasi/store', [ Controllers\Master\Informasi\InformasiController::class,'store'])->name('masterStoreInformasi');
+
+    Route::get('/program', [ Controllers\Master\Program\MasterProgramController::class,'index'])->name('masterProgram');
+    Route::get('/program/edit', [ Controllers\Master\Program\MasterProgramController::class,'add'])->name('masterAddProgram');
+    Route::get('/program/delete/{id}', [ Controllers\Master\Program\MasterProgramController::class,'delete'])->name('masterDeleteProgram');
+    Route::post('/program/store', [ Controllers\Master\Program\MasterProgramController::class,'store'])->name('masterStoreProgram');
 });
 
 

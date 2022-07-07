@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Master\Kontak;
 
+use App\Helpers\Telepon;
 use App\Http\Controllers\Controller;
 use App\Models\MasterKontak;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class KontakController extends Controller
             'alamat' => $request->alamat,
             'telepon_1' => $request->tel1,
             'telepon_2' => $request->tel2,
-            'telepon_3' => $request->tel3,
+            'telepon_3' => Telepon::changeTo62($request->tel3),
         ]);
 
         return redirect()->back();

@@ -6,6 +6,7 @@ use App\Helpers\UploadFile;
 use App\Http\Controllers\Controller;
 use App\Models\EnrollEvent;
 use App\Models\KonsultanJadwalJanji;
+use App\Models\MasterSettingProgram;
 use App\Models\Produk;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
@@ -17,7 +18,12 @@ class PembayaranUserController extends Controller
         
         if($produk->harga != null || $produk->harga != ''){
             $data = $produk;
-            return view('pages.pembayaran.pembayaran',compact('data','janji'));
+
+            //Setting form pembayaran dari tabel settings
+            $pembayaran = MasterSettingProgram::where('nama','transaksi')->get()->first();
+
+
+            return view('pages.pembayaran.pembayaran',compact('data','janji','pembayaran'));
         }else{
             switch ($produk->id_kategori) {
                 case 1:
@@ -44,8 +50,14 @@ class PembayaranUserController extends Controller
         ];
 
         $this->validate($request, [
-            'bukti' => 'file|image|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
+            'bukti' => 'file|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
         ],$messages);
+
+        //CEK TRANSAKSI DOUBLE
+        if($this->cekTransaksiDouble($request)){
+            return redirect()->back()->withErrors(['error' => 'Tidak bisa melakukan pembayaran 2 kali, pembayaran Anda sebelumnya sedang diproses']);
+        }
+
 
         $produk = Produk::find($request->id_produk);
 
@@ -63,6 +75,9 @@ class PembayaranUserController extends Controller
 
         //KONSULTASI
         $this->cekJanjiKonsultasi($request,$transaksi);
+
+        
+        
 
         return redirect()->route('homeUser');
     }
@@ -90,5 +105,17 @@ class PembayaranUserController extends Controller
                 'id_transaksi' => $transaksi->id
             ]);
         }
+    }
+
+    public function cekTransaksiDouble($request){
+
+        $data = Transaksi::where([
+            'id_user' => auth()->user()->id,
+            'id_produk' => $request->id_produk,
+            'status' => 'pending'
+        ])->get();
+
+        return count($data) > 0 ? true : false;
+
     }
 }

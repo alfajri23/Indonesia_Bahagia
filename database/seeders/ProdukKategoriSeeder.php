@@ -14,7 +14,7 @@ class ProdukKategoriSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('produk_kategoris')->insert(
+        DB::table('produk_kategoris')->insert([
             [
                 'nama' => 'Webinar',
             ],
@@ -24,6 +24,6 @@ class ProdukKategoriSeeder extends Seeder
             [
                 'nama' => 'Kelas',
             ],
-        );
+        ]);
     }
 }
