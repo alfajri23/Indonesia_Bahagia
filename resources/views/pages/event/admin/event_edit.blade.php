@@ -10,7 +10,7 @@
             @csrf
             <div class="card-body mb-5">
                 <div class="row no-gutters align-items-center">
-                    <img src="{{asset($data->poster)}}" style="max-width:100%" alt="">
+                    <img src="{{asset($data->poster)}}" style="max-width:100%" alt="Tidak ada poster">
                 </div>
             </div>
 
@@ -50,6 +50,16 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Harga bias</label>
                     <input type="text" onkeyup="currencyFormat(this)" name="harga_bias" value="{{$data->harga_bias}}" class="form-control" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="inputState">Status</label>
+                    <select id="inputState" class="form-control" name="status">
+                        <option value="{{$data->status}}" selected>Pilih status</option>
+                        <option value="1">Aktif</option>
+                        <option value="0">Nonaktif</option>
+                    </select>
+                    <div id="emailHelp" class="form-text text-danger">Event akan ditampilkan diuser jika Aktif dan tidak ditampilkan jika status nonaktif</div>
                 </div>
         </div>
 
