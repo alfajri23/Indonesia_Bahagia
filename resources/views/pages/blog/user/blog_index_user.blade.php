@@ -8,6 +8,15 @@
         text-overflow: ellipsis;
         height: 80px;
     }
+
+    .back{
+        background-repeat: no-repeat;
+        background-origin: content-box;
+        background-size: cover;
+        aspect-ratio: 16 / 9;
+        background-position: center;
+        margin: auto;
+    }
 </style>
 
 <div class="page-nav bg-lightblue pt-lg--7 pb-lg--7 pb-5 pt-5">
@@ -58,7 +67,15 @@
                     <div class="card w-100 shadow-none bg-transparent border-0 mb-3">
                         <div class="row">
                             <div class="col-4">
-                                <img data-src="{{ $popular->gambar != null ? asset($popular->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="img-fluid rounded-lg lozad">
+                                <div class="w-100">
+                                    <div 
+                                       class="lozad back rounded-lg"
+                                       data-background-image="{{ $popular->gambar != null ? asset($popular->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}"
+                                    >
+                                    </div>
+                                </div>
+
+                                {{-- <img data-src="{{ $popular->gambar != null ? asset($popular->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="img-fluid rounded-lg lozad"> --}}
                             </div>
                             <div class="col-8 pl-1">
                                 <h6 class="font-xssss text-grey-500 fw-600 my-0">{{$popular->kategori}}</h6>
@@ -81,8 +98,13 @@
                         <article class="post-article p-0 border-0 shadow-xss rounded-lg overflow-hidden">
                             <a href="{{route('blogDetailUser',$blog->id)}}" class="row">
                                 <div class="col-4 col-xs-12 d-flex aligh-items-center">
-                                    <div class="p-3">
-                                        <img data-src="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="w-100 rounded-lg lozad center-img">
+                                    <div class="w-100 p-3">
+                                        <div 
+                                           class="lozad back center-img rounded-lg"
+                                           data-background-image="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}"
+                                        >
+                                        </div>
+                                        {{-- <img data-src="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="w-100 rounded-lg lozad center-img"> --}}
                                     </div>
                                 </div>
                                 <div class="col-8 col-xs-12 pl-md--0">
