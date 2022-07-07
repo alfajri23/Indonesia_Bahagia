@@ -114,6 +114,10 @@ Route::group(['middleware' => ['auth']], function() {
 
     //Route::group(['middleware' => ['verified']], function() {
 
+        //*FORUM
+        Route::get('/forum/my-question', [ Controllers\Forum\User\ForumUserController::class,'myQuestion'])->name('forumMyQuestion');
+
+        //* ENROLL
         Route::get('/produk/enroll/{id}', [Controllers\Produk\User\ProdukUserController::class, 'enroll'])->name('produkDetailEnroll');
 
         //* KELAS

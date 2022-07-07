@@ -13,13 +13,16 @@ use Illuminate\Support\Facades\File;
 class ForumUserController extends Controller
 {
     public function index(){
+        $title = 'Temukan berbagai informasi baru disini';
+
         $data = ForumPertanyaan::query()
         ->when(request('cari') != null, function ($q){ 
+            $this->title = 'Pencarian '. request('cari');
             return $q = ForumPertanyaan::where('judul','like','%'.request('cari').'%');
         })
         ->when(request('kategori') != null, function ($q){ 
+            $this->title = 'Pencarian kategori '. request('kategori');
             $id = ForumKategori::where('nama','like','%'.request('kategori').'%')->pluck('id');
-            //dd($id);
             return $q = ForumPertanyaan::whereIn('id_kategori',$id);
         })
         ->when(request('kategori') == null && request('cari') == null, function ($q){ 
@@ -28,7 +31,16 @@ class ForumUserController extends Controller
 
         $kategori = ForumKategori::all();
 
-        return view('pages.forum.forum_public',compact('data','kategori'));
+        return view('pages.forum.forum_public',compact('data','kategori','title'));
+    }
+
+    public function myQuestion(){
+        $data = ForumPertanyaan::where('id_user',auth()->user()->id)->paginate(8);
+        $kategori = ForumKategori::all();
+        $title = 'Pertanyaan saya';
+
+        return view('pages.forum.forum_public',compact('data','kategori','title'));
+
     }
 
     public function store(Request $request){

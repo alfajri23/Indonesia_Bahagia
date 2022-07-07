@@ -8,6 +8,12 @@
         top: 10px;
         cursor: pointer;
     }
+
+    .btn-search{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+    }
 </style>
 
 <div class="course-details pt-lg--7 pb-lg--7 pt-5 pb-5">
@@ -15,24 +21,32 @@
         <div class="row">
             <div class="col-xl-8 col-xxl-9 col-lg-8">
 
+                <h5 class="font-lg fw-500 text-center">{{$title}}</h5>
+
                 <div class="col-12">
-                    <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
+                    <div class="card d-block border-1 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
                         <div class="row">
-                            <div class="col-12 col-sm-10">
+                            <div class="col-12 col-sm-10 mx-auto">
                                 <form action="{{route('forum')}}" method="GET" >
                                 <div class="form-group icon-right-input style2-input mb-0">
-                                    <input type="text" placeholder="Cari" class="form-control rounded-xs bg-greylight border-0 font-xsss fw-500 pl-3">
-                                    <i type="submit" class="ti-search text-primary font-lg m-1"></i>
+                                    <input type="text" name="cari" placeholder="Cari" class="form-control rounded-xs bg-greylight border-0 font-xsss fw-500 pl-3">
+                                    <button type="submit" class="btn btn-search"><i class="ti-search text-primary font-lg position-static"></i></button>
+                                    
                                 </div>
                                 </form>
                             </div>
-                            <div class="col-12 col-sm-2 mt-2">
-                                <div class="w-100">
-                                    <button type="button" class="btn btn-primary w-100" data-toggle="modal" data-target="#exampleModal">
+
+                            <div class="col-12 col-sm-10 mx-auto mt-2">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                         <i class="ti-help"></i>
-                                        Tanya
+                                        Tanyakan sesuatu
                                     </button>
-                                </div>
+
+                                    <a href="{{route('forumMyQuestion')}}" class="btn btn-outline-dark my-1">
+                                        <i class="ti-user"></i>
+                                        Pertanyaan saya
+                                    </a>
+                                
                             </div>
                         </div>
                     </div>
@@ -41,7 +55,7 @@
                 <div class="col-12">
     
                     @forelse ($data as $dt)
-                    <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
+                    <div class="card d-block border-1 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
                         @auth
                             @if ($dt->id_user == auth()->user()->id)
                             <span class="edit">

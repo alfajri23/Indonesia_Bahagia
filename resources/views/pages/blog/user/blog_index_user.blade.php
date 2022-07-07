@@ -110,8 +110,9 @@
                                 <div class="col-8 col-xs-12 pl-md--0">
                                     <div class="post-content p-3">
                                         <h6 class="font-xssss text-grey-500 fw-600 float-left"><i class="ti-folder mr-2"></i>{{$blog->kategori}}</h6> 
-                                        <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-time mr-2"></i> {{date_format(date_create($blog->updated_at),"d M Y")}}</h6> 
+                                        <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-time mr-1"></i> {{date_format(date_create($blog->updated_at),"d M Y")}}</h6> 
                                         <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-user mr-2"></i>{{$blog->penulis}}</h6>
+                                        <h6 class="font-xssss text-grey-500 fw-600 ml-3 float-left"><i class="ti-eye mr-2"></i>{{$blog->pengunjung}}</h6>
                                         <div class="clearfix"></div>
                                         <h2 class="post-title mt-2 mb-2 pr-3">
                                             <span class="lh-30 font-sm mont-font text-grey-800 fw-700">{{$blog->judul}}</span>
