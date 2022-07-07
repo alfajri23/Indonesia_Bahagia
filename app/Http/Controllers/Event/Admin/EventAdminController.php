@@ -111,7 +111,8 @@ class EventAdminController extends Controller
             'id_produk' => $event->id,
             'nama' => $request->judul,
             'harga' => str_replace(",", "", $request->harga),
-            'id_konsultan' => $event->id_konsultan
+            'id_konsultan' => $event->id_konsultan,
+            'poster' => $event->poster
         ]);
 
 

@@ -91,7 +91,7 @@
                                 <div class="col-4 col-xs-12 d-flex aligh-items-center">
                                     <div class="w-100 p-3">
                                         <div 
-                                           class="lozad back center-img rounded-lg"
+                                           class="lozad back-img center-img rounded-lg"
                                            data-background-image="{{ $blog->gambar != null ? asset($blog->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}"
                                         >
                                         </div>

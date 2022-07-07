@@ -104,6 +104,7 @@ class KelasAdminController extends Controller
 
         $produk->nama = $request->judul;
         $produk->harga = $request->harga;
+        $produk->poster = $data->poster;
         $produk->save();
 
         return redirect()->back();

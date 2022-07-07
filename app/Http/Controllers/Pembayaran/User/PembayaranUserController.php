@@ -31,6 +31,8 @@ class PembayaranUserController extends Controller
                   break;   
                 default:     
             }
+
+            //!KELAS GRATIS BELUM ADA
         }
     }
 
@@ -42,7 +44,7 @@ class PembayaranUserController extends Controller
         ];
 
         $this->validate($request, [
-            'bukti' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+            'bukti' => 'file|image|mimes:jpeg,png,jpg,pdf,doc,docx|max:2048',
         ],$messages);
 
         $produk = Produk::find($request->id_produk);

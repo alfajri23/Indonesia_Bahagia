@@ -29,7 +29,7 @@
                                     <label class="font-weight-bold text-grey-800" for="customFile">Bukti pembayaran</label><br>
                                     <input type="file" name="bukti" class="" id="customFile" required>
                                     <small class="form-text text-muted">
-                                        Format file yang diterima pdf, jpg, png, jpeg | Max 5 Mb
+                                        Format file yang diterima pdf, jpg, png, jpeg | Max 2 Mb
                                     </small>
                                     @error('bukti')
                                         <span class="" role="alert alert-danger">
@@ -51,7 +51,7 @@
                                     <!-- <h4 class="mb-4 font-xs fw-700 mont-font mt-0">Add Card </h4> -->
                                 </div>
                                 <div class="col-lg-12">
-                                    <img src="https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="blog-image" class="img-fluid rounded-lg">
+                                    <img src="{{asset($data->poster)}}" alt="blog-image" class="img-fluid rounded-lg">
                                 </div> 
 
                                 <div class="col-lg-12 mt-2">
