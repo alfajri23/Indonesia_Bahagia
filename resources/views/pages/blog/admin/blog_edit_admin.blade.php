@@ -3,76 +3,93 @@
 @section('content')
 
 <div class="container-fluid">
-    <h2 class="text-center h1 font-weight-bold text-gray-800 mb-4">Edit Blog</h2>
-    <div class="row">
-        <div class="col-9">
-            <form action="{{route('blogStoreAdmin')}}" method="post" enctype="multipart/form-data">
-                @csrf
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Judul</label>
-                    <input type="hidden" name="id" value="{{$data->id}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-                    <input type="text" name="judul" value="{{$data->judul}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="exampleInputnama1">Isi</label>
-                    <textarea name="isi" class="form-control isi" required>
-                        {{ old('isi') ?? $data->isi ?? '' }}
-                    </textarea>
-                </div>
-        </div>
-        <div class="col-3 pt-4">
-            <img src="{{asset($data->gambar)}}" style="width:250px" alt="" >
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Gambar</label><br>
-                <input type="file" name="gambar" id="exampleFormControlInput1" placeholder="">
+
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4 class="fw-bolder">Edit Blog</h4>
             </div>
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
             
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Kategori</label>
-                    <select name="id_kategori" class="form-control" id="exampleFormControlSelect1" required>
-                        <option value="{{$data->id_kategori}}" selected>Pilih</option>
-                        @forelse ( $kat as $dt)
-                            <option value="{{$dt->id}}">{{$dt->nama}}</option>
-                        @empty
-                            
-                        @endforelse
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="exampleFormControlInput1">Penulis</label>
-                <input type="text" name="penulis" value="{{$data->penulis}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">tag</label>
-                <input type="text" name="tag" value="{{$data->tag}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">meta_title</label>
-                <input type="text" name="meta_title" value="{{$data->meta_title}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">meta_desc</label>
-                <input type="text" name="meta_desc" value="{{$data->meta_description}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="exampleFormControlInput1">meta_keyword</label>
-                <input type="text" name="meta_keyword" value="{{$data->meta_keyword}}" class="form-control" id="exampleFormControlInput1" placeholder="">
-            </div>
-            <button type="submit" class="btn btn-success">
-                <i class="fa-solid fa-paper-plane-top"></i>
-                Publish
-            </button>
         </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            @include('components.error.error_message')
+            <div class="row">
+                <div class="col-9">
+                    <form action="{{route('blogStoreAdmin')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Judul</label>
+                            <input type="hidden" name="id" value="{{$data->id}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            <input type="text" name="judul" value="{{$data->judul}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="exampleInputnama1">Isi</label>
+                            <textarea name="isi" class="form-control isi" required>
+                                {{ old('isi') ?? $data->isi ?? '' }}
+                            </textarea>
+                        </div>
+                </div>
+                <div class="col-3 pt-4">
+                    <img src="{{asset($data->gambar)}}" style="width:250px" alt="" >
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Gambar</label><br>
+                        <input type="file" name="gambar" class="dropify form-control">
+                        <div id="emailHelp" class="form-text text-danger">Ukuran rasio rekomendasi : 16:9 | Format yang diterima : jpeg,png,jpg | Max 2Mb</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Kategori</label>
+                            <select name="id_kategori" class="form-control" id="exampleFormControlSelect1" required>
+                                <option value="{{$data->id_kategori}}" selected>Pilih</option>
+                                @forelse ( $kat as $dt)
+                                    <option value="{{$dt->id}}">{{$dt->nama}}</option>
+                                @empty
+                                    
+                                @endforelse
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Penulis</label>
+                        <input type="text" name="penulis" value="{{$data->penulis}}" class="form-control" id="exampleFormControlInput1" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">tag</label>
+                        <input type="text" name="tag" value="{{$data->tag}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">meta_title</label>
+                        <input type="text" name="meta_title" value="{{$data->meta_title}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">meta_desc</label>
+                        <input type="text" name="meta_desc" value="{{$data->meta_description}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">meta_keyword</label>
+                        <input type="text" name="meta_keyword" value="{{$data->meta_keyword}}" class="form-control" id="exampleFormControlInput1" placeholder="">
+                    </div>
+                    <button type="submit" class="btn btn-success text-white">
+                        <i class="fa-solid fa-paper-plane-top"></i>
+                        Publish
+                    </button>
+                </div>
 
 
-        
-        
+                
+                
 
-        </form>
+                </form>
+            </div>
+        </div>
     </div>
 
 </div>

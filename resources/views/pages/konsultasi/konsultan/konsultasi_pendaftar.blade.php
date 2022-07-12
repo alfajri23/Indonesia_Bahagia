@@ -3,25 +3,30 @@
 @section('content')
 
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Pendaftaran Konsultasi</h1>
 
-    <div class="table-responsive">
-        <table class="table table-bordered tablePendaftaran" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Pasien</th>
-                    <th>Tanggal</th>
-                    <th>Jam</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-    </div>
+    <div class="card">
+        <div class="card-body">
+
+            <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Konsultasi</h1>
+
+            <div class="table-responsive">
+                <table class="table table-bordered display tablePendaftaran" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Pasien</th>
+                            <th>Tanggal</th>
+                            <th>Jam</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 </div>
 
@@ -84,7 +89,7 @@
                 {data: 'tanggal', name: 'tanggal',width: "10%"},
                 {data: 'jam', name: 'jam',width: "15%"},
                 {data: 'status', name: 'status',width: "5%"},
-                {data: 'aksi', name: 'aksi',width: "13%"},
+                {data: 'aksi', name: 'aksi',width: "15%"},
             ],
             // dom: 'Bfrtlip',
             buttons: [

@@ -34,17 +34,20 @@ class InformasiController extends Controller
     }
 
     public function termCondition(){
+        $title = 'Syarat dan Kebijakan - halobahagia.com';
         $data = MasterInformasi::where('nama', 'like', '%Syarat dan Ketentuan%')->first();
-        return view('pages.informasi.term_condition',compact('data'));
+        return view('pages.informasi.term_condition',compact('data','title'));
     }
 
     public function about(){
+        $title = 'Tentang kami - halobahagia.com';
         $data = MasterInformasi::where('nama', 'like', '%Tentang Kami%')->first();
-        return view('pages.informasi.term_condition',compact('data'));
+        return view('pages.informasi.term_condition',compact('data','title'));
     }
 
     public function privacy(){
+        $title = 'Keamanan dan Privasi - halobahagia.com';
         $data = MasterInformasi::where('nama', 'like', '%Kebijakan Privasi%')->first();
-        return view('pages.informasi.term_condition',compact('data'));
+        return view('pages.informasi.term_condition',compact('data','title'));
     }
 }

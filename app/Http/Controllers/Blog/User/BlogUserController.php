@@ -12,6 +12,7 @@ class BlogUserController extends Controller
 {
 
     public function index(Request $request){
+        $title = 'Blog - halobahagia.com';
         $populars = Blog::limit(3)->orderBy('pengunjung','desc')->get();
         $kategories = BlogKategori::all();
 
@@ -21,24 +22,26 @@ class BlogUserController extends Controller
             $blogs = Blog::latest()->paginate(6);
         }
 
-        return view('pages.blog.user.blog_index_user',compact('blogs','populars','kategories'));   
+        return view('pages.blog.user.blog_index_user',compact('blogs','populars','kategories','title'));   
     }
 
-    public function detail($id){
+    public function detail($id,$link= null){
+        $title = 'Detail Blog - halobahagia.com';
         $blog = Blog::find($id);
         $blog->update(['pengunjung' => $blog->pengunjung + 1]);
         $populars = Blog::inRandomOrder()->where('id_kategori',$blog->id_kategori)->limit(6)->get();
         $komentars = BlogKomentar::where('id_blog',$id)->latest()->get();
 
-        return view('pages.blog.user.blog_detail_user',compact('blog','populars','komentars'));   
+        return view('pages.blog.user.blog_detail_user',compact('blog','populars','komentars','title'));   
     }
 
     public function filterByCategory(Request $request){
+        $title = 'Blog - halobahagia.com';
         $blogs = Blog::where('id_kategori',$request->kategori)->paginate(6);
         $populars = Blog::limit(3)->orderBy('pengunjung','desc')->get();
         $kategories = BlogKategori::all();
 
-        return view('pages.blog.user.blog_index_user',compact('blogs','populars','kategories'));
+        return view('pages.blog.user.blog_index_user',compact('blogs','populars','kategories','title'));
     }
 
     public function storeKomentar(Request $request){

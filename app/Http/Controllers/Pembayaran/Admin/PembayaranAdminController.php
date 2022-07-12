@@ -100,10 +100,12 @@ class PembayaranAdminController extends Controller
 
 
                     $actionBtn = '
-                    <div class="btn-group"">
-                        '.$btnDetail.'
-                        <a href="https://wa.me/'.$tel.'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
-                        '.$btnDel.'
+                    <div class="clearfix">
+                        <div class="">
+                            '.$btnDetail.'
+                            <a href="https://wa.me/'.$tel.'" target="_blank" class="btn btn-success text-white my-1 btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+                            '.$btnDel.'
+                        </div>
                     </div>
                     ';
                     return $actionBtn;

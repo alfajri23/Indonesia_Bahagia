@@ -3,24 +3,32 @@
 
 
 <div class="container">
-    <h1 class="h1 font-weight-bold text-gray-800 mb-3">Informasi perusahaan</h1>
+  <div class="card">
+    <div class="card-body">
+      <h1 class="fw-bolder mb-3">Informasi perusahaan</h1>
 
-    <form method="post" action="{{ route('masterStoreInformasi')}}">
-    @csrf
-        <div class="mb-3">
-          <label class="form-label">Nama</label>
-          <input type="text" value="{{ $data == null ? '' :$data->id }}" name="id" class="form-control" hidden>
-          <input type="text" value="{{ $data == null ? '' :$data->nama }}" name="nama" class="form-control">
-        </div>
+      <form method="post" action="{{ route('masterStoreInformasi')}}">
+        @csrf
+          <div class="mb-3">
+            <label class="form-label">Nama</label>
+            <input type="text" value="{{ $data == null ? '' :$data->id }}" name="id" class="form-control" hidden>
+            <input type="text" value="{{ $data == null ? '' :$data->nama }}" name="nama" class="form-control">
+          </div>
 
-        <div class="mb-3">
-          <label class="form-label">Deskripsi</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" name="isi">
-            {{$data == null ? '' :$data->isi}}
-          </textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+          <div class="mb-3">
+            <label class="form-label">Deskripsi</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" name="isi">
+              {{$data == null ? '' :$data->isi}}
+            </textarea>
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-success text-white">Simpan</button>
+            <a href="{{ url()->previous() }}" class="btn btn-light">Batal</a>
+          </div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js"

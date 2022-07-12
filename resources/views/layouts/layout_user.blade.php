@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>Hallo Bahagia</title>
+    <title>{{isset($title) ? $title : 'Hallo bahagia';}}</title>
 
     <!-- Additional CSS Files -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -25,19 +25,18 @@
     <link rel="stylesheet" href="{{ asset('css/user/feather.css') }}">
     {{-- <link rel="stylesheet" href="{{ asset('css/user/owl/owl.carousel.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/user/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/user/style2.css') }}">
     <link rel="stylesheet" href="{{ asset('css/user/aos.min.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!--
 
-TemplateMo 573 EduWell
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
-https://templatemo.com/tm-573-eduwell
-
--->
   </head>
 
 <body>
@@ -53,7 +52,7 @@ https://templatemo.com/tm-573-eduwell
     {{-- </div>
   </div> --}}
 
-  @include('components.floating_button.floating_button')
+  {{-- @include('components.floating_button.floating_button') --}}
 
 
   @include('components.footer.footer_user')

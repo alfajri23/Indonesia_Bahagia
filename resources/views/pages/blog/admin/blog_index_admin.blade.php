@@ -2,59 +2,68 @@
 
 @section('content')
 
-<div class="container-fluid">
-    <h1 class="h1 font-weight-bold text-gray-800 mb-4">Blog Aktif</h1>
 
-    <div class="row justify-content-between">
-        <div>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Kategori</label>
-                <select id="status" class="form-control">
-                    <option value="">Pilih</option>
-                    @forelse ( $kat as $dt)
-                        <option value="{{$dt->id}}">{{$dt->nama}}</option>
-                    @empty
-                        
-                    @endforelse
-                </select>
-              </div>
-        </div>
+    <div class="card">
+        <div class="card-body">
 
-        <div>
-            <a href="{{route('blogAdd')}}" class="btn btn-sm btn-primary">Tambah</a>
-            <a href="{{route('blogKategori')}}" class="btn btn-sm btn-secondary">Setting</a>
+            <h3 class="fw-bolder mb-4">Blog Aktif</h3>
+
+            <div class="row justify-content-between align-items-center">
+                <div class="col-5">
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Kategori</label>
+                        <select id="status" class="form-control">
+                            <option value="">Pilih</option>
+                            @forelse ( $kat as $dt)
+                                <option value="{{$dt->id}}">{{$dt->nama}}</option>
+                            @empty
+                                
+                            @endforelse
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <a href="{{route('blogAdd')}}" class="btn btn-sm btn-success text-white">Tambah</a>
+                    <a href="{{route('blogKategori')}}" class="btn btn-sm btn-outline-dark">Setting</a>
+                </div>
+            </div>
+            <p></p>
         </div>
     </div>
-    
-    <p></p>
 
-    <div class="table-responsive">
-        <table class="table table-bordered tableBlog" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Id kategori</th>
-                    <th>Kategori</th>
-                    <th>Penulis</th>
-                    <th>Tanggal</th>
-                    <th>Tayangan</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered tableBlog" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Judul</th>
+                            <th>Id kategori</th>
+                            <th>Kategori</th>
+                            <th>Penulis</th>
+                            <th>Tanggal</th>
+                            <th>Tayangan</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-</div>
+
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 
-    let tabel = $('.tableBlog');
-
+    
     $(function (){
+        let tabel = $('.tableBlog');
         let table = tabel.DataTable({
             processing: true,
             serverSide: true,

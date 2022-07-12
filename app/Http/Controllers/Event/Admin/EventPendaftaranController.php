@@ -77,7 +77,7 @@ class EventPendaftaranController extends Controller
                 $actionBtn = '
                     <div class="">
                         '.$btnTransaksi.'
-                        <a href="https://wa.me/'.Telepon::changeTo62($row->user->telepon).'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://wa.me/'.Telepon::changeTo62($row->user->telepon).'" target="_blank" class="btn btn-success text-white btn-sm"><i class="fa-brands fa-whatsapp"></i></a>
                     </div>
                 ';
                 

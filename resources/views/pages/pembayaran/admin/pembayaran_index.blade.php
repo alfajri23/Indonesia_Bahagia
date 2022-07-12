@@ -15,9 +15,9 @@
     }
 </style>
 
-<div class="container-fluid">
-    <h1 class="h1 font-weight-bold text-gray-800 mb-4">Transaksi {{$_GET['tipe']}}</h1>
-    
+<div class="card">
+    <div class="card-body">
+    <h1 class="fw-bolder mb-4">Transaksi {{$_GET['tipe']}}</h1>
 
     <div class="table-responsive">
 
@@ -33,7 +33,7 @@
         </div>
 
 
-        <table class="table table-bordered tableTransaksi" width="100%" cellspacing="0">
+        <table class="table table-bordered display tableTransaksi" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>v</th>
@@ -50,6 +50,7 @@
             <tbody>
             </tbody>
         </table>
+    </div>
     </div>
 
 </div>
@@ -126,9 +127,9 @@
     const urlParams = new URLSearchParams(queryString);
     let ajax = urlParams.get('tipe');
 
-    let tabel = $('.tableTransaksi');
-
+    
     $(function (){
+        let tabel = $('.tableTransaksi');
 
         tabel.DataTable({
             order: [[7, 'desc']],

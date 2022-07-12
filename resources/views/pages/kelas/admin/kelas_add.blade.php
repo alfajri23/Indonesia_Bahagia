@@ -4,141 +4,159 @@
 
 <div class="container-fluid">
 
-    <div class="row">
-        <div class="col-8">
-            <form action="{{route('kelasUpdate')}}" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="p-3">
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Nama kelas</label>
-                    <input type="text" name="judul" value="{{$data->judul}}" class="form-control">
-                    <input type="hidden" name="id" value="{{$data->id}}" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Tentang kelas</label>
-                    <input type="text" name="tentang" value="{{$data->tentang}}"  class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Deskripsi</label>
-                    <input type="text" value="{{$data->desc}}" name="desc" class="form-control">
-                        
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Point yang akan dipelajari</label>
-                    <textarea name="point" class="form-control point"> 
-                        {{$data->poin_produk}} 
-                    </textarea>
-                </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Bab</label>
-
-                    <div class="accordion accordion-flush" id="babList" >
-
-                        {{-- LOOPING BAB --}}
-                        @forelse ($babs as $bab)
-                        <div class="accordion-item my-2">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button id="babNama-{{$bab->id}}" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$bab->id}}" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    {{$bab->nama}}
-                                </button>
-                            </h2>
-                            <div id="collapse-{{$bab->id}}" class="accordion-collapse collapse py-3" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                {{-- LOOPING MATERI --}}
-                                @forelse ($bab->isi_bab as $isi)     
-                                    <div class="accordion-body" id="materi-{{$isi->id}}">
-                                        <div class="row">
-                                            <div class="col-10">
-                                                {{$isi->judul}}
-                                            </div>
-                                            <div class="col-2">
-                                                <a class="btn btn-sm btn-outline-primary" href="{{route('materiDetail',$isi->id)}}">
-                                                    <i class="fas fa-pencil"></i>
-                                                </a>
-                                                <a class="btn btn-sm btn-outline-danger" onclick="deleteMateri({{$isi->id}})">
-                                                    <i class="fas fa-trash"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                    
-                                @endforelse
-                                
-                                {{-- button --}}
-                                <div class="container">
-                                    <a href="{{route('materiCreate',['id_bab' => $bab->id , 'id_kelas' => $data->id ])}}" type="button" class="btn btn-sm btn-outline-primary">Tambah materi</a>
-                                    <button type="button" onclick="editBab({{$bab->id}},'{{$bab->nama}}')" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                    <a href="{{route('babDelete',$bab->id)}}" type="button" class="btn btn-sm btn-outline-success">Hapus</a>
-                                </div>
-                            </div>
-                        </div>                   
-                        @empty
-                        @endforelse
-                    </div>
-
-                    {{-- Modal Tambah Bab --}}
-                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#babModal">
-                        Tambah bab
-                    </button>
-
-                </div>
-
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>Kelas</h4>
             </div>
         </div>
-    
-        <div class="col-4">
-            <div class="p-3">
-                <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
-                    <button type="submit" class="btn btn-success mb-2">Tambahkan</button>
-                    <button onclick="deleteProduk({{$data->id}})" type="button" class="btn btn-outline-danger">Hapus</button>
-                </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            
+        </div>
+    </div>
 
-                <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
-                    <img id="output" src="{{ $data->poster ? asset($data->poster) : 'https://via.placeholder.com/240'}}"/>
-                    <div class="custom-file mt-2">
-                        <input onchange="loadFile(event)" type="file" class="custom-file-input" name="poster">
-                        <label class="custom-file-label" for="customFileLang">Upload gambar</label>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-8">
+                    <form action="{{route('kelasUpdate')}}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <div class="p-3">
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Nama kelas</label>
+                            <input type="text" name="judul" value="{{$data->judul}}" class="form-control">
+                            <input type="hidden" name="id" value="{{$data->id}}" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Tentang kelas</label>
+                            <input type="text" name="tentang" value="{{$data->tentang}}"  class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Deskripsi</label>
+                            <input type="text" value="{{$data->desc}}" name="desc" class="form-control">
+                                
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Point yang akan dipelajari</label>
+                            <textarea name="point" class="form-control point"> 
+                                {{$data->poin_produk}} 
+                            </textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Bab</label>
+
+                            <div class="accordion accordion-flush" id="babList accordionFlushExample" >
+
+                                {{-- LOOPING BAB --}}
+                                @forelse ($babs as $bab)
+                                <div class="accordion-item my-2">
+                                    <h2 class="accordion-header">
+                                        <button id="babNama-{{$bab->id}}" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-{{$bab->id}}" aria-expanded="false" aria-controls="collapse-{{$bab->id}}">
+                                            {{$bab->nama}}
+                                        </button>
+                                    </h2>
+                                    <div id="collapse-{{$bab->id}}" class="accordion-collapse collapse py-3" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                        {{-- LOOPING MATERI --}}
+                                        @forelse ($bab->isi_bab as $isi)     
+                                            <div class="accordion-body" id="materi-{{$isi->id}}">
+                                                <div class="row">
+                                                    <div class="col-10">
+                                                        {{$isi->judul}}
+                                                    </div>
+                                                    <div class="col-2">
+                                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                                            <a class="btn btn-sm btn-outline-primary" href="{{route('materiDetail',$isi->id)}}">
+                                                                <i class="fas fa-pencil"></i>
+                                                            </a>
+                                                            <a class="btn btn-sm btn-outline-danger" onclick="deleteMateri({{$isi->id}})">
+                                                                <i class="fas fa-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @empty
+                                            
+                                        @endforelse
+                                        
+                                        {{-- button --}}
+                                        <div class="container border-top pt-3">
+                                            <a href="{{route('materiCreate',['id_bab' => $bab->id , 'id_kelas' => $data->id ])}}" type="button" class="btn btn-sm btn-outline-success">Tambah materi</a>
+                                            <button type="button" onclick="editBab({{$bab->id}},'{{$bab->nama}}')" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                            <a href="{{route('babDelete',$bab->id)}}" type="button" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                        </div>
+                                    </div>
+                                </div>                   
+                                @empty
+                                @endforelse
+                            </div>
+
+                            {{-- Modal Tambah Bab --}}
+                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#babModal">
+                                Tambah bab
+                            </button>
+
+                        </div>
+
                     </div>
                 </div>
+            
+                <div class="col-4">
+                    <div class="p-3">
+                        <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
+                            <button type="submit" class="btn btn-success text-white mb-2">Simpan</button>
+                            <button onclick="deleteProduk({{$data->id}})" type="button" class="btn btn-outline-danger">Hapus</button>
+                        </div>
 
-                <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
-                    <div class="mb-3">
-                        <p class="mb-0 fw-700 text-grey-800 display2-md-size">Kategori</p>
-                        <p class="badge bg-info">{{isset($data->kategori->nama) ? $data->kategori->nama : ''}}</p>
-                        <select class="custom-select" name="id_kategori">
-                            <option selected value="{{$data->id_kategori}}">Choose...</option>
-                            @forelse ($kategori as $kat)
-                                <option value="{{$kat->id}}">{{$kat->nama}}</option>
-                            @empty  
-                            @endforelse
-                        </select>
+                        <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
+                            <img id="output" src="{{ $data->poster ? asset($data->poster) : 'https://via.placeholder.com/240'}}"/>
+                            <div class="custom-file mt-2">
+                                <input type="file" name="poster" class="dropify form-control" id="exampleFormControlInput1" placeholder="">
+                                <div id="emailHelp" class="form-text text-danger">Ukuran rasio rekomendasi poster 16:9</div>
+                            </div>
+                        </div>
+
+                        <div class="card w-100 text-left border-0 shadow-xss rounded-lg p-3 mb-3">
+                            <div class="mb-3">
+                                <p class="mb-0 fw-700 text-grey-800 display2-md-size">Kategori</p>
+                                <p class="badge bg-info">{{isset($data->kategori->nama) ? $data->kategori->nama : ''}}</p><br>
+                                <select class="custom-select" name="id_kategori">
+                                    <option selected value="{{$data->id_kategori}}">Choose...</option>
+                                    @forelse ($kategori as $kat)
+                                        <option value="{{$kat->id}}">{{$kat->nama}}</option>
+                                    @empty  
+                                    @endforelse
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-700 text-grey-800 display2-md-size">Harga</label>
+                            <input type="text" name="harga" value="{{$data->harga}}" class="form-control">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="inputState">Status</label>
+                            <select id="inputState" class="form-control" name="status">
+                                <option value="{{$data->status}}" selected>Pilih status</option>
+                                <option value="1">Aktif</option>
+                                <option value="0">Nonaktif</option>
+                            </select>
+                            <div id="emailHelp" class="form-text text-danger">kelas akan ditampilkan diuser jika Aktif dan tidak ditampilkan jika status nonaktif</div>
+                        </div>
+
+                    </form>
+
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label class="fw-700 text-grey-800 display2-md-size">Harga</label>
-                    <input type="text" name="harga" value="{{$data->harga}}" class="form-control">
-                </div>
-
-                <div class="mb-3">
-                    <label for="inputState">Status</label>
-                    <select id="inputState" class="form-control" name="status">
-                        <option value="{{$data->status}}" selected>Pilih status</option>
-                        <option value="1">Aktif</option>
-                        <option value="0">Nonaktif</option>
-                    </select>
-                    <div id="emailHelp" class="form-text text-danger">kelas akan ditampilkan diuser jika Aktif dan tidak ditampilkan jika status nonaktif</div>
-                </div>
-
-            </form>
-
             </div>
         </div>
     </div>
+
 </div>
 
   
@@ -157,8 +175,8 @@
           
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success text-white">Simpan</button>
           </form>
         </div>
       </div>
@@ -181,8 +199,8 @@
                 <input type="hidden" name="id_kelas" value="{{$data->id}}" class="form-control">
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success text-white">Simpan</button>
         </form>
         </div>
       </div>

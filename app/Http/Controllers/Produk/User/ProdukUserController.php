@@ -23,8 +23,9 @@ class ProdukUserController extends Controller
                 ->where('produks.id_kategori',1)
                 ->get(['produk_events.*', 'produks.id AS id_produk']);
 
+                $title = 'Event kami - halobahagia.com';
                 $data = $data->first();
-                return view('pages.event.user.event_detail',compact('data'));
+                return view('pages.event.user.event_detail',compact('data','title'));
 
             break;
 
@@ -36,12 +37,12 @@ class ProdukUserController extends Controller
                 ->get(['produk_kelas.*', 'produks.id AS id_produk']);
                 $data = $data->first();
 
-
+                $title = 'Kelas kami - halobahagia.com';
                 $rekomen = ProdukKelas::where('status',1)->limit(6)->latest()->get();
                 $babs = ProdukKelasBab::where('id_kelas',$produk->id_produk)->get();
 
-                return view('pages.kelas.user.kelas_detail',compact('data',
-                                                                        'babs','rekomen'));
+                return view('pages.kelas.user.kelas_detail',compact('data','title',
+                                                                    'babs','rekomen'));
             break;
 
             default :
@@ -54,6 +55,7 @@ class ProdukUserController extends Controller
 
         switch ($produk->id_kategori){
             case 1 :
+                $title = 'Event saya - halobahagia.com';
                 $cek = EnrollEvent::where([
                     'id_user' => auth()->user()->id,
                     'id_event' => $produk->id_produk
@@ -62,7 +64,7 @@ class ProdukUserController extends Controller
                 //jika sudah daftar
                 if(count($cek) != 0){
                     $data = ProdukEvent::find($produk->id_produk);
-                    return view('pages.event.member.event_member',compact('data'));
+                    return view('pages.event.member.event_member',compact('data','title'));
                 }else{
                     return redirect()->route('produkDetail',$id);
                 }
@@ -70,6 +72,7 @@ class ProdukUserController extends Controller
             break;
 
             case 3 :
+                $title = 'Kelas saya - halobahagia.com';
                 $cek = EnrollKelas::where([
                     'id_user' => auth()->user()->id,
                     'id_kelas' => $produk->id_produk
@@ -79,7 +82,7 @@ class ProdukUserController extends Controller
                     $data = ProdukKelas::find($produk->id_produk);
                     $babs = ProdukKelasBab::where('id_kelas',$data->id)->get();
 
-                    return view('pages.kelas.member.kelas_member',compact('data','babs'));
+                    return view('pages.kelas.member.kelas_member',compact('data','babs','title'));
                 }else{
                     return redirect()->route('produkDetail',$id);
                 }

@@ -34,7 +34,7 @@ class LayananAdminController extends Controller
             return datatables()->of($datas)
             ->addColumn('aksi', function($row){
                 
-                $btnDetail = '<a href="'.route('konsultanAdminDetail',$row->id).'" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
+                $btnDetail = '<a href="'.route('konsultanAdminDetail',$row->id).'" class="btn btn-success text-white btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
                 return $btnDetail;
             })
             ->rawColumns(['aksi'])

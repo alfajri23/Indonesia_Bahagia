@@ -3,22 +3,26 @@
 @section('content')
 
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Testimoni</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="fw-bolder mb-3">Testimoni</h1>
 
-    <div class="table-responsive">
-        <table class="table table-bordered tableTestimoni" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Pesan</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <div class="table-responsive">
+                <table class="table table-bordered tableTestimoni" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Pesan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -35,7 +39,9 @@
 
     $(function (){
 
-        $('.tableTestimoni').DataTable({
+        let tabel = $('.tableTestimoni');
+
+        tabel.DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ route('testimoniAdmin') }}",

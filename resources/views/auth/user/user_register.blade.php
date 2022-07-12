@@ -1,4 +1,5 @@
 @extends('layouts.layout_auth')
+@section('title', 'Register')
 @section('content')
 
     <div class="login-clean" style="height: 100vh">

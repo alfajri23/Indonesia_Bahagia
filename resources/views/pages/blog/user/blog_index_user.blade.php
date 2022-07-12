@@ -70,7 +70,7 @@
                             </div>
                             <div class="col-8 pl-1">
                                 <h6 class="font-xssss text-grey-500 fw-600 my-0">{{$popular->kategori}}</h6>
-                                <a href="{{route('blogDetailUser',$popular->id)}}" class="fw-600 text-grey-800 font-xsss lh-3">{{$popular->judul}}</a>
+                                <a href="{{route('blogDetailUser',['id'=>$popular->id, 'link'=>$popular->link])}}" class="fw-600 text-grey-800 font-xsss lh-3">{{$popular->judul}}</a>
                             </div>
                         </div>
                     </div>
@@ -87,7 +87,7 @@
                     @forelse ($blogs as $blog)
                     <div class="col-lg-12 col-md-12 col-sm-12 mb-4">
                         <article class="post-article p-0 border-0 shadow-xss rounded-lg overflow-hidden">
-                            <a href="{{route('blogDetailUser',$blog->id)}}" class="row">
+                            <a href="{{route('blogDetailUser',['id'=>$blog->id, 'link'=>$blog->link])}}" class="row">
                                 <div class="col-4 col-xs-12 d-flex aligh-items-center">
                                     <div class="w-100 p-3">
                                         <div 

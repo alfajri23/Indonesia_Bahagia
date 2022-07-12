@@ -10,8 +10,8 @@
             </div>
             <div class="col-8">
                 <button onclick="reset({{$data->id}})" type="button" class="btn btn-warning btn-sm float-end ">Reset password</button>
-                <a href="{{route('adminAdminEdit',$data->id)}}" class="btn btn-success btn-sm float-end mx-1">Edit</a>
-                <a href="{{route('adminAdminDelete',$data->id)}}" class="btn btn-danger btn-sm float-end">Delete</a>
+                <a href="{{route('adminAdminEdit',$data->id)}}" class="btn btn-success btn-sm text-white float-end mx-1">Edit</a>
+                <a href="{{route('adminAdminDelete',$data->id)}}" class="btn btn-danger text-white btn-sm float-end">Delete</a>
 
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-dark mb-0">{{$data->name}}</h5>

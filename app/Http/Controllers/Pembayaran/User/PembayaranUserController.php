@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 class PembayaranUserController extends Controller
 {
     public function pembayaran($id,$janji = null){
+        $title = 'Pembayaran - halobahagia.com';
         $produk = Produk::find($id);
         
         if($produk->harga != null || $produk->harga != ''){
@@ -23,7 +24,7 @@ class PembayaranUserController extends Controller
             $pembayaran = MasterSettingProgram::where('nama','transaksi')->get()->first();
 
 
-            return view('pages.pembayaran.pembayaran',compact('data','janji','pembayaran'));
+            return view('pages.pembayaran.pembayaran',compact('data','janji','pembayaran','title'));
         }else{
             switch ($produk->id_kategori) {
                 case 1:
@@ -83,19 +84,20 @@ class PembayaranUserController extends Controller
     }
 
     public function riwayat(){
+        $title = 'Riwayat Pembayaran - halobahagia.com';
         $datas = Transaksi::where('id_user',auth()->user()->id)->get();
-        //dd($datas);
 
-        return view('pages.pembayaran.user.pembayaran_riwayat',compact('datas'));
+        return view('pages.pembayaran.user.pembayaran_riwayat',compact('datas','title'));
     }
 
     public function riwayatDetail($id){
+        $title = 'Riwayat Pembayaran - halobahagia.com';
         $data = Transaksi::where([
             'id' => $id,
             'id_user' => auth()->user()->id,
         ])->first();
 
-        return view('pages.pembayaran.user.pembayaran_detail',compact('data'));
+        return view('pages.pembayaran.user.pembayaran_detail',compact('data','title'));
     }
 
     public function cekJanjiKonsultasi($request,$transaksi){

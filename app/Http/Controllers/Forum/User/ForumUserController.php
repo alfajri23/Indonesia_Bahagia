@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\File;
 class ForumUserController extends Controller
 {
     public function index(){
-        $title = 'Temukan berbagai informasi baru disini';
+        $titles = 'Temukan berbagai informasi baru disini';
+        $title = 'Forum diskusi - halobahagia.com';
 
         $data = ForumPertanyaan::query()
         ->when(request('cari') != null, function ($q){ 
@@ -31,15 +32,16 @@ class ForumUserController extends Controller
 
         $kategori = ForumKategori::all();
 
-        return view('pages.forum.forum_public',compact('data','kategori','title'));
+        return view('pages.forum.forum_public',compact('data','kategori','titles','title'));
     }
 
     public function myQuestion(){
+        $title = 'Forum diskusi - halobahagia.com';
         $data = ForumPertanyaan::where('id_user',auth()->user()->id)->paginate(8);
         $kategori = ForumKategori::all();
-        $title = 'Pertanyaan saya';
+        $titles = 'Pertanyaan saya';
 
-        return view('pages.forum.forum_public',compact('data','kategori','title'));
+        return view('pages.forum.forum_public',compact('data','kategori','titles','title'));
 
     }
 
@@ -65,13 +67,14 @@ class ForumUserController extends Controller
     }
 
     public function detail($id){
+        $title = 'Deatil Forum Diskusi - halobahagia.com';
         $data = ForumPertanyaan::find($id);
         $data->lihat++;
         $data->save();
 
         $kategori = ForumKategori::all();
         $komentars = ForumJawaban::where('id_pertanyaan', $id)->latest()->get();
-        return view('pages.forum.forum_detail',compact('data','komentars','kategori'));
+        return view('pages.forum.forum_detail',compact('data','komentars','kategori','title'));
     }
 
     public function show(Request $request){

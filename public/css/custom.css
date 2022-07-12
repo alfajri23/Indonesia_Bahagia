@@ -1,5 +1,6 @@
 body{
     overflow-x: hidden !important;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Tipe Cover Image */
@@ -44,6 +45,10 @@ body{
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.container{
+    width: 70%;
 }
 
 .h-50px{
@@ -139,6 +144,10 @@ body{
 
 .textarea{
     line-height: 1rem !important;
+}
+
+.rounded-lg{
+    border-radius: 10px;
 }
 
 /* textarea{

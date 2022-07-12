@@ -9,7 +9,7 @@
             <h2 class="text-grey-700 fw-700 display1-size">Admin</h2>
         </div>
         <div class="col-2">
-            <a href="{{route('adminAdminCreate')}}" type="button" class="btn btn-sm btn-success">Tambah</a>
+            <a href="{{route('adminAdminCreate')}}" type="button" class="btn btn-sm btn-success text-white">Tambah</a>
         </div>
     </div>
     

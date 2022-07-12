@@ -12,13 +12,15 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     public function profile(){
+        $title = 'Profile saya - halobahagia.com';
         $user = User::find(auth()->user()->id);
-        return view('pages.profile.profile_user_detail',compact('user'));
+        return view('pages.profile.profile_user_detail',compact('user','title'));
     }
 
     public function changePassword(){
+        $title = 'Ubah password - halobahagia.com';
         $user = User::find(auth()->user()->id);
-        return view('pages.profile.profile_ganti_password',compact('user'));
+        return view('pages.profile.profile_ganti_password',compact('user','title'));
     }
 
     public function updatePassword(Request $request){

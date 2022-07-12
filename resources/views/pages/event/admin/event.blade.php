@@ -4,33 +4,44 @@
 
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Event</h1>
-    <div>
-        <a href="{{route('addEvent')}}" class="btn btn-primary">Tambah</a>
-        <a href="{{route('eventPast')}}" class="btn btn-outline-secondary">Riwayat</a>
+    <div class="row page-titles mx-0">
+        <div class="col-sm-6 p-md-0">
+            <div class="welcome-text">
+                <h4>Event</h4>
+            </div>
+        </div>
+        <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+            <div>
+                <a href="{{route('addEvent')}}" class="btn btn-primary">Tambah</a>
+                <a href="{{route('eventPast')}}" class="btn btn-outline-secondary">Riwayat</a>
+            </div>
+        </div>
     </div>
     
-    <!-- DataTales Example -->
-    <div class="table-responsive">
-        <table class="table table-bordered tableEvent" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Judul</th>
-                    <th>Konsultan</th>
-                    <th>Tipe</th>
-                    <th>Tanggal</th>
-                    <th>Harga</th>
-                    <th>Poster</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered tableEvent" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Judul</th>
+                            <th>Konsultan</th>
+                            <th>Tipe</th>
+                            <th>Tanggal</th>
+                            <th>Harga</th>
+                            <th>Poster</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+    
 
 
 </div>
@@ -64,27 +75,28 @@
         })
     })
 
-    const tabel = $('.tableEvent');
+    //  Untuk template baru, dom tidak bisa disimpan pada variabel ( tabel ) 
+    //  harus langsung lempar domnya
 
     function deleteEvent(id){
         const route_del = "{{ route('deleteEvent') }}";
         const pesan_del = "Jika dihapus data akan hilang di user dan Admin";
 
-        swalAction(route_del,tabel,id,pesan_del);
+        swalAction(route_del,$('.tableEvent'),id,pesan_del);
     }
 
     function endEvent(id){
         const route_end = "{{ route('endEvent') }}";
         const pesan_end = "Event akan dihentikan";
 
-        swalAction(route_end,tabel,id,pesan_end);
+        swalAction(route_end,$('.tableEvent'),id,pesan_end);
     }
 
     function startEvent(id){
         const route_end = "{{ route('startEvent') }}";
         const pesan_end = "Event akan berlangsung";
 
-        swalAction(route_end,tabel,id,pesan_end);
+        swalAction(route_end,$('.tableEvent'),id,pesan_end);
     }
 
 </script>

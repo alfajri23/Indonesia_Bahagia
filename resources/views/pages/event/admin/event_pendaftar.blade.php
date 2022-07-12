@@ -3,31 +3,36 @@
 @section('content')
 
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Pendaftaran Event</h1>
-
-    <h6>Download</h6>
+    
+    {{-- <h6>Download</h6> --}}
     {{-- <div class="my-2">
         <a href="{{route('downloadEvent',['id'=>2])}}" class="btn btn-primary btn-sm">Beduk</a>
         <a href="{{route('downloadEvent',['id'=>3])}}" class="btn btn-secondary btn-sm">Webinar</a>
     </div> --}}
+    <div class="card">
+        <div class="card-body">
 
-    <div class="table-responsive">
-        <table class="table table-bordered tablePendaftaran" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Tipe</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Tanggal</th>
-                    <th>Status bayar</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Event</h1>
+            <div class="table-responsive">
+                <table class="table table-bordered tablePendaftaran" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tipe</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>Tanggal</th>
+                            <th>Status bayar</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+
 
 </div>
 

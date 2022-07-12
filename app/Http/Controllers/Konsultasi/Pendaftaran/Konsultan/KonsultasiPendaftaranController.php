@@ -56,11 +56,16 @@ class KonsultasiPendaftaranController extends Controller
                 return $nama;
             })
             ->addColumn('aksi', function($row){
-                $btnTelepon = '<a href="https://wa.me/'.Telepon::changeTo62($row->telepon_konsultan).'" target="_blank" class="btn btn-success btn-sm"><i class="fa-brands fa-whatsapp"></i></a>';                
-                $btnTransaksi = '<a onclick="detail('.$row->id.')" class="btn btn-secondary btn-sm"><i class="fa-solid fa-circle-info"></i></a>';
+                $btnTelepon = '<a href="https://wa.me/'.Telepon::changeTo62($row->telepon_konsultan).'" target="_blank" class="btn btn-success text-white btn-sm"><i class="fa-brands fa-whatsapp"></i></a>';                
+                $btnTransaksi = '<a onclick="detail('.$row->id.')" class="btn btn-info btn-sm text-white"><i class="fa-solid fa-circle-info"></i></a>';
                 
                 if($row->status == 'menunggu_konsultasi'){
-                    $btnStatus = '<a onclick="doneStatus('.$row->id.')" class="btn btn-info btn-sm"><i class="fas fa-question-circle"></i></a>';
+                    $btnStatus = '
+
+                        <a onclick="doneStatus('.$row->id.')" class="btn btn-secondary text-white btn-sm">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </a>
+                    ';
                 }else{
                     $btnStatus = null;
                 }

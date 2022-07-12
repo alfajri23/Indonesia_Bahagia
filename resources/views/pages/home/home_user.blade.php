@@ -1,20 +1,15 @@
 @extends('layouts.layout_user')
 @section('content')
 
-<div class="banner-wrapper vh-md-100 layer-after app-shape bg-pink">
+<div class="banner-wrapper vh-md-100 layer-after app-shape ">
   <div class="container">
+    <div class="section-full">
       <div class="row">
           <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
-              <div class="card w-100 border-0 bg-transparent">
-                  <h2 class="fw-700 text-grey-800 display5-size display4-xs-size lh-1 mb-0 aos-init" data-aos="fade-up" data-aos-delay="200" data-aos-duration="500">
-                    # Semua Orang <br>Berhak <span class="text-green">Bahagia</span>
-                  </h2>
-                  <h3 class="font-md font-md-xs mt-4 text-grey-700 fw-400">
-                    Mari temukan kebahagiaanmu bersama kami<br>
-                    Menuju Indonesia bahagia 100%
-                  </h3>
-                  
-              </div>
+            <div class="">
+              <h2 class="font-50">Expand Your Knowledge & Acheive Your Goal</h2>
+              <p class="font-16">There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer.</p>
+            </div>
           </div>
           <div class="col-xxxl-5 col-xl-4 vh-md-100 align-items-center d-flex order-1 order-sm-2">
               <div class="card w-100 border-0 bg-transparent text-center d-block">
@@ -22,6 +17,7 @@
               </div>
           </div>
       </div>
+    </div>
   </div>
 </div>
 

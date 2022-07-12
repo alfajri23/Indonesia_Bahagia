@@ -9,16 +9,26 @@
                 <img src="{{asset($data->foto)}}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-8">
-                <button onclick="reset({{$data->id}})" type="button" class="btn btn-warning btn-sm float-end ">Reset password</button>
-                <a href="{{route('konsultanEdit')}}" class="btn btn-success btn-sm float-end mx-1">Edit</a>
+                <button onclick="reset({{$data->id}})" type="button" class="btn btn-warning btn-sm float-end text-white">Reset password</button>
+                <a href="{{route('konsultanEdit')}}" class="btn btn-success btn-sm float-end mx-1 text-white">Edit</a>
                 
                 <div class="card-body">
                     <h5 class="card-title fw-bold text-dark mb-0">{{$data->nama}}</h5>
                     <span class="badge {{$data->status == 1 ? 'bg-success' : 'bg-danger mb-4'}}">{{$data->status == 1 ? 'aktif' : 'nonaktif'}}</span>
-                    <p class="text-gray-800 mb-0">STR   : {{$data->STR}}</p>
-                    <p class="text-gray-800 mb-0">SIPP  : {{$data->SIPP}}</p>
-                    <p class="text-gray-800 mb-0">Email : {{$data->email}}</p>
-                    <p class="text-gray-800 mb-0">Tel   :{{$data->telepon}}</p>
+                    <div class="row">
+                        <div class="col-3">
+                            <p class="text-gray-800 mb-0">STR   </p>
+                            <p class="text-gray-800 mb-0">SIPP  </p>
+                            <p class="text-gray-800 mb-0">Email </p>
+                            <p class="text-gray-800 mb-0">Tel   </p>
+                        </div>
+                        <div class="col-8">
+                            <p class="text-gray-800 mb-0"> : {{$data->STR}}</p>
+                            <p class="text-gray-800 mb-0"> : {{$data->SIPP}}</p>
+                            <p class="text-gray-800 mb-0"> : {{$data->email}}</p>
+                            <p class="text-gray-800 mb-0"> : {{$data->telepon}}</p>
+                        </div>
+                    </div>
                     <p class="card-text">{!!$data->tentang!!}</p>
                 </div>
             </div>
@@ -27,12 +37,12 @@
 
     <div class="card shadow mb-4 p-3">
         <div class="row">
-            <div class="container">
+            <div class="container my-3 px-4">
                 <div class="mb-5">
                     <div>
-                        <button onclick="add()" type="button" class="btn btn-success btn-sm float-end ">Tambah</button>
+                        <button onclick="add()" type="button" class="btn btn-success btn-sm float-end text-white">Tambah</button>
                     </div>
-                    <h4 class="font-weight-bold">Pendidikan</h4>
+                    <h4 class="fw-bold">Pendidikan</h4>
                 </div>
 
                 @forelse ($data->pendidikans as $pendidikan)
@@ -49,12 +59,12 @@
 
     <div class="card shadow mb-4 p-3">
         <div class="row">
-            <div class="container">
+            <div class="container my-3 px-4">
                 <div class="mb-5">
                     <div>
-                        <button onclick="add_layanan({{$data->id}})" type="button" class="btn btn-success btn-sm float-end ">Tambah</button>
+                        <button onclick="add_layanan({{$data->id}})" type="button" class="btn btn-success btn-sm float-end text-white">Tambah</button>
                     </div>
-                    <h4 class="font-weight-bold">Layanan</h4>
+                    <h4 class="fw-bold">Layanan</h4>
                 </div>
 
                 @forelse ($data->layanans as $layanan)
@@ -70,32 +80,32 @@
 
     <div class="card shadow mb-4 p-3">
         <div class="row">
-            <div class="container">
+            <div class="container my-3 px-4">
                 <div class="mb-5">
                     <div>
-                        <button onclick="add_jadwal({{$data->id}})" type="button" class="btn btn-success btn-sm float-end ">Tambah</button>
+                        <button onclick="add_jadwal({{$data->id}})" type="button" class="btn btn-success btn-sm float-end text-white">Tambah</button>
                     </div>
-                    <h4 class="font-weight-bold">Jadwal</h4>
+                    <h4 class="fw-bold">Jadwal</h4>
                 </div>
 
                 @forelse ($jadwals as $key => $hari)
                 <div class="ms-2 my-3"> 
-                    <h6 class="font-weight-bold mb-2 text-gray-800">{{$key}}</h6>
+                    <h6 class="fw-bolder mb-2 text-secondary text-uppercase">{{$key}}</h6>
 
                     
                     <div class="row">
                         @forelse ($hari as $jam)
-                        <div class="col-2" id="jadwal-{{$jam->id}}">
-                            <div class="card">
-                                <div class="card-body p-2">
+                        <div class="col-3" id="jadwal-{{$jam->id}}">
+                            <div class="card border">
+                                <div class="card-body p-3">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-uppercase mb-1">
                                                 {{$jam->jam}}
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i onclick="deleteJadwal({{$jam->id}})" style="cursor:pointer" class="fas fa-trash text-gray-300"></i>
+                                            <i onclick="deleteJadwal({{$jam->id}})" style="cursor:pointer" class="fas fa-trash text-danger"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -154,7 +164,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success mb-2">Tambahkan</button>
+                        <button type="submit" class="btn btn-success mb-2 text-white">Tambahkan</button>
                     </div>
                     </form>
                 </div>
@@ -186,7 +196,7 @@
                     
 
                     <div>
-                        <button type="submit" class="btn btn-success mb-2">Tambahkan</button>
+                        <button type="submit" class="btn btn-success mb-2 text-white">Tambahkan</button>
                     </div>
                     </form>
                 </div>
@@ -237,7 +247,7 @@
                     </div>
 
                     <div>
-                        <button type="submit" class="btn btn-success mb-2">Tambahkan</button>
+                        <button type="submit" class="btn btn-success mb-2 text-white">Tambahkan</button>
                     </div>
                     </form>
                 </div>

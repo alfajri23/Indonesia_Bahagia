@@ -24,7 +24,8 @@ class UserHomeController extends Controller
                 ->where('produk_events.status',1)
                 ->get(['produk_events.*', 'produks.id AS id_produk']);
         
-        return view('pages.event.user.event',compact('datas'));
+        $title = 'Event kami - halobahagia.com';
+        return view('pages.event.user.event',compact('datas','title'));
     }
 
     public function kelas(){
@@ -33,7 +34,8 @@ class UserHomeController extends Controller
                 ->where('produk_kelas.status',1)
                 ->get(['produk_kelas.*', 'produks.id AS id_produk']);
 
-        return view('pages.kelas.user.kelas',compact('datas'));
+        $title = 'Kelas kami - halobahagia.com';
+        return view('pages.kelas.user.kelas',compact('datas','title'));
     
     }
 }

@@ -3,24 +3,30 @@
 @section('content')
 
 <div class="container-fluid">
-    <h1 class="h3 mb-2 text-gray-800">Pendaftaran Konsultasi</h1>
 
-    <div class="table-responsive">
-        <table class="table table-bordered tablePendaftaran" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Nama</th>
-                    <th>Konsultan</th>
-                    <th>Pasien</th>
-                    <th>Tanggal</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+    <div class="card">
+        <div class="card-body">
+
+            <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Konsultasi</h1>
+
+            <div class="table-responsive">
+                <table class="table table-bordered display tablePendaftaran" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Konsultan</th>
+                            <th>Pasien</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -31,9 +37,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Detail transaksi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="card-body">
@@ -61,9 +65,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Status</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div class="card-body">
@@ -106,7 +108,7 @@
                 {data: 'pasien', name: 'pasien',width: "10%"},
                 {data: 'tanggal', name: 'tanggal',width: "10%"},
                 {data: 'status', name: 'status',width: "5%"},
-                {data: 'aksi', name: 'aksi',width: "13%"},
+                {data: 'aksi', name: 'aksi',width: "15%"},
             ],
             // dom: 'Bfrtlip',
             buttons: [
@@ -143,47 +145,6 @@
         const pesan_hapus = "Konsultasi telah selesai";
 
         swalAction(route,tabel,id,pesan_hapus);
-
-        swal({
-            text: 'Search for a movie. e.g. "La La Land".',
-            content: "input",
-            button: {
-                text: "Search!",
-                closeModal: false,
-            },
-        })
-        .then(name => {
-            if (!name) throw null;
-            
-                return fetch(`https://itunes.apple.com/search?term=${name}&entity=movie`);
-        })
-        .then(results => {
-            return results.json();
-        })
-        .then(json => {
-            const movie = json.results[0];
-        
-            if (!movie) {
-                return swal("No movie was found!");
-            }
-        
-            const name = movie.trackName;
-            const imageURL = movie.artworkUrl100;
-            
-            swal({
-                title: "Top result:",
-                text: name,
-                icon: imageURL,
-            });
-        })
-        .catch(err => {
-            if (err) {
-                swal("Oh noes!", "The AJAX request failed!", "error");
-            } else {
-                swal.stopLoading();
-                swal.close();
-            }
-        });
 
     }
 

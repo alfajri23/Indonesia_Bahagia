@@ -2,30 +2,34 @@
 
 @section('content')
 
-<div class="container-fluid">
-    <h1 class="h1 font-weight-bold text-gray-800 mb-0">Blog Terarsip</h1>
 
-    <a href="{{route('blogAdd')}}" class="btn btn-primary">Tambah</a>
-    <p></p>
+    <div class="card">
+        <div class="card-body">
 
-    <div class="table-responsive">
-        <table class="table table-bordered tableBlog" width="100%" cellspacing="0">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Kategori</th>
-                    <th>Penulis</th>
-                    <th>Tanggal</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <h3 class="fw-bolder mb-4">Blog Terarsip</h3>
+
+            <a href="{{route('blogAdd')}}" class="btn btn-success text-white">Tambah</a>
+            <p></p>
+
+            <div class="table-responsive">
+                <table class="table table-bordered tableBlog" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Judul</th>
+                            <th>Kategori</th>
+                            <th>Penulis</th>
+                            <th>Tanggal</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
-</div>
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
@@ -37,9 +41,9 @@
         }
 	});
 
-    let tabel = $('.tableBlog');
-
+    
     $(function (){
+        let tabel = $('.tableBlog');
         tabel.DataTable({
             processing: true,
             serverSide: true,

@@ -3,8 +3,9 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
-        <div class="container">
-            <h4 class="h3 text-gray-800">{{$data->nama}}</h4>
+        <div class="container my-3">
+            <a href="{{route('layananKonsultasiAdminEdit',$data->id)}}" class="btn btn-success text-white btn-sm float-end">Edit</a>
+            <h2 class="fw-bold">{{$data->nama}}</h2>
 
             <h6>Harga</h6>
             <div class="fw-700 text-grey-800 display2-md-size">Rp.{{number_format($data->harga)}}</div>
@@ -58,7 +59,7 @@
                     width: "5%"
                 },
                 {data: 'nama', name: 'nama',width:"20%"},
-                {data: 'aksi', name: 'aksi',width: "10%"},
+                {data: 'aksi', name: 'aksi',width: "5%"},
             ],
             // dom: 'Bfrtlip',
         })

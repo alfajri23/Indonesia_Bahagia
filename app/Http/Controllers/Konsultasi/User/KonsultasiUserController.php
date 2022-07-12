@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 class KonsultasiUserController extends Controller
 {
     public function listKonsultan(Request $request){
+        $title = 'List konsultasi - halobahagia.com';
 
         $jenis = 'Semua';
         if($request->tipe != null){
@@ -31,23 +32,25 @@ class KonsultasiUserController extends Controller
                 
         $layanans = KonsultasiLayanan::latest()->get();
 
-        return view('pages.konsultasi.user.konsultasi_list',compact('datas','layanans','jenis'));
+        return view('pages.konsultasi.user.konsultasi_list',compact('datas','layanans','jenis','title'));
 
 
 
     }
 
     public function detailKonsultan($id){
+        $title = 'Detail konsultasi - halobahagia.com';
         $data = Konsultan::find($id);
         $layanans = Konsultan::join('konsultan_layanans','konsultans.id','=','konsultan_layanans.id_konsultan')
                 ->join('konsultasi_layanans','konsultasi_layanans.id','=','konsultan_layanans.id_layanan')
                 ->where('konsultans.id',$id)
                 ->get(['konsultasi_layanans.*']);
 
-        return view('pages.konsultasi.user.konsultasi_detail_konsultan',compact('data','layanans'));
+        return view('pages.konsultasi.user.konsultasi_detail_konsultan',compact('data','layanans','title'));
     }
 
     public function buatJanji(Request $request){
+        $title = 'Buat janji konsultasi - halobahagia.com';
         $layanans = Konsultan::join('konsultan_layanans','konsultans.id','=','konsultan_layanans.id_konsultan')
                 ->join('konsultasi_layanans','konsultasi_layanans.id','=','konsultan_layanans.id_layanan')
                 ->where('konsultans.id',$request->id_konsultan)
@@ -92,7 +95,7 @@ class KonsultasiUserController extends Controller
             }
         }
 
-        return view('pages.konsultasi.user.konsultasi_janji',compact('data','layanans','jadwal_final'));
+        return view('pages.konsultasi.user.konsultasi_janji',compact('data','layanans','jadwal_final','title'));
     }
 
     public function createJanji(Request $request){
@@ -118,6 +121,7 @@ class KonsultasiUserController extends Controller
     }
 
     public function riwayat(){
+        $title = 'Riwayat Konsultasi - halobahagia.com';
         $datas = KonsultasiLayanan::join('konsultan_jadwal_janjis', 'konsultasi_layanans.id', '=', 'konsultan_jadwal_janjis.id_layanan')
                 ->join('users', 'users.id', '=', 'konsultan_jadwal_janjis.id_user')
                 ->join('konsultans', 'konsultans.id', '=', 'konsultan_jadwal_janjis.id_konsultan')
@@ -125,8 +129,6 @@ class KonsultasiUserController extends Controller
                 ->get(['konsultasi_layanans.*','konsultans.nama AS nama_konsultan',
                         'konsultan_jadwal_janjis.*','konsultans.id AS id_konsultan']);
 
-        //dd($datas);
-
-        return view('pages.konsultasi.user.konsultasi_riwayat',compact('datas'));
+        return view('pages.konsultasi.user.konsultasi_riwayat',compact('datas','title'));
     }
 }

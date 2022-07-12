@@ -1,6 +1,12 @@
 @extends('layouts.layout_konsultan')
+
 @section('content')
 
-Hallo
+<div>
+    <h4>Hallo</h4>
+    <div id='calendar'></div>
+</div>
+
+
 
 @endsection

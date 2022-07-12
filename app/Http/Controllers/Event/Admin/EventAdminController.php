@@ -29,7 +29,7 @@ class EventAdminController extends Controller
                     return $actionBtn;
                 })
                 ->addColumn('vendor', function($row){
-                    return $konsultan = $row->id_konsultan !== null ? $row->konsultan->nama : '';
+                    return $konsultan = $row->id_konsultan !== null ? $row->konsultan->nama : 'kosong';
                 })
                 ->addColumn('action', function($row){
                     $deleteBtn = '

@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-xl-8 col-xxl-9 col-lg-8">
 
-                <h5 class="font-lg fw-500 text-center">{{$title}}</h5>
+                <h5 class="font-lg fw-500 text-center">{{$titles}}</h5>
 
                 <div class="col-12">
                     <div class="card d-block border-1 rounded-lg overflow-hidden p-4 shadow-xss mt-4">

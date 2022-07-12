@@ -70,7 +70,7 @@ Route::prefix('forum')->group(function(){
 Route::prefix('blog')->group(function(){
 
     Route::get('/', [ Controllers\Blog\User\BlogUserController::class,'index'])->name('blogUser');
-    Route::get('/detail/{id}', [ Controllers\Blog\User\BlogUserController::class,'detail'])->name('blogDetailUser');
+    Route::get('/detail/{id}/{link?}', [ Controllers\Blog\User\BlogUserController::class,'detail'])->name('blogDetailUser');
     Route::get('/filter', [ Controllers\Blog\User\BlogUserController::class,'filterByCategory'])->name('filterByCategory');
 
     Route::prefix('admin')->group(function(){
@@ -278,6 +278,7 @@ Route::post('/konsultan/login', [Controllers\Auth\Konsultan\LoginKonsultanContro
 
 Route::middleware(['konsultan'])->prefix('konsultan')->group(function () {
     Route::get('/', [ Controllers\Home\Konsultan\KonsultanHomeController::class,'index'])->name('homeKonsultan');
+    //Route::get('/jadwal', [ Controllers\Home\Konsultan\KonsultanHomeController::class,'jadwal'])->name('konsultanJadwal');
     Route::post('/', [Controllers\Akun\Konsultan\KonsultanController::class,'store'])->name('konsultanStore');
     Route::get('/detail', [Controllers\Akun\Konsultan\KonsultanController::class,'detail'])->name('konsultanDetail');
     Route::get('/edit', [Controllers\Akun\Konsultan\KonsultanController::class,'edit'])->name('konsultanEdit');
