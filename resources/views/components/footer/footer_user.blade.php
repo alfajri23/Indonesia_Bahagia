@@ -1,6 +1,6 @@
 <!-- Footer -->
 <footer class="site-footer text-uppercase footer-white">
-    <div class="footer-top">
+    <div class="footer-top bg-light">
       <div class="container-md saf-footer">
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 footer-col-4">
@@ -48,7 +48,6 @@
                 <li><a href="{{route('tipeKonsultasi')}}">Konsultasi</a></li>
                 <li><a href="{{route('forum')}}">Forum</a></li>
                 <li><a href="{{route('event')}}">Event</a></li>
-                <li><a href="{{route('kelas')}}">Kelas</a></li>
               </ul>
             </div>
           </div>

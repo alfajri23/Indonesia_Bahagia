@@ -185,7 +185,6 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('eventAdmin')}}">Event</a></li>
                             <li><a href="{{route('layananKonsultasiAdmin')}}">Layanan konsultasi</a></li>
-                            <li><a href="{{route('kelasIndex')}}">Kelas</a></li>
                         </ul>
                     </li>
 					

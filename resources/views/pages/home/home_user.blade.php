@@ -23,14 +23,15 @@
 
 
 {{-- Main --}}
-<div class="section-full bg-white content-inner-2 kinder-about-content bg-img-fix" style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9ce02c141d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80');">
+<div class="section-full bg-white content-inner-2 kinder-about-content bg-img-fix" 
+style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9ce02c141d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80');">
   <div class="about-overlay-box"></div>
           <div class="container-md">
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-12 col-12"></div>
       <div class="col-lg-6 col-md-12 col-sm-12 col-12 wow fadeIn" data-wow-delay="0.2s"  data-wow-duration="2s">
         <div class="section-head kinder-head">
-          <h2 class="head-title text-yellow">Education from birth<br/>begins with us</h2>
+          <h2 class="head-title text-yellow"></h2>
           <p class="text-white"></p>
         </div>
       </div>
@@ -61,19 +62,19 @@
         <div class="row features-area-one">
           <div class="col-lg-6 col-md-6">
 
-            <div class="features-box style1 bg-primary m-b30">
+            <div class="features-box style1 bg-primary m-b30 wow bounceInUp fly-box" data-wow-duration="2s" data-wow-delay="0.3s">
               <div class="dlab-info">
                 <i class="fa-solid fa-face-grin"></i>
                 <h3 class="info"></h3>
-                <span>Expert faculty</span>
+                <span>Sangat bahagia</span>
               </div>
             </div>
 
-            <div class="features-box style1 bg-secondry ">
+            <div class="features-box style1 bg-secondry wow bounceInUp fly-box" data-wow-duration="2s" data-wow-delay="0.3s"">
               <div class="dlab-info">
                 <i class="fa-solid fa-face-frown"></i>
                 <h3 class="info"></h3>
-                <span>Online Courses</span>
+                <span>Biasa</span>
               </div>
             </div>
 
@@ -81,19 +82,19 @@
 
           <div class="col-lg-6 col-md-6 m-t30">
 
-            <div class="features-box style1 bg-secondry m-b30">
+            <div class="features-box style1 bg-secondry m-b30 wow bounceInUp fly-box" data-wow-duration="2s" data-wow-delay="0.3s">
               <div class="dlab-info">
                 <i class="fa-solid fa-face-smile"></i>
                 <h3 class="info"></h3>
-                <span>Special Education</span>
+                <span>Bahagia</span>
               </div>
             </div>
 
-            <div class="features-box style1 bg-primary m-b30">
+            <div class="features-box style1 bg-primary m-b30 wow bounceInUp fly-box" data-wow-duration="2s" data-wow-delay="0.3s"">
               <div class="dlab-info">
                 <i class="fa-solid fa-face-sad-tear"></i>
                 <h3 class="info"></h3>
-                <span>hour Services</span>
+                <span>Sedih</span>
               </div>
             </div>
 
@@ -112,28 +113,37 @@
       <h2 class="title">Kami siap membantumu</h2>
       <p>Dengan berbagai pengalaman dan keahlian kami, kami siap membantumu</p>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-lg-4 col-md-6 col-sm-12 m-b30 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0.3s">
         <div class="icon-bx-wraper bx-style-1 p-a30 center fly-box bg-white">
-          <div class="icon-lg m-b20"> <span class="icon-cell text-primary"><i class="flaticon-closed-notebook-and-pen"></i></span> </div>
+          <div class="icon-lg m-b20"> 
+            <span class="icon-cell text-primary">
+              <i class="fa-solid fa-calendar"></i>
+            </span> 
+          </div>
           <div class="icon-content">
             <h5 class="dlab-tilte text-uppercase">Event</h5>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+            <p>Mempertemukan kamu dengan ahli untuk saling berdiskusi</p>
             <a href="{{route('event')}}" class="site-button btnhover6">Lihat</a>
           </div>
         </div>
       </div>
+
       <div class="col-lg-4 col-md-6 col-sm-12 m-b30 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0.6s">
         <div class="icon-bx-wraper bx-style-1 p-a30 center fly-box bg-white">
-          <div class="icon-lg m-b20"> <span class="icon-cell text-primary"><i class="flaticon-graduated-student-avatar"></i></span> </div>
+          <div class="icon-lg m-b20"> 
+            <span class="icon-cell text-primary">
+              <i class="fas fa-heart"></i>
+            </span> 
+          </div>
           <div class="icon-content">
             <h5 class="dlab-tilte text-uppercase">Konsultasi</h5>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam.</p>
+            <p>Ngobrol bersama ahli untuk selesaikan masalahmu</p>
             <a href="{{route('tipeKonsultasi')}}" class="site-button btnhover6">Lihat</a>
           </div>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 col-sm-12 m-b30 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0.9s">
+      {{-- <div class="col-lg-4 col-md-6 col-sm-12 m-b30 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0.9s">
         <div class="icon-bx-wraper bx-style-1 p-a30 center fly-box bg-white">
           <div class="icon-lg m-b20"> <span class="icon-cell text-primary"><i class="flaticon-test"></i></span> </div>
           <div class="icon-content">
@@ -142,7 +152,7 @@
             <a href="{{route('kelas')}}" class="site-button btnhover6">Lihat</a>
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>

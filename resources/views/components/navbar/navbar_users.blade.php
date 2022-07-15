@@ -44,10 +44,6 @@
                             <a href="{{route('blogUser')}}">Blog</a>
                         </li>
 
-                        <li class="{{Request::segment('1') == 'kelas' ? 'active' : ''}}">
-                            <a href="{{route('kelas')}}">Kelas</a>
-                        </li>
-
                         <li class="{{Request::segment('1') == 'forum' ? 'active' : ''}}">
                             <a href="{{route('forum')}}">Forum</a>
                         </li>

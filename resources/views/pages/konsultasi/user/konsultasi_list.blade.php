@@ -3,7 +3,7 @@
 
 <div class="page-content bg-gray">
 
-    <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url(images/banner/bnr4.jpg);">
+    <div class="dlab-bnr-inr overlay-black-middle bg-pt">
         <div class="container">
             <div class="dlab-bnr-inr-entry">
                 <h1 class="text-white">Konsultasi</h1>

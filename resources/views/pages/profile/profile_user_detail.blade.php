@@ -2,33 +2,24 @@
 @section('content')
 
 <div class="page-content bg-gray">
-    <!-- inner page banner -->
-    <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url(images/banner/bnr1.jpg);">
+
+    <div class="dlab-bnr-inr overlay-black-middle bg-pt">
         <div class="container">
             <div class="dlab-bnr-inr-entry">
-                <h1 class="text-white">Profile</h1>
-                <!-- Breadcrumb row -->
-                <div class="breadcrumb-row">
-                    <ul class="list-inline">
-                        <li><a href="/">Home</a></li>
-                        <li>Profile saya</li>
-                    </ul>
-                </div>
-                <!-- Breadcrumb row END -->
+                <h1 class="text-white">Profile saya</h1>
             </div>
         </div>
     </div>
-    <!-- inner page banner END -->
-    <!-- contact area -->
+
     <div class="section-full content-inner-2 contact-style-3">
         <div class="container-md">
             <div class="row m-lr0 contact-form-box">
 
-                <div class="col-lg-4 col-md-5 p-lr0 contact-info align-items-start" style="background-image:url(images/background/bg2.jpg); background-size: cover;">
+                <div class="col-lg-4 col-md-5 p-lr0 align-items-start p-5 bg-pink">
                     <div class="contact-info-inner text-white">
                         <form class="dzForm" id="contact" action="{{route('profileUpdate')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <div class="dlab-post-media dlab-img-effect zoom-slow"> 
+                        <div class="dlab-post-media dlab-img-effect zoom-slow rounded-lg"> 
                             
                             <img src="{{$user->foto != null ? asset($user->foto) : 'https://via.placeholder.com/150'}}" alt="">
                             
