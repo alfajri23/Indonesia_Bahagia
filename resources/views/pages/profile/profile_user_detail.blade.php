@@ -129,7 +129,7 @@
                                     <div class="form-group">
                                         <label for="">Alamat</label>
                                         <div class="input-group">
-                                            <textarea name="alamat" rows="4" class="form-control"placeholder="Alamat">
+                                            <textarea name="alamat" rows="4" class="form-control" placeholder="Alamat">
                                                 {{$user->alamat}}
                                             </textarea>
                                         </div>

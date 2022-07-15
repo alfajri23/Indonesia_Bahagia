@@ -28,9 +28,9 @@
 </div>
 
 <div class="post-content pt-lg--7 pt-lg--7 pt-5 pb-5">
-    <div class="container">
+    <div class="container-md">
         <div class="row justify-content-center">
-            <div class="col-lg-8 text-left">
+            <div class="col-lg-10 text-left">
                 <div class="card shadow-none w-100 border-0 mb-5">
                     
                     <ul class="mt-0 list-inline">
@@ -47,7 +47,7 @@
                 
             </div>
 
-            <div class="col-lg-8">
+            <div class="col-lg-10">
                 <div class="bg-transparent side-wrap rounded-lg p-4 mb-4">
                     <div class="form-group mb-3">
                         <label class="fw-700 text-grey-900">Related Blog</label>
@@ -74,13 +74,13 @@
                 </div>
             </div>
 
-            <div class="col-lg-8 comments-section bottom-border">
+            <div class="col-lg-10 comments-section bottom-border">
                 <div class="comments-list">
                     <h4 class="text-grey-900 font-sm fw-700 mt-5 mb-5">Comments</h4>
                     @forelse ($komentars as $komentar)
                     <div class="section full mb-5">
                         <div class="row">
-                            <div class="col-3 col-sm-2">
+                            <div class="col-3 col-sm-1">
                                 <figure class="avatar mr-0 text-center">
                                     <div class="profile-detail-bttn">
                                         <img data-src="{{ $komentar->user->foto != null ? asset($komentar->user->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" class="rounded-circle w50 lozad" alt="image">
@@ -124,13 +124,17 @@
         <div class="row justify-content-center">
             <div class="col-lg-8  text-center">
                 <h4 class="mb-4 pb-3 text-grey-900 fw-700 font-xl">Leave a Comment</h4>
+                @include('components.error.error_message')
                 <form action="{{route('blogStoreKomentar')}}" method="post">
                     @csrf
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group mb-3"> 
                                 <input type="hidden" value="{{$blog->id}}" name="id_blog">
-                                <textarea class="w-100 border-0 h125 p-3" name="isi"></textarea>
+                                <textarea name="isi" rows="5" class="form-control" placeholder="Beri komentar anda" required>
+                                    
+                                </textarea>
+                               
                             </div>        
                             <div class="form-group">
                                 <button type="submit" class="form-control style2-input bg-info text-white font-xss fw-500 p-0 w175">Submit</button>

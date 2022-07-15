@@ -67,7 +67,7 @@ class ForumUserController extends Controller
     }
 
     public function detail($id){
-        $title = 'Deatil Forum Diskusi - halobahagia.com';
+        $title = 'Detail Forum Diskusi - halobahagia.com';
         $data = ForumPertanyaan::find($id);
         $data->lihat++;
         $data->save();
@@ -87,8 +87,8 @@ class ForumUserController extends Controller
 
     public function delete(Request $request){
         $data = ForumPertanyaan::find($request->id);
-        File::delete($data->gambar);
-        //File::delete(public_path($data->gambar));
+        //File::delete($data->gambar);
+        File::delete(public_path($data->gambar));
         $data->delete();
         return redirect()->back();
     }
@@ -97,20 +97,17 @@ class ForumUserController extends Controller
     public function createKategori(Request $request){
 
         $cek = ForumKategori::where('nama',$request->nama)->get();
+
+        
+
         if(count($cek) > 0){
-            return response()->json([
-                'data' => 'gagal',
-                'pesan' => $request->nama
-            ]);
+            return redirect()->back();
         }else{
             $data = ForumKategori::updateOrCreate(['id' => $request->id],[
                 'nama' => $request->nama,
             ]);
     
-            return response()->json([
-                'data' => 'sukses',
-                'pesan' => $request->nama
-            ]);
+            return redirect()->back();
         }
     }
 

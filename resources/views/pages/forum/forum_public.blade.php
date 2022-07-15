@@ -28,13 +28,6 @@
                     <div class="card d-block border-1 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
                         <div class="row">
                             <div class="col-12 col-sm-10 mx-auto">
-                                {{-- <form action="{{route('forum')}}" method="GET" >
-                                <div class="form-group icon-right-input style2-input mb-0">
-                                    <input type="text" name="cari" placeholder="Cari" class="form-control rounded-xs bg-greylight border-0 font-xsss fw-500 pl-3">
-                                    <button type="submit" class="btn btn-search"><i class="ti-search text-primary font-lg position-static"></i></button>
-                                    
-                                </div>
-                                </form> --}}
                                 <form action="{{route('forum')}}" class="searchform" id="searchform" method="get" role="search">
                                     <div>
                                         <label for="s" class="screen-reader-text">Search for:</label>
@@ -83,7 +76,7 @@
                         
                         <div class="d-flex mb-3">
                             <div class="flex-shrink-0">
-                              <img data-src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541" class="rounded-circle w_40 lozad" alt="...">
+                              <img data-src="{{ $dt->user->foto != null ? asset($dt->user->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" class="rounded-circle w_40 lozad" alt="...">
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="text-uppercase author-name font-xsss fw-700 mb-0 text-grey-800">{{$dt->user->name}}</h6>
@@ -218,7 +211,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <form id="formKategori" class="border-0" action="javascript:void(0)">
+            <form method="post" class="border-0" action="{{route('forumStoreKategori')}}">
             @csrf
             <div class="form-group">
                 <p class="mb-0 fw-700">Nama</p>
@@ -279,36 +272,14 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
                 $('#id_kategori').val(datas.id_kategori);
                 tinymce.get("isi").setContent(datas.isi);
                 $('#image').html(`
-                    <img src="${window.location.origin}/${datas.gambar}" style="width:200px" >
-                    
+                    <img src="${window.location.origin}'/public'/${datas.gambar}" style="width:200px" >  
                 `);
                 $('#exampleModal').modal('show');
             }
         });
     }
 
-    $('#formKategori').on('submit',function(){
-        let data = $(this).serialize();
-        $.ajax({
-            type : 'POST',
-            url  : "{{ route('forumStoreKategori') }}",
-            data : data,
-            dataType: 'json',
-            success : (data)=>{
-                console.log(data);
-                $('#kategoriModal').modal('hide');
-                if(data.data == 'sukses'){
-                    swal('Berhasil','Kategori telah ditambahkan', "success");
-                }else{
-                    swal('Gagal','kategori '+data.pesan+' sudah ada', "warning");
-                }
-            }
-        });
-    });
 
-    function cek(){
-        console.log($('#kategoriModal')[0]);
-    }
 
     
 

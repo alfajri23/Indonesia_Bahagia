@@ -45,6 +45,15 @@ class BlogUserController extends Controller
     }
 
     public function storeKomentar(Request $request){
+
+        $messages = [
+            'required' => ':tidak boleh kosong',
+        ];
+
+        $this->validate($request, [
+			'isi' => 'required'
+		],$messages);
+
         BlogKomentar::create([
             'id_user' => auth()->user()->id,
             'id_blog' => $request->id_blog,

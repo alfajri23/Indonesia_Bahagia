@@ -19,7 +19,7 @@ class CreateForumJawabansTable extends Migration
             $table->integer('id_user')->nullable();
             $table->integer('id_admin')->nullable();
             $table->integer('id_konsultan')->nullable();
-            $table->string('jawaban')->nullable();
+            $table->text('jawaban')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
