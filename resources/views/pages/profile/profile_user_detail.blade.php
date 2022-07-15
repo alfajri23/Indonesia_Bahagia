@@ -1,103 +1,156 @@
 @extends('layouts.layout_user')
 @section('content')
 
-<section>
-    <div class="page-nav bg-lightblue pt-lg--7 pb-lg--7 pb-5 pt-5">
+<div class="page-content bg-gray">
+    <!-- inner page banner -->
+    <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url(images/banner/bnr1.jpg);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h1 class="text-grey-800 fw-700 display3-size">Profile 
-                    </h1>
+            <div class="dlab-bnr-inr-entry">
+                <h1 class="text-white">Profile</h1>
+                <!-- Breadcrumb row -->
+                <div class="breadcrumb-row">
+                    <ul class="list-inline">
+                        <li><a href="/">Home</a></li>
+                        <li>Profile saya</li>
+                    </ul>
                 </div>
+                <!-- Breadcrumb row END -->
             </div>
         </div>
     </div>
+    <!-- inner page banner END -->
+    <!-- contact area -->
+    <div class="section-full content-inner-2 contact-style-3">
+        <div class="container-md">
+            <div class="row m-lr0 contact-form-box">
 
-    <div class="container mt-4">
-        <div class="row">
-            <div class="">
-                <div class="">
-                    <div class="row flex-column-reverse flex-sm-row g-0">
-                        <div class="col-12 col-md-8">
-                            <form id="contact" action="{{route('profileUpdate')}}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="card-body py-0">
-                            <div class="row">
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3 mb-0">Nama</label>
-                                    <input class="input-profile" type="text" name="name" value="{{$user->name}}" placeholder="Nama" autocomplete="on">
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Deskripsi</label>
-                                    <textarea name="desc" class="form-control" placeholder="Deskripsi diri kamu">{{$user->desc}}</textarea>
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Email</label>
-                                    <input class="input-profile" type="email" value="{{$user->email}}" name="email" placeholder="Email" autocomplete="on">
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Telepon</label>
-                                    <input class="input-profile" type="tel" value="{{$user->telepon}}" name="telepon" placeholder="Telepon" autocomplete="on">
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Tanggal lahir</label>
-                                    <input class="input-profile" type="date" value="{{$user->tgl_lahir}}" name="tgl_lahir" placeholder="Tanggal lahir" autocomplete="on">
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Alamat</label>
-                                    <textarea name="alamat" class="form-control" placeholder="Alamat">{{$user->alamat}}</textarea>
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Pekerjaan</label>
-                                    <input class="input-profile" type="text" value="{{$user->pekerjaan}}" name="pekerjaan" placeholder="Pekerjaan" autocomplete="on">
-                                </fieldset>
-
-                                <fieldset>
-                                    <label for="exampleInputEmail1" class="lh-30 font-xss mont-font text-grey-800 fw-600 mt-3">Pendidikan</label>
-                                    <input class="input-profile" type="text" value="{{$user->pendidikan}}" name="pendidikan" placeholder="Pendidikan" autocomplete="on">
-                                </fieldset> 
-
-                                
-                            </div>
-
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-3">
-                            <img src="{{$user->foto != null ? asset($user->foto) : 'https://via.placeholder.com/150'}}" class="img-fluid rounded-start" alt="...">
+                <div class="col-lg-4 col-md-5 p-lr0 contact-info align-items-start" style="background-image:url(images/background/bg2.jpg); background-size: cover;">
+                    <div class="contact-info-inner text-white">
+                        <form class="dzForm" id="contact" action="{{route('profileUpdate')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="dlab-post-media dlab-img-effect zoom-slow"> 
                             
-                            <input type="file" class="" name="foto">
-                            <small id="emailHelp" class="form-text text-muted">File yang diterima png,jpg,jpeg | ukuran max. 2Mb</small>
+                            <img src="{{$user->foto != null ? asset($user->foto) : 'https://via.placeholder.com/150'}}" alt="">
+                            
+                        </div>
+                        <h3 class="text-uppercase mt-3">{{$user->name}}</h3>
+                       
+                        
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">
+                                Foto
+                            </label>
+                            
+                            <input type="file" class="form-control" name="foto">
+                            <small id="emailHelp" class="form-text text-white">File yang diterima png,jpg,jpeg | ukuran max. 2Mb</small>
                             
                             @error('foto')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            
                         </div>
-                        
-                        
                     </div>
+                </div>
 
-                    <div class="col-10 my-3">
-                        <button type="submit" class="btn btn-primary">Kirim</button>
+                <div class="col-lg-8 col-md-7 p-lr0">
+                    <div class="contact-form bg-white">
+                        <div class="section-head text-left">
+                            <h3 class="title">Profil saya</h3>
+                            <div class="dlab-separator bg-primary"></div>
+                        </div>
+
+                        @include('components.error.error_message')
+                        <div class="dzFormMsg"></div>
+                        
+                            <input type="hidden" value="Contact" name="dzToDo">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Nama</label>
+                                        <div class="input-group">
+                                            <input type="text" name="name" value="{{$user->name}}" placeholder="Nama" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Email</label>
+                                        <div class="input-group"> 
+                                            <input type="email" value="{{$user->email}}" name="email" placeholder="Email" class="form-control" >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Tanggal lahir</label>
+                                        <div class="input-group">
+                                            <input type="date" name="tgl_lahir" value="{{$user->tgl_lahir}}" placeholder="Telepon" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Pendidikan</label>
+                                        <div class="input-group">
+                                            <input type="text" name="pendidikan" value="{{$user->pendidikan}}" placeholder="Pendidikan" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="">Deskripsi</label>
+                                        <div class="input-group">
+                                            <textarea name="desc" rows="4" class="form-control" placeholder="Deskripsi">
+                                                {{$user->desc}}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="">Telepon</label>
+                                        <div class="input-group">
+                                            <input type="tel" name="telepon" value="{{$user->telepon}}" placeholder="Telepon" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="">Pekerjaan</label>
+                                        <div class="input-group">
+                                            <input type="text" name="pekerjaan" value="{{$user->pekerjaan}}" placeholder="Telepon" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <label for="">Alamat</label>
+                                        <div class="input-group">
+                                            <textarea name="alamat" rows="4" class="form-control"placeholder="Alamat">
+                                                {{$user->alamat}}
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <button name="submit" type="submit" value="Submit" class="site-button"> Submit </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-
-                    </form>
-
                 </div>
             </div>
-
-            
         </div>
     </div>
-    
+    <!-- contact area  END -->
+</div>
 
-</section>
+
+
 
 
 @endsection

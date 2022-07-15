@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="page-nav pt-lg--7 pb-lg--7 pb-5 pt-5">
-    <div class="container">
+    <div class="container-md">
         <div class="row">
 
             <div class="col-12 shadow-xss">
@@ -13,7 +13,7 @@
                 <h4 class="mb-4 font-lg fw-700 mont-font mb-2">Riwayat Transaksi</h4>
                 <div class="w-100">
                     @forelse ($datas as $data)
-                    <div class="card shadow-xss border-0 p-4 p-sm-5 rounded-lg">
+                    <div class="card shadow-xss border my-2 p-4 p-sm-5 rounded-lg">
                         <div class="">
                             @if ($data->status == 'ditolak')
                                 <span class="font-xsss fw-700 pl-3 pr-3 ls-2 lh-32 badge bg-danger float-right">Ditolak</span>

@@ -51,6 +51,10 @@ body{
     width: 70%;
 }
 
+.cursor-pointer{
+    cursor: pointer;
+}
+
 .h-50px{
     height: 50px;
 }
@@ -107,6 +111,18 @@ body{
     gap:10px;
 }
 
+.shadow-md {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  .shadow-xs {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.03) !important;
+  }
+  
+  .shadow-xss {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05) !important;
+  }
+
 .title-h2{
     font-size: 45px;
     font-weight: 900;
@@ -150,6 +166,11 @@ body{
     border-radius: 10px;
 }
 
+.rich-list ul,ol li{
+    list-style-type: circle !important;
+    margin-left: 1rem;
+}
+
 /* textarea{
     width: 100%;rgb(96, 81, 81)
     min-height: 140px;
@@ -165,6 +186,10 @@ body{
     padding: 15px;
     margin-bottom: 5px;
 } */
+
+.w-100{
+    width: 100%;
+}
 
 .w_40{
     width: 40px;

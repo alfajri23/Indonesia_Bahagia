@@ -11,7 +11,7 @@
 </style>
 
 <div class="course-details pt-lg--7 pb-lg--7 pt-5 pb-5">
-    <div class="container">
+    <div class="container-md">
         <div class="row">
             <div class="col-xl-8 col-xxl-9 col-lg-8">
                 <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
@@ -34,11 +34,11 @@
                         </div>
                         <div class="flex-grow-1 ms-3">
                             <h6 class="text-uppercase author-name font-xsss fw-700 mb-0 text-grey-800">{{$data->user->name}}</h6>
-                            <h6 class="d-block font-xsssss fw-500 text-grey-500 mt-2 mb-0">{{$data->updated_at}}</h6>
+                            <p class="my-0 font-12">{{$data->updated_at}}</p>
                         </div>
                     </div>
 
-                    <h2 class="fw-700 font-sm mb-3 mt-1 pl-1 mb-3">{{$data->judul}}</h2>
+                    <h4 class="mb-3 mt-1 pl-1 mb-3">{{$data->judul}}</h4>
 
                     @if ($data->gambar != null)     
                     <div class="mb-2">
@@ -46,21 +46,21 @@
                     </div>
                     @endif
 
-                    <div class="font-xsss fw-400 lh-28 text-grey-700 mb-0 pl-2">
+                    <div class="text-dark mb-0 pl-2">
                         {!!$data->isi!!}
                     </div>
 
-                    <div class="row px-3 mt-3">
+                    <div class="row mt-3">
                     
                         <div class="clearfix mr-3">
                             <small class="cursor-pointer">
-                            <i class="fas fa-eye mr-1 text-cyan"></i>{{$data->lihat}}  View
+                            <i class="fas fa-eye me-1 text-cyan"></i>{{$data->lihat}}  View
                             </small>
                         </div>
                     </div>
                 </div>
 
-                <div class="container mt-4">
+                <div class="container-md mt-4">
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
                             <h4 class="mb-1 text-grey-900 fw-700 font-md">Leave a Comment</h4>
@@ -73,7 +73,7 @@
                                             <textarea class="w-100 border-0 h125 p-3" name="jawaban"></textarea>
                                         </div>        
                                         <div class="form-group">
-                                            <button type="submit" class="form-control style2-input bg-info text-white font-xss fw-500 p-0 w175">Submit</button>
+                                            <button type="submit" class="btn btn-success w-100">Kirim</button>
                                         </div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	            selector: "textarea",
 	            branding: false,
 	            width: "100%",
-	            height: "200",
+	            height: "400",
 	            plugins: [
 	                "advlist autolink lists charmap print preview anchor",
 	                "searchreplace visualblocks code fullscreen",

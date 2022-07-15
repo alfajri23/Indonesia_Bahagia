@@ -26,6 +26,8 @@ class KonsultasiUserController extends Controller
     
             $jenis = KonsultasiLayanan::find($request->tipe);
             $jenis = $jenis->nama;
+        }elseif($request->cari != null){
+            $datas = Konsultan::where('nama','like','%'.$request->cari.'%')->get();
         }else{
             $datas = Konsultan::latest()->get();
         }

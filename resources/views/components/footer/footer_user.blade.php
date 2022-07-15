@@ -1,56 +1,77 @@
-<!-- footer wrapper -->
-<div class="footer-wrapper mt-0 bg-dark pt--lg-5">
-    <div class="container">
+<!-- Footer -->
+<footer class="site-footer text-uppercase footer-white">
+    <div class="footer-top">
+      <div class="container-md saf-footer">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="row">
-
-                    <div class="col-12 col-md-6">
-                        <a href="index.html">
-                            <h1 class="font-xs ls-3 fw-700 text-white font-xxl">{{$data->nama}}
-                            <span class="d-block font-xsssss ls-1 text-grey-500 open-font ">Menuju indonesia bahagia seutuhnya</span>
-                            </h1></a>
-                        <p class="w-100 mt-3">{{$data->desc}} 
-                            <br>{{$data->email}}
-                        </p>
-
-                        <p>{{$data->telepon_1}}</p>
-                        <p>{{$data->telepon_2}}</p>
-                        <p>{{$data->telepon_3}}</p>
-                        
-                    </div>
-
-
-                    <div class="col-md-3 col-12">
-                        <h5 class="font-xs">Bantuan</h5>
-                        <ul>
-                            <li><a href="{{route('about')}}">Tentang</a></li>
-                            <li><a href="{{route('termCondition')}}">Syarat dan kebijakan</a></li>
-                            <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-3 col-12">
-                        <h5 class="mb-3 font-xs">Kantor</h5>
-                        <p class="w-100">{{$data->alamat}}</p>
-                    
-                        <h5 class="mb-3 font-xs">Kontak</h5>
-                        <p class="mb-0">Telepon : {{$data->telepon_1}}</p>
-                        <p class="mb-0">Whatsapp : <a href="https://api.whatsapp.com/send?phone=6285856561200">+6285856561200</a></p>
-                        <p>Email : <a href="mail:{{$data->email}}">{{$data->email}}</a></p>
-
-                    </div>
-
-                </div>
-                <div class="middle-footer mt-5 pt-4"></div>
+          <div class="col-md-6 col-lg-6 col-sm-6 footer-col-4">
+            <div class="widget widget_getintuch">
+              <h5 class="m-b30 ">{{$data->nama}}</h5>
+              <ul>
+                <li>
+                  <i class="ti-location-pin"></i>
+                  <strong>Alamat</strong>
+                  {{$data->alamat}}
+                </li>
+                <li>
+                  <i class="ti-mobile"></i>
+                  <strong>Telepon</strong>
+                  <a class="text-dark" href="https://api.whatsapp.com/send?phone=6285856561200">
+                    {{$data->telepon_1}} (24/7 Support Line)
+                  </a>
+                </li>
+                <li>
+                  <i class="ti-email"></i>
+                  <strong>email</strong>
+                  <a class="text-dark" href="mail:{{$data->email}}">{{$data->email}}</a>
+                </li>
+              </ul>
             </div>
-            
-            <div class="col-sm-12 lower-footer pt-0"></div>
-            <div class="col-sm-6 col-xs-12">
-                <p class="copyright-text">© 2022 copyright. All rights reserved.</p>
+          </div>
+          
+          <div class="col-md-6 col-lg-3 col-sm-6 footer-col-4 my-5 my-sm-0">
+            <div class="widget widget_services border-0">
+              <h5 class="m-b30">Bantuan</h5>
+              <ul>
+                <li><a href="{{route('about')}}">Tentang</a></li>
+                <li><a href="{{route('termCondition')}}">Syarat dan kebijakan</a></li>
+                <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
+              </ul>
             </div>
-            
+          </div>
+          
+          <div class="col-md-6 col-lg-3 col-sm-6 footer-col-4">
+            <div class="widget widget_services border-0">
+              <h5 class="m-b30">Layanan</h5>
+              <ul>
+                <li><a href="{{route('blogUser')}}">Blog</a></li>
+                <li><a href="{{route('tipeKonsultasi')}}">Konsultasi</a></li>
+                <li><a href="{{route('forum')}}">Forum</a></li>
+                <li><a href="{{route('event')}}">Event</a></li>
+                <li><a href="{{route('kelas')}}">Kelas</a></li>
+              </ul>
+            </div>
+          </div>
+
+          
         </div>
+      </div>
     </div>
-</div>
-<!-- footer wrapper -->
+    <!-- footer bottom part -->
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-6 text-left "> <span>Copyright © 2022 DexignZone</span> </div>
+          <div class="col-md-6 col-sm-6 text-right "> 
+            <div class="widget-link "> 
+              <ul>
+                <li><a href="javascript:void(0);"> Help Desk</a></li> 
+                <li><a href="javascript:void(0);"> Privacy Policy</a></li> 
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer END -->
+  

@@ -17,22 +17,30 @@
 </style>
 
 <div class="course-details pt-lg--7 pb-lg--7 pt-5 pb-5">
-    <div class="container">
+    <div class="container-md">
         <div class="row">
             <div class="col-xl-8 col-xxl-9 col-lg-8">
 
                 <h5 class="font-lg fw-500 text-center">{{$titles}}</h5>
+                @include('components.error.error_message')
 
                 <div class="col-12">
                     <div class="card d-block border-1 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
                         <div class="row">
                             <div class="col-12 col-sm-10 mx-auto">
-                                <form action="{{route('forum')}}" method="GET" >
+                                {{-- <form action="{{route('forum')}}" method="GET" >
                                 <div class="form-group icon-right-input style2-input mb-0">
                                     <input type="text" name="cari" placeholder="Cari" class="form-control rounded-xs bg-greylight border-0 font-xsss fw-500 pl-3">
                                     <button type="submit" class="btn btn-search"><i class="ti-search text-primary font-lg position-static"></i></button>
                                     
                                 </div>
+                                </form> --}}
+                                <form action="{{route('forum')}}" class="searchform" id="searchform" method="get" role="search">
+                                    <div>
+                                        <label for="s" class="screen-reader-text">Search for:</label>
+                                        <input type="text" id="s" name="cari" value="">
+                                        <input type="submit" value="Search" id="searchsubmit">
+                                    </div>
                                 </form>
                             </div>
 
@@ -79,11 +87,11 @@
                             </div>
                             <div class="flex-grow-1 ms-3">
                                 <h6 class="text-uppercase author-name font-xsss fw-700 mb-0 text-grey-800">{{$dt->user->name}}</h6>
-                                <h6 class="d-block font-xsssss fw-500 text-grey-500 mt-2 mb-0">{{$dt->updated_at}}</h6>
+                                <p class="my-0 font-12">{{$dt->updated_at}}</p>
                             </div>
                         </div>
     
-                        <a href="{{route('forumDetail',$dt->id)}}" class="fw-700 font-sm mb-3 mt-1 pl-1 mb-3">{{$dt->judul}}</a>
+                        <a href="{{route('forumDetail',$dt->id)}}" class="text-dark fw-bolder mb-3 mt-1 pl-1 mb-3">{{$dt->judul}}</a>
     
                         @if ($dt->gambar != null)     
                         <div class="mb-2">
@@ -91,26 +99,26 @@
                         </div>
                         @endif
     
-                        <div class="font-xsss fw-400 lh-28 text-grey-700 mb-0 pl-2">
+                        <div class="font-15 text-dark mb-0 pl-2">
                             {!!$dt->isi!!}
                         </div>
-    
-                        <div class="row px-3 mt-3">
-                        
-                            <div class="clearfix mr-3">
-                                <small class="cursor-pointer">
-                                <i class="fas fa-eye mr-1 text-cyan"></i>{{$dt->lihat}}  View
-                                </small>
-                            </div>
-                            
-                            <div class="clearfix">
-                                <small class="cursor-pointer">
-                                <i class="fas fa-comment-alt text-twiiter"></i>
-                                <a href="{{route('forumDetail',$dt->id)}}" class="text-decoration-none">{{count($dt->jawaban)}} Comment</a>
-                                </small>
+
+                        <div class="post-footer mt-3">
+                            <div class="dlab-post-meta text-dark">
+                                <ul>
+                                    
+                                    <li>
+                                        <i class="fas fa-eye mr-1 text-cyan"></i>{{$dt->lihat}}
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-comment-alt text-twiiter"></i>
+                                        <a href="{{route('forumDetail',$dt->id)}}" class="text-decoration-none">{{count($dt->jawaban)}}</a>
+                                    </li>
+                                </ul>
                             </div>
                             
                         </div>
+    
                     </div>
                         
                     @empty

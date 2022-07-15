@@ -14,7 +14,7 @@
 
             <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Event</h1>
             <div class="table-responsive">
-                <table class="table table-bordered tablePendaftaran" width="100%" cellspacing="0">
+                <table class="table table-bordered display tablePendaftaran" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
