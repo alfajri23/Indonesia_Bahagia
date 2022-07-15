@@ -1,4 +1,4 @@
-<header class="site-header mo-left navstyle4 header">
+<header class="site-header mo-left navstyle4 header border-bottom">
     <!-- main header -->
     <div class="sticky-header main-bar-wraper navbar-expand-lg">
         <div class="main-bar clearfix ">

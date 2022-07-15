@@ -61,9 +61,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Detail transaksi</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body py-4">
             <div class="card-body">
@@ -177,11 +175,11 @@
                 let bukti,file_tambahan;
                 let asset,konfirmasi;
 
-                //asset = window.location.origin + '/public';
-                asset = window.location.origin;
+                asset = window.location.origin + '/public';
+                //asset = window.location.origin;
         
                 //Bukti bayar
-                bukti = `<a target="_blank" href="${asset}/${datas.bukti}">Bukti</a>`;
+                bukti = `<a class="btn btn-info btn-sm" target="_blank" href="${asset}/${datas.bukti}">Lihat bukti</a>`;
 
                 //JIka ada file tambahan
                 if(datas.file_tambahan != null && datas.file_tambahan != ""){
@@ -197,7 +195,7 @@
                     konfirmasi = `
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button onclick="tolak(${datas.id})" class="btn btn-danger btn-sm">Tolak</button>
-                        <button onclick="konfirmasi_bank(${datas.id})" class="btn btn-success">Konfirmasi</button>
+                        <button onclick="konfirmasi_bank(${datas.id})" class="btn btn-success text-white">Konfirmasi</button>
                     </div>
                     `;    
                 }else{
@@ -318,7 +316,7 @@
                 `;
 
                 konfirmasi_konsultasi += `
-                    <a href="https://wa.me/${konsul.telepon}?text=Hallo%20${konsul.nama}%0AAda%20tawaran%20konsultasi%20atas%20nama%20${konsul.name}%0AHari%20${konsul.hari}%0ATanggal%20${konsul.tanggal}%0AJam%20${konsul.jam}%0ALanjutan%20${konsul.lanjutan}%0AApakah%20Anda%20bersedia%0A%0A%0A%0A%0AAdmin%2C%0AHallo%20Bahagia%0A" target="_blank" class="btn btn-success btn-sm">
+                    <a href="https://wa.me/${konsul.telepon}?text=Hallo%20${konsul.nama}%0AAda%20tawaran%20konsultasi%20atas%20nama%20${konsul.name}%0AHari%20${konsul.hari}%0ATanggal%20${konsul.tanggal}%0AJam%20${konsul.jam}%0ALanjutan%20${konsul.lanjutan}%0AApakah%20Anda%20bersedia%0A%0A%0A%0A%0AAdmin%2C%0AHallo%20Bahagia%0A" target="_blank" class="btn btn-success text-white btn-sm">
                         Chat konsultan
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>

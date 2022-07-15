@@ -34,6 +34,12 @@ class KonsultasiPendaftaranController extends Controller
                 ';
                 return $nama;
             })
+            ->addColumn('status', function($row){
+                $nama = '
+                <p class="fw-bolder">'.str_replace("_"," ",$row->status).'</p>
+                ';
+                return $nama;
+            })
             ->addColumn('pasien', function($row){
                 $nama = '
                 <p>'.$row->name.'</p>
@@ -71,7 +77,7 @@ class KonsultasiPendaftaranController extends Controller
                 
                 return $actionBtn;
             })
-            ->rawColumns(['nama','konsultan','pasien','aksi','tanggal'])
+            ->rawColumns(['nama','konsultan','pasien','aksi','tanggal','status'])
             ->make(true);
         
         }

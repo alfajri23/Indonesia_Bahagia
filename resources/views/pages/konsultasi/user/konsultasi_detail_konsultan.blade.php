@@ -26,7 +26,7 @@
                 @forelse ($data->pendidikans as $pendidikan)
                     <li>
                         <p class="mb-0 fw-bolder">{{$pendidikan->universitas}}</p>
-                        <p>{{$pendidikan->tahun}} - {{$pendidikan->jurusan}}</p>
+                        <p>{{$pendidikan->tahun}} - {{$pendidikan->jurusan}}  {{$pendidikan->tambahan}}</p>
                         
                     </li>
                     @empty   

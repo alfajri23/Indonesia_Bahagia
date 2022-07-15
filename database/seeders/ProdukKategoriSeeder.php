@@ -16,7 +16,7 @@ class ProdukKategoriSeeder extends Seeder
     {
         DB::table('produk_kategoris')->insert([
             [
-                'nama' => 'Webinar',
+                'nama' => 'Event',
             ],
             [
                 'nama' => 'Konsultasi',
