@@ -29,7 +29,7 @@ class KonsultasiUserController extends Controller
         }elseif($request->cari != null){
             $datas = Konsultan::where('nama','like','%'.$request->cari.'%')->get();
         }else{
-            $datas = Konsultan::latest()->get();
+            $datas = Konsultan::where('status',1)->get();
         }
                 
         $layanans = KonsultasiLayanan::latest()->get();

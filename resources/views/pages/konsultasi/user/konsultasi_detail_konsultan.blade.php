@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <figure class="avatar ml-0 mb-4 position-relative w100 z-index-1">
-                        <img src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="image" class="float-right p-1 bg-white w-100">
+                        <img src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="image" class="float-right p-1 bg-white w-100 rounded-lg">
                     </figure>
                 </div>
                 <div class="col-lg-6">                   

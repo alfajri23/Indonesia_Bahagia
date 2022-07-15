@@ -107,7 +107,7 @@
 
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary mt-2">Pesan sekarang</button>
+                    <button type="submit" class="btn btn-info mt-2">Pesan sekarang</button>
                     
                 </div>
                 </form>

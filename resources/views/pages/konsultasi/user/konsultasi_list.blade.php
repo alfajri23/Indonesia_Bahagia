@@ -1,20 +1,16 @@
 @extends('layouts.layout_user')
 @section('content')
 
-<div class="page-content bg-gray">
+<div class="page-content">
 
     <div class="dlab-bnr-inr overlay-black-middle bg-pt">
         <div class="container">
-            <div class="dlab-bnr-inr-entry">
-                <h1 class="text-white">Konsultasi</h1>
-                <!-- Breadcrumb row -->
-                <div class="breadcrumb-row">
-                    <ul class="list-inline">
-                        <li><a href="index.html">layanan</a></li>
-                        <li>konsultasi</li>
-                    </ul>
+            <div class="dlab-bnr-inr bg-pt">
+                <div class="container">
+                    <div class="dlab-bnr-inr-entry">
+                        <h1 class="text-white">Konsultasi</h1>
+                    </div>
                 </div>
-                <!-- Breadcrumb row END -->
             </div>
         </div>
     </div>
@@ -71,10 +67,13 @@
 
                 <div class="row">
                     @forelse ($datas as $data)   
-                    <a href="{{route('detailKonsultasi',$data->id)}}" class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="dlab-box m-b30 dlab-team3 shadow-xss">
-                            <div class="dlab-media">
-                                <img class="lozad" data-src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="">
+                    <a href="{{route('detailKonsultasi',$data->id)}}" class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                        <div class="dlab-box m-b30 dlab-team3 shadow hover">
+                            <div class="dlab-media rounded-lg">
+                                <img class="lozad" 
+                                data-src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}"
+                                data-placeholder-background="gray"
+                                alt="">
                             </div>
                             <div class="dlab-info">
                                 <h4 class="dlab-title">

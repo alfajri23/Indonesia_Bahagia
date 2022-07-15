@@ -156,12 +156,12 @@
                         <label class="fw-700 text-grey-800 display2-md-size">Universitas</label>
                         <input type="text" name="id" id="id" hidden>
                         <input type="text" name="id_konsultan" value="{{$data->id}}" hidden>
-                        <input type="text" name="universitas" id="univ" class="form-control">
+                        <input type="text" name="universitas" id="univ" class="form-control" required>
                     </div>
     
                     <div class="mb-3">
                         <label class="fw-700 text-grey-800 display2-md-size">Jurusan</label>
-                        <input type="text" name="jurusan" id="jurusan" class="form-control">
+                        <input type="text" name="jurusan" id="jurusan" class="form-control" required>
                     </div>
 
                     <div class="mb-3">
@@ -171,7 +171,7 @@
     
                     <div class="mb-3">
                         <label class="fw-700 text-grey-800 display2-md-size">Tahun</label>
-                        <input type="year" name="tahun" id="tahun" class="form-control">
+                        <input type="year" name="tahun" id="tahun" class="form-control" required>
                     </div>
 
                     <div>
@@ -187,13 +187,11 @@
 
 {{-- Modal Layanan --}}
 <div class="modal fade" id="modalLayanan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Tambah layanan</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body py-4">
             <div class="card-body">
@@ -223,9 +221,7 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Tambah Jadwal</h5>
-            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body py-4">
             <div class="card-body">
@@ -322,8 +318,6 @@
             dataType: 'json',
             success : (data)=>{
                 let layanan = data.data;
-                console.log(layanan);
-
                 if(layanan != null) {
                     function mapFile(item) {
                         return `

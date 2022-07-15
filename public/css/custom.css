@@ -143,6 +143,14 @@ body{
     margin-bottom : 5px;
 }
 
+.hover{
+
+}
+
+.hover:hover{
+    filter: brightness(96%);
+}
+
 .input-profile{
     width: 100%;
     height: 40px;

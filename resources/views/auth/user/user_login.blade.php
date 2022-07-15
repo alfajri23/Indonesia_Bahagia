@@ -4,7 +4,7 @@
 <div class="login-clean" style="height: 100vh;">
     <form method="post" action="{{ route('login') }}">
         @csrf
-        <h3 class="mb-4">Login Form</h3>
+        <h3 class="mb-4">Masuk</h3>
         @error('error')
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             {{ $message }}
