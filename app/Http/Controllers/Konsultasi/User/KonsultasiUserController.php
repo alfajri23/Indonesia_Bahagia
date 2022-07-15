@@ -101,7 +101,15 @@ class KonsultasiUserController extends Controller
     }
 
     public function createJanji(Request $request){
-        $data = KonsultanJadwalJanji::create([
+
+
+
+        $data = KonsultanJadwalJanji::updateOrCreate([
+            'id_konsultan' => $request->id_konsultan,
+            'id_user' => auth()->user()->id,
+            'id_layanan' => $request->id_layanan,
+            'status' => 'menunggu_bayar'
+            ],[
             'id_konsultan' => $request->id_konsultan,
             'id_user' => auth()->user()->id,
             'id_layanan' => $request->id_layanan,

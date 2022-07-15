@@ -6,7 +6,7 @@
                 <!-- website logo -->
                 <div class="logo-header mostion logo-dark">
                     <a href="{{route('homeUser')}}">
-                        <img src="https://pages.cnpem.br/rau/wp-content/uploads/sites/8/2017/09/lgoo-capes-2.jpg" alt="">
+                        <img src="{{asset($data)}}" alt="">
                     </a>
                 </div>
                 <!-- nav toggle button -->
@@ -32,7 +32,7 @@
                 <div class="header-nav navbar-collapse collapse justify-content-end" id="navbarNavDropdown">
                     <div class="logo-header d-md-block d-lg-none">
                         <a href="/">
-                            <img src="https://pages.cnpem.br/rau/wp-content/uploads/sites/8/2017/09/lgoo-capes-2.jpg" alt="">
+                            <img src="{{asset($data)}}" alt="">
                         </a>
                     </div>
                     <ul class="nav navbar-nav">	
