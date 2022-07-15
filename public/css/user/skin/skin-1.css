@@ -1,7 +1,9 @@
 /*===================== Premery bg color =====================*/
 :root {
-	--color-primary: #2ec4b6;
-	--color-hover: #1c9b8e;
+	/* --color-primary: #F2A2BB; */
+	--color-primary: #F2A2BB;
+	/* --color-hover: #d5a2b2; */
+	--color-hover: #d5a2b2;
 }
 
 /* Hex */
@@ -135,7 +137,7 @@ button.scroltop,
 .searchform input[type="submit"],
 .widget_calendar table tbody td#today,
 .dropdown-item.active, .dropdown-item:active {
-	background-color: #2ec4b6;
+	background-color: #F2A2BB;
 }
 
 /*Hex color :hover */
@@ -177,10 +179,10 @@ button.scroltop,
 .btnhover14::after,
 .btnhover13::after,
 .btnhover15::after {
-	background-color: #1c9b8e;
+	background-color: #d5a2b2;
 }
 .about-us .dlab-tabs .nav-tabs li.active {
-	border-right: 4px solid #1c9b8e;
+	border-right: 4px solid #d5a2b2;
 }
 
 /* Rgba color */
@@ -272,13 +274,13 @@ h6 a:hover,
 .service-box-4 .service-images i,
 .list-2 li:hover:before,
 .widget_rss ul .rss-date {
-	color: #2ec4b6;
+	color: #F2A2BB;
 }
 @media only screen and (max-width: 991px) {
 	.nav-dark.header-nav .nav > li > a:hover,
 	.nav-dark.header-nav .nav > li > a:active,
 	.nav-dark.header-nav .nav > li > a:focus {
-		color: #2ec4b6;
+		color: #F2A2BB;
 	}
 }
 /*===================== Premery border color =====================*/
@@ -307,45 +309,45 @@ button.scroltop.style3:after,
 .navstyle3 .header-nav .nav > li > .mega-menu,
 .navstyle3 .header-nav .nav > li .sub-menu,
 .site-button.outline {
-	border-color: #2ec4b6;
+	border-color: #F2A2BB;
 }
 .owl-item.active.center .testimonial-8 .testimonial-text:after {
-	border-top: 25px solid #2ec4b6;
+	border-top: 25px solid #F2A2BB;
 }
 .dlab-tabs.border-top .nav-tabs > li.active > a {
-	border-top-color: #2ec4b6;
+	border-top-color: #F2A2BB;
 }
 .comments-area .comment-form p input[type="submit"]:hover,
 .comments-area .comment-form p input[type="submit"]:focus,
 .comments-area .comment-form p input[type="submit"]:active {
-	border-color: #1c9b8e;
+	border-color: #d5a2b2;
 }
 .dlab-team4 .dlab-media:after {
-	border-color: #2ec4b6 #e6e5e5 #e6e5e5 #2ec4b6!important;
+	border-color: #F2A2BB #e6e5e5 #e6e5e5 #F2A2BB!important;
 }
 /*===================== Secondery bg color =====================*/
 .testimonial-14 .testimonial-detail{
-	background-color: #1c9b8e;
+	background-color: #d5a2b2;
 }
 /*===================== New Important =====================*/
 a.text-primary:hover,
 button.scroltop.white {
-	color: #1c9b8e !important;
+	color: #d5a2b2 !important;
 }
 .text-primary,
 .site-footer .footer-bottom a:hover,
 footer .widget_services ul li a:hover,
 .overlay-icon .check-km i.icon-bx-xs {
-	color: #2ec4b6 !important;
+	color: #F2A2BB !important;
 }
 .bg-primary,
 .pagination-bx.gray .pagination > li.active > a,
 .pagination-bx.gray .pagination > li > a:hover {
-	background-color: #2ec4b6 !important;
+	background-color: #F2A2BB !important;
 }
 a.bg-primary:focus,
 a.bg-primary:hover {
-	background-color: #1c9b8e !important;
+	background-color: #d5a2b2 !important;
 }
 .testimonial-14,
 .dlab-team11-area.dots-theme.owl-theme .owl-dots .owl-dot.active span,
@@ -355,33 +357,33 @@ a.bg-primary:hover {
 .frame-box .about-box,
 .service-box-4:hover .service-images img,
 .contact-no .contact-left{
-	border-color: #2ec4b6!important;
+	border-color: #F2A2BB!important;
 }
 .testimonial-4 [class*="quote-"]{
-	border-color: #2ec4b6;
+	border-color: #F2A2BB;
 }
 .testimonial-14 .testimonial-detail:after,
 .testimonial-14 .testimonial-detail:before {
-	border-top-color: #2ec4b6!important;
+	border-top-color: #F2A2BB!important;
 }
 button.scroltop {
-	box-shadow: -4px 4px 24px -10px #2ec4b6!important;
+	box-shadow: -4px 4px 24px -10px #F2A2BB!important;
 }
 .navstyle2 .header-nav .nav > li.active > a:after,
 .navstyle2 .header-nav .nav > li:hover > a:after {
-	box-shadow: inset 0 0 0 2px #2ec4b6;
+	box-shadow: inset 0 0 0 2px #F2A2BB;
 }
 
 /* ===== selection ===== */
 ::-moz-selection { /* Code for Firefox */
-  background: #2ec4b6;
+  background: #F2A2BB;
 }
 ::selection {
-  background: #2ec4b6;
+  background: #F2A2BB;
 }
 /* secondry color */
 .text-secondry {
-	color: #353866;
+	color: #219ebc;
 }
 .item-info-in,
 .header-transparent.is-fixed .main-bar,
@@ -393,7 +395,7 @@ button.scroltop {
 .footer-bottom,
 .site-button-secondry,
 .top-bar{
-	background-color:#353866;
+	background-color:#219ebc;
 }
 
 

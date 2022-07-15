@@ -31,7 +31,7 @@
       <div class="col-lg-6 col-md-12 col-sm-12 col-12 wow fadeIn" data-wow-delay="0.2s"  data-wow-duration="2s">
         <div class="section-head kinder-head">
           <h2 class="head-title text-yellow">Education from birth<br/>begins with us</h2>
-          <p class="text-white">Our children's academy, together with one of the oldest private schools, created a joint school preparation project. The goal of the project is the harmonious development, socializationfor admission to the best educational institutions of our city.</p>
+          <p class="text-white"></p>
         </div>
       </div>
     </div>
@@ -152,7 +152,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-white">
-        <p class="m-b0 fs-5">
+        <p class="m-b0 fs-5 font-poppins text-start">
           "Kebahagiaan lebih merupakan keterampilan yang dapat kita kerjakan<br> 
           setiap hari dengan secara aktif memilih pikiran, koneksi,<br>
           dan keyakinan yang membuat kita merasa baik,” <br> 
