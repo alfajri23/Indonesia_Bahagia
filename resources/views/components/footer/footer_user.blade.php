@@ -6,6 +6,7 @@
           <div class="col-md-6 col-lg-6 col-sm-6 footer-col-4">
             <div class="widget widget_getintuch">
               <h5 class="m-b30 ">{{$data->nama}}</h5>
+              <p>{{$data->desc}}</p>
               <ul>
                 <li>
                   <i class="ti-location-pin"></i>
@@ -22,7 +23,7 @@
                 <li>
                   <i class="ti-email"></i>
                   <strong>email</strong>
-                  <a class="text-dark" href="mail:{{$data->email}}">{{$data->email}}</a>
+                  <a class="text-dark text-lowercase" href="mail:{{$data->email}}">{{$data->email}}</a>
                 </li>
               </ul>
             </div>
@@ -56,22 +57,7 @@
         </div>
       </div>
     </div>
-    <!-- footer bottom part -->
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-sm-6 text-left "> <span>Copyright © 2022 DexignZone</span> </div>
-          <div class="col-md-6 col-sm-6 text-right "> 
-            <div class="widget-link "> 
-              <ul>
-                <li><a href="javascript:void(0);"> Help Desk</a></li> 
-                <li><a href="javascript:void(0);"> Privacy Policy</a></li> 
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </footer>
   <!-- Footer END -->
   
