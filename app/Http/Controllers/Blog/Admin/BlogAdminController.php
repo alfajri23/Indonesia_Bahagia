@@ -91,7 +91,8 @@ class BlogAdminController extends Controller
         $datas = [
             'judul' => $request->judul,
             'link' => Str::slug($request->judul, '-'),
-            'penulis' => $request->penulis,
+            //'penulis' => $request->penulis,
+            'penulis' => 'Admin',
             'isi' => $request->isi,
             'tag' => $request->tag,
             'id_kategori' => $request->id_kategori,
