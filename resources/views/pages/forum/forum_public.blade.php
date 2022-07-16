@@ -38,15 +38,23 @@
                             </div>
 
                             <div class="col-12 col-sm-10 mx-auto mt-2">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                        <i class="ti-help"></i>
-                                        Tanyakan sesuatu
-                                    </button>
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 my-1">
+                                        <button type="button" class="btn btn-info w-100" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="ti-help"></i>
+                                            Tanyakan sesuatu
+                                        </button>
+                                    </div>
+                                    <div class="col-12 col-sm-6 my-1">
+                                        <a href="{{route('forumMyQuestion')}}" class="btn btn-outline-info w-100">
+                                            <i class="ti-user"></i>
+                                            Pertanyaan saya
+                                        </a>
+                                    </div>
+                                </div>
+                                    
 
-                                    <a href="{{route('forumMyQuestion')}}" class="btn btn-outline-dark my-1">
-                                        <i class="ti-user"></i>
-                                        Pertanyaan saya
-                                    </a>
+                                    
                                 
                             </div>
                         </div>
@@ -60,9 +68,13 @@
                         @auth
                             @if ($dt->id_user == auth()->user()->id)
                             <span class="edit">
-                                <i onclick="edit({{$dt->id}})" class="fas fa-pencil mr-1"></i>
-                                <i class="fa-solid fa-trash" onclick="event.preventDefault();
-                                document.getElementById('form-delete-' + {{$dt->id}}).submit();"></i>
+                                <button onclick="edit({{$dt->id}})" class="btn btn-outline-success btn-sm">
+                                    <i  class="fas fa-pencil mr-1"></i>
+                                </button>
+                                <button onclick="event.preventDefault();
+                                document.getElementById('form-delete-' + {{$dt->id}}).submit();" class="btn btn-outline-danger btn-sm">
+                                    <i class="fa-solid fa-trash" ></i>
+                                </button>
     
     
                                 <form id="form-delete-{{$dt->id}}" class="d-none" action="{{route('forumDelete')}}" method="post">

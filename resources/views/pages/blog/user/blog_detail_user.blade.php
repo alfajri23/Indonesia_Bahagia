@@ -5,13 +5,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <h6 class="text-uppercase fw-600 ls-3 text-success font-xsss">{{$blog->kategori}}</h6>
+                <h6 class="text-uppercase fw-600 ls-3 text-pink font-xsss">{{$blog->kategori}}</h6>
                 <h2 class="mt-3 mb-2">
                     <a href="#" class="lh-2 display2-size display2-md-size mont-font text-grey-900 fw-700">{{$blog->judul}}</a>
                 </h2>                                
-                <h6 class="font-xssss text-grey-500 fw-600 ml-3 mt-3 d-inline-block"><i class="ti-time mr-2"></i> {{date_format(date_create($blog->updated_at),"d M Y")}}</h6> 
-                <h6 class="font-xssss text-grey-500 fw-600 ml-3 mt-3 d-inline-block"><i class="ti-user mr-2"></i> {{$blog->penulis}}</h6>
-                <h6 class="font-xssss text-grey-500 fw-600 ml-3 mt-3 d-inline-block"><i class="ti-comments mr-2"></i> {{$blog->komentar}} Comments</h6>
+                <h6 class="fw-normal mt-3 d-inline-block"><i class="ti-time mr-2"></i> {{date_format(date_create($blog->updated_at),"d M Y")}}</h6> 
+                <h6 class="fw-normal mx-3 mt-3 d-inline-block"><i class="ti-user mr-2"></i> {{$blog->penulis}}</h6>
+                <h6 class="fw-normal mt-3 d-inline-block"><i class="ti-comments mr-2"></i> {{$blog->komentar}} Comments</h6>
             </div>
         </div>
     </div>
@@ -32,7 +32,12 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 text-left">
                 <div class="card shadow-none w-100 border-0 mb-5">
-                    
+                    <ul class="list-inline m-b0">
+                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
                     <ul class="mt-0 list-inline">
                         <!-- <h4 class="list-inline-item mr-5 text-grey-900 font-xs fw-700">Share this article: </h4> -->
                         <li class="list-inline-item"><a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" class="btn-round-md bg-facebook"><i class="font-xs ti-facebook text-white"></i></a></li>
@@ -41,7 +46,7 @@
                     </ul>
                 </div>
                 
-                <div class="isi">
+                <div class="isi text-dark">
                     {!! $blog->isi !!}
                 </div>
                 
@@ -55,14 +60,14 @@
 
                     <div class="d-flex flex-wrap gap-10">
                         @forelse ($populars as $popular)
-                        <div class="card shadow-none bg-light border-0 mb-3 basis-50 p-3">
+                        <div class="card shadow bg-light border-0 mb-3 basis-50 p-3 rounded-lg">
                             <div class="row">
                                 <div class="col-4">
                                     <img data-src="{{ $popular->gambar != null ? asset($popular->gambar) : 'https://images.unsplash.com/photo-1500989145603-8e7ef71d639e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80'}}" alt="blog-image" class="img-fluid rounded-lg lozad">
                                 </div>
                                 <div class="col-8 pl-1">
-                                    <h6 class="font-xssss text-grey-500 fw-600 my-0">{{$popular->kategori}}</h6>
-                                    <a href="{{route('blogDetailUser',['id'=>$popular->id, 'link'=>$popular->link])}}" class="fw-600 text-grey-800 font-xsss lh-3">{{$popular->judul}}</a>
+                                    <h6 class="text-pink my-0 fs-6 fw-normal">{{$popular->kategori}}</h6>
+                                    <a href="{{route('blogDetailUser',['id'=>$popular->id, 'link'=>$popular->link])}}" class="text-gray fw-bolder">{{$popular->judul}}</a>
                                 </div>
                             </div>
                         </div>

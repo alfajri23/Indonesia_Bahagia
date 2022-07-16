@@ -120,7 +120,7 @@
                                         </div>
                                         <div class="dlab-post-header">
                                             <h6 class="post-title">
-                                                <a href="blog-single-left-sidebar.html">{{$popular->judul}}</a>
+                                                <a href="{{route('blogDetailUser',['id'=>$popular->id, 'link'=>$popular->link])}}">{{$popular->judul}}</a>
                                             </h6>
                                         </div>
                                     </div>
