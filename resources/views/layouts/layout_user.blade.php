@@ -15,10 +15,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
 
-    {{-- <link rel="stylesheet" href="{{asset('css/user/fontawesome.css')}}">
-    <link rel="stylesheet" href="{{asset('css/user/templatemo-eduwell-style.css')}}">
-    <link rel="stylesheet" href="{{asset('css/user/owl.css')}}">
-    <link rel="stylesheet" href="{{asset('css/user/lightbox.css')}}"> --}}
+    <meta name="title" content="@yield('meta_title','Hallo bagahia')">
+    <meta name="keywords" content="@yield('meta_keywords','Konsultasi keluarga,Konsultasi hukum,Assessment dan tes')">
+    <meta name="description" content="@yield('meta_description','Konsultasi keluarga,Konsultasi hukum,Assessment dan tes')">
+    <meta name="copyright" content="makinmahir.id">
+    <meta name="geo.placename" content="indonesia">
+    <meta name="geo.country" content="id">
+    <meta name="content-language" content="id">
 
     <link rel="stylesheet" href="{{ asset('css/user/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">

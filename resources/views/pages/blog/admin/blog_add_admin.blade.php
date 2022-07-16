@@ -38,7 +38,7 @@
                     
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Gambar</label><br>
-                        <input type="file" name="gambar" class="dropify form-control" required>
+                        <input type="file" name="gambar" class="dropify form-control">
                         <div id="emailHelp" class="form-text text-danger">Ukuran rasio rekomendasi : 16:9 | Format yang diterima : jpeg,png,jpg | Max 2Mb</div>
                     </div>
 
