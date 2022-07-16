@@ -108,6 +108,8 @@ class BlogAdminController extends Controller
             if(isset($blog)){
                 File::delete(public_path($blog->gambar));
             }
+        }else{
+            $datas['gambar'] = 'storage/blog/poster_blog.jpeg';
         }
 
         Blog::updateOrCreate(['id' => $request->id],$datas);

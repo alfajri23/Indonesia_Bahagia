@@ -123,6 +123,11 @@ body{
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05) !important;
   }
 
+
+.text-pink{
+    color: #F2A2BB !important;
+}
+
 .title-h2{
     font-size: 45px;
     font-weight: 900;
