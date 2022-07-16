@@ -65,7 +65,7 @@
                             <input type="text" name="tanggal" id="tanggal" hidden>
                             <input type="text" name="hari" id="hari" hidden>
                         </div>
-                        <div class="container-md radio-group ">
+                        <div class="row radio-group ">
                             @forelse ($jadwal_final as $key => $jadwal)
                             <div class="my-4">
                                 <h6 class="mt-1 mb-3">
@@ -75,7 +75,7 @@
                                     <div class="row">
                                         @forelse ($jadwal['jadwal'] as $jam)
                                         <a class="col-6 col-sm-2 cursor-pointer" onclick="selectJadwal('{{$jadwal['tanggal']}}','{{$jadwal['hari']}}','{{$jam['jam']}}')">
-                                            <div class="card radio">
+                                            <div class="card radio w-100">
                                                 <div class="card-body p-2">
                                                 <p class="card-title mb-0 text-center">{{$jam['jam']}}</p>
                                                 </div>

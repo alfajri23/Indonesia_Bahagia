@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-6">
+                <div class="col-12 col-sm-6">
                     <div class="">
                         <h4 class="widget-title">Search</h4>
                         <form action="{{route('tipeKonsultasi')}}" class="searchform" id="searchform" method="get" role="search">
@@ -32,19 +32,8 @@
                     </div>
                 </div>
 
-                <div class="col-4">
-                    {{-- <div>
-                        <div class="widget bg-white p-a20 monster-widget-placeholder-2 widget_archive">
-                            <h4 class="widget-title">Archives Dropdown</h4>
-                            <label for="archives-dropdown--1" class="screen-reader-text">Archives Dropdown</label>
-                            <select onChange="document.location.href={{route('tipeKonsultasi',['tipe' => this.options[this.selectedIndex].value])}};" name="archive-dropdown" id="archives-dropdown--1" class="bs-select-hidden">
-                                <option value="">Select Month</option>
-                                <option value="date"> May 2016 (1)</option>
-                            </select>
-                        </div>
-                    </div> --}}
-
-                    <div class="form-group mb-1">
+                <div class="col-12 col-sm-4">
+                    <div class="form-group my-1">
                         <h4 class="widget-title">Tipe</h4>
                     </div>
                     <div class="btn-group">
