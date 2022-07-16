@@ -88,7 +88,7 @@
                 <div class="comments-list">
                     <h4 class="text-grey-900 font-sm fw-700 mt-5 mb-5">Comments</h4>
                     @forelse ($komentars as $komentar)
-                    <div class="section full mb-5">
+                    <div class="container-md mb-5">
                         <div class="row">
                             <div class="col-3 col-sm-2">
                                 <figure class="avatar mr-0 text-center">
@@ -97,19 +97,20 @@
                                     </div>
                                 </figure>
                             </div>
-                            <div class="col-lg-8 col-md-8 col-sm-9 col-xs-9 pl-1 pr-0 clearfix">
+                            <div class="col-lg-10 col-md-8 col-sm-9 col-xs-9 pl-1 pr-0 clearfix">
                                 @auth
                                 @if ($komentar->id_user == auth()->user()->id)
-                                <div class="float-end me-3">
-                                    <a onclick="event.preventDefault();
+                                <div class="float-end">
+                                    <button class="btn btn-outline-danger btn-sm" onclick="event.preventDefault();
                                     document.getElementById('logout-form-'+{{$loop->iteration}}).submit();
-                                    
                                     " >
-                                    <i class="ti-trash font-md text-instagram cursor-pointer"></i>
-                                    </a>
+                                        <i class="ti-trash font-md text-instagram cursor-pointer"></i>
+                                    </button>
 
                                     
-                                    <i onclick="edit({{$komentar->id}})" class="ti-pencil font-md mx-2 cursor-pointer"></i>
+                                    <button onclick="edit({{$komentar->id}})" class="btn btn-outline-success btn-sm">
+                                        <i class="ti-pencil font-md cursor-pointer"></i>
+                                    </button>
 
                                     <form id="logout-form-{{$loop->iteration}}" action="{{ route('forumDeleteKomentar') }}" method="POST" class="d-none">
                                         @csrf
