@@ -74,7 +74,7 @@
                                 </h6>
                                     <div class="row">
                                         @forelse ($jadwal['jadwal'] as $jam)
-                                        <a class="col-6 col-sm-2 cursor-pointer" onclick="selectJadwal('{{$jadwal['tanggal']}}','{{$jadwal['hari']}}','{{$jam['jam']}}')">
+                                        <a class="col-12 col-sm-2 cursor-pointer my-1" onclick="selectJadwal('{{$jadwal['tanggal']}}','{{$jadwal['hari']}}','{{$jam['jam']}}')">
                                             <div class="card radio w-100">
                                                 <div class="card-body p-2">
                                                 <p class="card-title mb-0 text-center">{{$jam['jam']}}</p>
