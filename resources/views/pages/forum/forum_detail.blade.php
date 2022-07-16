@@ -15,6 +15,7 @@
         <div class="row">
             <div class="col-xl-8 col-xxl-9 col-lg-8">
                 <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
+                    @auth
                     @if ($data->id_user == auth()->user()->id)
                     <span class="edit">
                         <button onclick="event.preventDefault();
@@ -29,6 +30,7 @@
                         </form>
                     </span>
                     @endif
+                    @endauth
                     
                     <div class="d-flex mb-3">
                         <div class="flex-shrink-0">

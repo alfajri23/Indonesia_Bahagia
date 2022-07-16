@@ -49,7 +49,7 @@
                         </li>
 
                         <li>
-                            <a href="javascript:;">Tentang<i class="fas fa-chevron-down"></i></a>
+                            <a href="javascript:0;">Tentang<i class="fas fa-chevron-down"></i></a>
                             <ul class="sub-menu right">
                                 <li><a href="{{route('about')}}">Tentang</a></li>
                                 <li><a href="{{route('termCondition')}}">Syarat dan Ketentuan</a></li>
@@ -59,7 +59,7 @@
 
                         @auth 
                         <li>
-                            <a href="javascript:;">{{auth()->user()->name}}<i class="fas fa-chevron-down"></i></a>
+                            <a href="javascript:0;">{{auth()->user()->name}}<i class="fas fa-chevron-down"></i></a>
                             <ul class="sub-menu right">
                                 <li><a href="{{route('profile')}}">Profile saya</a></li>
                                 <li><a href="{{route('changePassword')}}">Ubah password</a></li>
