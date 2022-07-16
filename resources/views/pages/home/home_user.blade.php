@@ -41,7 +41,7 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
 
 {{-- Seberapa bahagia --}}
 <div class="section-full content-inner bg-white">
-  <div class="container-md">
+  <div class="container">
     <div class="row edu-about align-items-center">
       <div class="col-lg-6 m-b30">
         <div class="section-head m-b20">
@@ -108,7 +108,7 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
 
 {{-- Produk --}}
 <div class="section-full content-inner bg-gray">
-  <div class="container-md">
+  <div class="container">
     <div class="section-head text-black text-center">
       <h2 class="title">Kami siap membantumu</h2>
       <p>Dengan berbagai pengalaman dan keahlian kami, kami siap membantumu</p>
