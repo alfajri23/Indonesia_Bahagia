@@ -1,7 +1,7 @@
 <!-- Footer -->
 <footer class="site-footer text-uppercase footer-white">
     <div class="footer-top bg-light">
-      <div class="container-md saf-footer">
+      <div class="container saf-footer">
         <div class="row">
           <div class="col-md-6 col-lg-6 col-sm-6 footer-col-4">
             <div class="widget widget_getintuch">
