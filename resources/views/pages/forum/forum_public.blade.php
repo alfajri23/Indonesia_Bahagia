@@ -19,7 +19,7 @@
 <div class="course-details pt-lg--7 pb-lg--7 pt-5 pb-5">
     <div class="container-md">
         <div class="row">
-            <div class="col-xl-8 col-xxl-9 col-lg-8">
+            <div class="col-xl-9 col-xxl-9 col-lg-8">
 
                 <h5 class="font-lg fw-500 text-center">{{$titles}}</h5>
                 @include('components.error.error_message')
@@ -136,7 +136,7 @@
                 </div>
             </div>
             
-            <div class="col-xl-4 col-xxl-3 col-lg-4">
+            <div class="col-xl-3 col-xxl-3 col-lg-4">
                
                     <h5 class="font-sm fw-500">Kategori</h5>
                     @if(\Auth::check()) 

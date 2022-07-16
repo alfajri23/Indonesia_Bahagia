@@ -17,8 +17,10 @@
                 <div class="card d-block border-0 rounded-lg overflow-hidden p-4 shadow-xss mt-4">
                     @if ($data->id_user == auth()->user()->id)
                     <span class="edit">
-                        <i class="fa-solid fa-trash text-instagram" onclick="event.preventDefault();
-                        document.getElementById('form-delete-' + {{$data->id}}).submit();"></i>
+                        <button onclick="event.preventDefault();
+                        document.getElementById('form-delete-' + {{$data->id}}).submit();" class="btn btn-outline-danger btn-sm">
+                            <i class="fa-solid fa-trash text-instagram"></i>
+                        </button>
 
 
                         <form id="form-delete-{{$data->id}}" class="d-none" action="{{route('forumDelete')}}" method="post">
