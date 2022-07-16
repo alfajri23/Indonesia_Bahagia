@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">Penulis</label>
-                        <input type="text" name="penulis" class="form-control" id="exampleFormControlInput1" placeholder="" required>
+                        <input type="text" name="penulis" class="form-control" id="exampleFormControlInput1" placeholder="" >
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">tag</label>
