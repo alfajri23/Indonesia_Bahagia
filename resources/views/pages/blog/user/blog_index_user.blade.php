@@ -23,7 +23,7 @@
     <!-- inner page banner END -->
     <!-- contact area -->
     <div class="content-area">
-        <div class="container-sm">
+        <div class="container">
             <div class="row">
                 <!-- Left part start -->
                 <div class="col-xl-9 col-lg-8">
@@ -58,11 +58,11 @@
                                 </ul>
                             </div>
                             <div class="dlab-post-title ">
-                                <h4 class="post-title">
+                                <h5 class="post-title">
                                     <a href="{{route('blogDetailUser',['id'=>$blog->id, 'link'=>$blog->link])}}">
                                         {{$blog->judul}}
                                     </a>
-                                </h4>
+                                </h5>
                             </div>
                             <div class="dlab-post-text text-desc">
                                 {!!$blog->isi!!}

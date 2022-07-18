@@ -52,10 +52,6 @@
                                         </a>
                                     </div>
                                 </div>
-                                    
-
-                                    
-                                
                             </div>
                         </div>
                     </div>
@@ -136,7 +132,7 @@
             
             <div class="col-xl-3 col-xxl-3 col-lg-4">
                
-                    <h5 class="font-sm fw-500">Kategori</h5>
+                    <h5 class="font-sm fw-500 mt-5">Kategori</h5>
                     @if(\Auth::check()) 
                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#kategoriModal">
                             <i class="fa-solid fa-plus"></i>
