@@ -102,7 +102,15 @@ class KonsultasiUserController extends Controller
 
     public function createJanji(Request $request){
 
+        $messages = [
+            'required' => ' :attribute harus diisi.',
+        ];
 
+        $this->validate($request, [
+            'tanggal' => 'required',
+            'jam' => 'required',
+            'hari' => 'required',
+        ],$messages);
 
         $data = KonsultanJadwalJanji::updateOrCreate([
             'id_konsultan' => $request->id_konsultan,

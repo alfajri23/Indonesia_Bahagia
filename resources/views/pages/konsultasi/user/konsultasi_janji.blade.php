@@ -52,6 +52,8 @@
                 </div>
             </div>
 
+            @include('components.error.error_message')
+
             <div class="row mt-3 pt-3">
                 <div class="card">
                     <div class="card-body p-3">

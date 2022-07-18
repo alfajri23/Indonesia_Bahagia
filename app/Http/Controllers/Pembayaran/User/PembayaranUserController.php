@@ -46,7 +46,7 @@ class PembayaranUserController extends Controller
     public function bank(Request $request){
 
         $messages = [
-            'mimes' => ':attribute tipe yang diterima: :values',
+            'mimes' => ' :attribute tipe yang diterima: :values',
             'max' => 'Ukuran maksimal file 2 Mb'
         ];
 

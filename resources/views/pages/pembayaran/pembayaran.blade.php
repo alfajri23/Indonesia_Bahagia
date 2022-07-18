@@ -62,6 +62,7 @@
                     <div class="col-lg-6 mb-5">
                         <div class="rounded-xxl bg-greylight h-100 px-0 px-sm-5">
                             <div class="col-lg-12 pl-0">
+                                <input type="text" name="id_produk" value="{{$data->id}}" hidden>
                                 <!-- <h4 class="mb-4 font-xs fw-700 mont-font mt-0">Add Card </h4> -->
                             </div>
                             <div class="col-lg-12">
@@ -84,7 +85,7 @@
                             </div>
 
                             {{-- <div class="col-lg-12 mt-2">
-                                <input type="text" name="id_produk" value="{{$data->id}}" hidden>
+                                
                                 <div class="form-group mb-1">
                                     <label class="text-dark-color text-grey-600 font-xssss mb-2 fw-600" for="exampleInputPassword1">Nama</label>
                                     <h4 class="mb-2 font-sm fw-600 mont-font">{{$data->nama}}</h4>

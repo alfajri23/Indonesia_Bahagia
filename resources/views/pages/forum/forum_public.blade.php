@@ -40,7 +40,7 @@
                             <div class="col-12 col-sm-10 mx-auto mt-2">
                                 <div class="row">
                                     <div class="col-12 col-sm-6 my-1">
-                                        <button type="button" class="btn btn-info w-100" data-toggle="modal" data-target="#exampleModal">
+                                        <button type="button" class="btn btn-info w-100" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="ti-help"></i>
                                             Tanyakan sesuatu
                                         </button>
@@ -121,9 +121,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            
-                        </div>
-    
+                        </div> 
                     </div>
                         
                     @empty
@@ -150,10 +148,8 @@
                     <a href="{{route('forum',['kategori'=> $kat->nama])}}" class="d-flex align-items-center btn btn-light my-1">  
                         <p class="ml-2 mb-0">{{$kat->nama}}</p>
                     </a>
-                    @empty
-                        
+                    @empty        
                     @endforelse
-                
             </div>
         </div>
     </div>
@@ -164,10 +160,8 @@
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tambah pertanyaan</h5>
-          <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal" aria-label="Close">
-            <i class="fa-solid fa-xmark"></i>
-          </button>
+          <h5 class="modal-title" id="exampleModalLabel">Pertanyaan</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
         <form class="border-0" action="{{route('forumStore')}}" method="post" enctype="multipart/form-data">
@@ -204,7 +198,7 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Publish</button>
         </div>
         </form>
@@ -213,12 +207,12 @@
 </div>
 
 <!-- Modal kategori -->
-<div class="modal fade" id="kategoriModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="kategoriModal" tabindex="-1" aria-labelledby="exampleModalLabe" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Buat kategori</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -231,7 +225,7 @@
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
           <button type="submit" class="btn btn-success">Tambah kategori</button>
         </form>
         </div>
@@ -268,6 +262,10 @@ crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             $('#formKategori').trigger("reset");
         });
 	});
+
+    function add(){
+        $('#exampleModal').modal('show');
+    }
 
     function edit(id){
         $.ajax({

@@ -28,14 +28,18 @@ class UserController extends Controller
 			'password' => ['required', 'string', 'min:8', 'confirmed'],
 		]);
 
-        if (!(Hash::check($request->get('current-password'), auth()->user()->password))) {
-            // The passwords matches
-            return redirect()->back()->with("error","Password lama anda tidak sesuai dengan password");
-        }
+        $user = User::find(auth()->user()->id);
 
-        if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
-            // Current password and new password same
-            return redirect()->back()->with("error","Password baru tidak dapat sama dengan password lama");
+        if($user->password != null) {
+            if (!(Hash::check($request->get('current-password'), auth()->user()->password))) {
+                // The passwords matches
+                return redirect()->back()->with("error","Password lama anda tidak sesuai dengan password");
+            }
+
+            if(strcmp($request->get('current-password'), $request->get('new-password')) == 0){
+                // Current password and new password same
+                return redirect()->back()->with("error","Password baru tidak dapat sama dengan password lama");
+            }
         }
 
         $validatedData = $request->validate([
@@ -44,7 +48,6 @@ class UserController extends Controller
         ]);
 
         //Change Password
-        $user = User::find(auth()->user()->id);
         $user->password = Hash::make($request->get('password'));
         $user->save();
 
