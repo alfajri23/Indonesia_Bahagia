@@ -216,14 +216,25 @@ body{
     width: 150px;
 }
 
+.wr-100{
+    
+}
+
 .font-poppins{
     font-family: 'Poppins', sans-serif !important;
 }
 
 
 @media (max-width: 576px) {
-    .basis-50{
-        flex-basis: 95%;
+    .wr-100{
+        width: 100%;
     }
 }
+
+/* @media (max-width: 768px) {
+    .wr-100{
+        width: 50%;
+    }
+} */
+
 
