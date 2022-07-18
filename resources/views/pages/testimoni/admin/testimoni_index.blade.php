@@ -8,7 +8,7 @@
             <h1 class="fw-bolder mb-3">Testimoni</h1>
 
             <div class="table-responsive">
-                <table class="table table-bordered tableTestimoni" width="100%" cellspacing="0">
+                <table class="table table-bordered display tableTestimoni" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No</th>
