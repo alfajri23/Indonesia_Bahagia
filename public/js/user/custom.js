@@ -1,6 +1,7 @@
 (function ($) {
 	
 	"use strict";
+	
 
 	// $(window).scroll(function() {
 	//   var scroll = $(window).scrollTop();
@@ -13,6 +14,7 @@
 	//     $("header").removeClass("background-header");
 	//   }
 	// });
+
 	
 	$('.filters ul li').click(function(){
         $('.filters ul li').removeClass('active');
@@ -254,6 +256,8 @@
 			}, 300);
 		});
 	});
+
+	
 
 	
 

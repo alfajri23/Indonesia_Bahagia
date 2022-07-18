@@ -4,6 +4,23 @@ $(document).ready(function() {
     PageScroll();
 
 
+    var screenWidth = $( window ).width();
+    
+    if(screenWidth <= 991 ){
+		jQuery('.navbar-nav > li > a, .sub-menu > li > a').unbind().on('click', function(e){
+			//e.preventDefault();
+			if(jQuery(this).parent().hasClass('open'))
+			{
+				jQuery(this).parent().removeClass('open');
+			}
+			else{
+				jQuery(this).parent().parent().find('li').removeClass('open');
+				jQuery(this).parent().addClass('open');
+			}
+		});
+	}
+
+
     // Loading Box (Preloader)
     function handlePreloader() {
         $( window ).on( "load", function() {
