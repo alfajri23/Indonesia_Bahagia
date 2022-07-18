@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-6 mb-3">
                     <div class="">
                         <h4 class="widget-title">Search</h4>
                         <form action="{{route('tipeKonsultasi')}}" class="searchform" id="searchform" method="get" role="search">
