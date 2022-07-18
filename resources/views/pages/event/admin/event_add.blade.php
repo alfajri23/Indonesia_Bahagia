@@ -91,6 +91,7 @@
                     <div class="mb-3">
                         <label for="disabledSelect" class="form-label">Konsultan</label>
                         <select id="disabledSelect" name="id_konsultan" class="form-select">
+                            <option value="">Tidak ada</option>   
                             @forelse ($pemateri as $pm)
                             <option value="{{$pm->id}}">{{$pm->nama}}</option>              
                             @empty

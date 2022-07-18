@@ -21,7 +21,7 @@ class CreateProdukEventsTable extends Migration
             $table->string('waktu')->nullable();
             $table->text('desc')->nullable();
             $table->integer('id_konsultan')->nullable();
-            $table->string('pemateri')->nullable();
+            $table->text('pemateri')->nullable();
             $table->string('harga');
             $table->string('harga_bias')->nullable();
             $table->string('poster')->nullable();

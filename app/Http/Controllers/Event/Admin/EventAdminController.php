@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Event\Admin;
 
 use App\Helpers\UploadFile;
 use App\Http\Controllers\Controller;
+use App\Models\Konsultan;
 use App\Models\Produk;
 use App\Models\ProdukEvent;
 use App\Models\ProdukKategori;
@@ -65,8 +66,8 @@ class EventAdminController extends Controller
     }
 
     public function eventAdd(){
-        //$pemateri = Expert::latest()->get();
-        $pemateri = [];
+        $pemateri = Konsultan::latest()->get();
+        //$pemateri = [];
         $tipes = ProdukKategori::latest()->get();
         return view('pages.event.admin.event_add',compact('pemateri','tipes'));
     }
@@ -153,8 +154,8 @@ class EventAdminController extends Controller
         $tipe = ProdukKategori::where('nama',$data->tipe)->pluck('id')->first();
         
         $tipes = ProdukKategori::latest()->get();
-        //$pemateri = Expert::latest()->get();
-        $pemateri = [];
+        $pemateri = Konsultan::latest()->get();
+        //$pemateri = [];
 
         $produk = Produk::where([
             'id_produk' => $data->id,
