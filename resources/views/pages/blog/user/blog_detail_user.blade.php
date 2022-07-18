@@ -28,21 +28,26 @@
 </div>
 
 <div class="post-content pt-lg--7 pt-lg--7 pt-5 pb-5">
-    <div class="container-md">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10 text-left">
                 <div class="card shadow-none w-100 border-0 mb-5">
                     <ul class="list-inline m-b0">
-                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl instagram"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="javascript:void(0);" class="site-button sharp radius-xl linkedin"><i class="fab fa-linkedin-in"></i></a></li>
-                    </ul>
-                    <ul class="mt-0 list-inline">
-                        <!-- <h4 class="list-inline-item mr-5 text-grey-900 font-xs fw-700">Share this article: </h4> -->
-                        <li class="list-inline-item"><a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" class="btn-round-md bg-facebook"><i class="font-xs ti-facebook text-white"></i></a></li>
-                        <li class="list-inline-item"><a target="_blank" href="https://twitter.com/intent/tweet?text={{url()->full()}}" class="btn-round-md bg-twiiter"><i class="font-xs ti-twitter-alt text-white"></i></a></li>
-                        <li class="list-inline-item"><a target="_blank" href="https://wa.me/?text={{url()->full()}}" class="btn-round-md bg-linkedin"><i class="font-xs fa-brands fa-whatsapp text-white"></i></a></li>
+                        <li>
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url()->full()}}" class="site-button sharp radius-xl facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://twitter.com/intent/tweet?text={{url()->full()}}" class="site-button sharp radius-xl twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://wa.me/?text={{url()->full()}}" class="site-button sharp radius-xl whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
@@ -53,7 +58,7 @@
             </div>
 
             <div class="col-lg-10">
-                <div class="bg-transparent side-wrap rounded-lg p-4 mb-4">
+                <div class="bg-transparent side-wrap rounded-lg mb-4">
                     <div class="form-group mb-3">
                         <label class="fw-700 text-grey-900">Related Blog</label>
                     </div>
@@ -142,7 +147,7 @@
                                
                             </div>        
                             <div class="form-group">
-                                <button type="submit" class="form-control style2-input bg-info text-white font-xss fw-500 p-0 w175">Submit</button>
+                                <button type="submit" class="btn btn-success text-white w-100 ">Submit</button>
                             </div>
                         </div>
                     </div>

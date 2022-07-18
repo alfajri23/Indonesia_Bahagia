@@ -80,9 +80,9 @@
                 {data: 'id_kategori', name: 'id_kategori',visible: false},
                 {data: 'kategori', name: 'kategori'},
                 {data: 'penulis', name: 'penulis'},
-                {data: 'tanggal', name: 'tanggal'},
+                {data: 'tanggal', name: 'tanggal',width: '10%'},
                 {data: 'pengunjung', name: 'pengunjung',width: '5%'},
-                {data: 'aksi', name: 'aksi'},
+                {data: 'aksi', name: 'aksi',width: '15%'},
             ]
         })
 
