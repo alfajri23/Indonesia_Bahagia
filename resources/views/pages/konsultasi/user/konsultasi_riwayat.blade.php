@@ -50,7 +50,7 @@
                         </div>
                     </div>  
                     @empty
-                    <h2 class="font-xl fw-600 font-grey-700 text-center">Belum ada event yang kamu ikuti</h2>
+                    <h6 class="text-center">Belum ada event yang kamu ikuti</h6>
                     @endforelse
                 </div>
                

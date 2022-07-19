@@ -31,5 +31,10 @@ class Konsultan extends Authenticatable
         return $this->hasMany(KonsultanJadwal::class, 'id_konsultan', 'id');
     }
 
+    public function event()
+    {
+        return $this->hasMany(ProdukEvent::class, 'id_konsultan', 'id');
+    }
+
 
 }

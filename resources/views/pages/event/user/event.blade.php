@@ -5,16 +5,12 @@
     <!-- inner page banner -->
     <div class="dlab-bnr-inr overlay-black-middle bg-pt" style="background-image:url(images/banner/bnr4.jpg);">
         <div class="container">
-            <div class="dlab-bnr-inr-entry">
-                <h1 class="text-white">Event 1</h1>
-                <!-- Breadcrumb row -->
-                <div class="breadcrumb-row">
-                    <ul class="list-inline">
-                        <li><a href="index.html">Home</a></li>
-                        <li>Event 1</li>
-                    </ul>
+            <div class="dlab-bnr-inr bg-pt">
+                <div class="container">
+                    <div class="dlab-bnr-inr-entry">
+                        <h1 class="text-white">Event</h1>
+                    </div>
                 </div>
-                <!-- Breadcrumb row END -->
             </div>
         </div>
     </div>

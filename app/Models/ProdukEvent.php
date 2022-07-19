@@ -18,4 +18,9 @@ class ProdukEvent extends Model
         return $this->hasMany(EventEnroll::class, 'id_produk', 'id');
     }
 
+    public function konsultan()
+    {
+        return $this->belongsTo(Konsultan::class, 'id_konsultan', 'id');
+    }
+
 }

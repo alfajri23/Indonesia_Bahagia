@@ -95,7 +95,7 @@
                         <a href="{{route('forumDetail',$dt->id)}}" class="text-dark fw-bolder mb-3 mt-1 pl-1 mb-3">{{$dt->judul}}</a>
     
                         @if ($dt->gambar != null)     
-                        <div class="mb-2">
+                        <div class="my-3">
                             <img data-src="{{asset($dt->gambar)}}" class="img-responsive w-100 lozad rounded-xxl" alt="" srcset="">
                         </div>
                         @endif

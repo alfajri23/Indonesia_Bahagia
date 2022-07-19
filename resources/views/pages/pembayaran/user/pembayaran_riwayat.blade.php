@@ -24,23 +24,23 @@
                             @endif
 
                             
-                            <h2 class="fw-700 font-sm text-grey-900 mb-0">{{$data->nama}}</h2>
+                            <h4 class="mb-0">{{$data->nama}}</h4>
                         </div>
                         <p class="font-xsss text-grey-500 fw-500 mb-2">{{date_format(date_create($data->tanggal),"d M Y")}}</p>
                         <p class="font-xsss text-grey-700 fw-500 ">Rp. {{number_format($data->harga)}}</p>
 
                         <div>
                             @if($data->produk->id_kategori == 1)
-                            <a href="{{route('produkDetailEnroll',$data->id_produk)}}" class="btn btn-info btn-sm fw-700 font-xsss text-white me-3">Masuk</a>
+                            <a href="{{route('produkDetailEnroll',$data->id_produk)}}" class="btn btn-info fw-700 font-xsss text-white me-3">Masuk</a>
                             @endif
-                            <a href="{{route('pembayaranRiwayatDetail',$data->id)}}" class="fw-700 font-xsss text-primary">Detail</a>
+                            <a href="{{route('pembayaranRiwayatDetail',$data->id)}}" class="fw-700 font-xsss text-info">Detail</a>
                         </div>
                     </div>
                         
                     @empty
 
                     <div class="card shadow-xss border-0 p-5 rounded-lg">
-                        <h2 class="fw-700 font-sm mt-4 mb-3 text-grey-900">Belum ada transaksi</h2>
+                        <h6 class="text-center">Belum ada transaksi</h6>
                     </div>
                         
                     @endforelse
