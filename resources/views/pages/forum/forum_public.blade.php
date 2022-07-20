@@ -134,7 +134,7 @@
                
                     <h5 class="font-sm fw-500 mt-5">Kategori</h5>
                     @if(\Auth::check()) 
-                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#kategoriModal">
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#kategoriModal">
                             <i class="fa-solid fa-plus"></i>
                             Tambah kategori
                         </button>
@@ -208,9 +208,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Buat kategori</h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <form method="post" class="border-0" action="{{route('forumStoreKategori')}}">
