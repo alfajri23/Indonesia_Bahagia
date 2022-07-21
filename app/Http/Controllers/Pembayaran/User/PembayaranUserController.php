@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 
 class PembayaranUserController extends Controller
 {
+
     public function pembayaran($id,$janji = null){
         $title = 'Pembayaran - halobahagia.com';
         $produk = Produk::find($id);
@@ -59,7 +60,6 @@ class PembayaranUserController extends Controller
             return redirect()->back()->withErrors(['error' => 'Tidak bisa melakukan pembayaran 2 kali, pembayaran Anda sebelumnya sedang diproses']);
         }
 
-
         $produk = Produk::find($request->id_produk);
 
         $datas = [
@@ -76,9 +76,6 @@ class PembayaranUserController extends Controller
 
         //KONSULTASI
         $this->cekJanjiKonsultasi($request,$transaksi);
-
-        
-        
 
         return redirect()->route('homeUser');
     }

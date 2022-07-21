@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 AdminSeeder::class,
                 ProdukKategoriSeeder::class,
                 MasterSettingProgramSeeder::class,
+                SettingPembayaranSeeder::class,
             ]
         );
     }
