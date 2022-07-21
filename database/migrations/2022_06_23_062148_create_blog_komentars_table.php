@@ -19,7 +19,7 @@ class CreateBlogKomentarsTable extends Migration
             $table->integer('id_blog');
             $table->date('tanggal');
             $table->string('waktu')->nullable();
-            $table->string('isi')->nullable();
+            $table->text('isi')->nullable();
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
