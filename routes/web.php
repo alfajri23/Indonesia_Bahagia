@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -330,4 +331,10 @@ Route::prefix('double')->group(function(){
     Route::prefix('pendaftaran')->group(function(){
 
     });
+});
+
+Route::get('checkgateway',function(){
+    $data = User::find(16);
+    $data->telepon = now();
+    $data->save();
 });
