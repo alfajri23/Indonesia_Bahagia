@@ -206,8 +206,19 @@
                             <li><a href="{{route('masterKontak')}}">Kontak</a></li>
                             <li><a href="{{route('masterInformasi')}}">Informasi</a></li>
                             <li><a href="{{route('testimoniAdmin')}}">Testimoni</a></li>
+                            
                         </ul>
                     </li>
+
+                    <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                        <i class="la la-users"></i>
+                        <span class="nav-text">Setting</span>
+                    </a>
+                    <ul aria-expanded="false">
+                        <li><a href="{{route('formSetting')}}">Form pendaftaran</a></li>
+                        <li><a href="{{route('masterBanner')}}">Banner</a></li>
+                    </ul>
+                </li>
                     
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
 							<i class="la la-graduation-cap"></i>

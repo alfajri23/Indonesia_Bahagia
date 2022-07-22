@@ -7,7 +7,7 @@
     <div class="card-body">
       <h1 class="fw-bolder mb-3">Informasi perusahaan</h1>
 
-      <form method="post" action="{{ route('masterStoreInformasi')}}">
+      <form method="post" action="{{ route('masterStoreInformasi')}}" enctype="multipart/form-data">
         @csrf
           <div class="mb-3">
             <label class="form-label">Nama</label>

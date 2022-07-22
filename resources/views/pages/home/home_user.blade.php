@@ -1,29 +1,64 @@
 @extends('layouts.layout_user')
+
+@section('style')
+<link
+rel="stylesheet"
+href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+@endsection
+
 @section('content')
 
-{{-- <div class="banner-wrapper vh-md-100 layer-after app-shape ">
-  <div class="container-md">
-    <div class="section-full">
-      <div class="row">
-          <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
-            <div class="">
-              <h2 class="font-50">Expand Your Knowledge & Acheive Your Goal</h2>
-              <p class="font-16">There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer.</p>
-            </div>
-          </div>
-          <div class="col-xxxl-5 col-xl-4 vh-md-100 align-items-center d-flex order-1 order-sm-2">
-              <div class="card w-100 border-0 bg-transparent text-center d-block">
-                  <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=411&q=80" alt="app-bg" class="w-100 rounded-xl os-init" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="500">    
+@empty($banners)
+  <div class="banner-wrapper vh-md-100 layer-after app-shape ">
+    <div class="container-md">
+      <div class="section-full">
+        <div class="row">
+            <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
+              <div class="">
+                <h2 class="font-50">Expand Your Knowledge & Acheive Your Goal</h2>
+                <p class="font-16">There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer.</p>
               </div>
-          </div>
+            </div>
+            <div class="col-xxxl-5 col-xl-4 vh-md-100 align-items-center d-flex order-1 order-sm-2">
+                <div class="card w-100 border-0 bg-transparent text-center d-block">
+                    <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=411&q=80" alt="app-bg" class="w-100 rounded-xl os-init" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="500">    
+                </div>
+            </div>
+        </div>
       </div>
     </div>
   </div>
-</div> --}}
+@endempty
+
+@empty(!$banners)
+  <div class="banner-wrapper vh-md-100 layer-after app-shape mb-4">
+    <div class="container-fluid">
+      <div class="section-full">
+        <div class="row">
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              @forelse ($banners as $banner)
+              <div class="swiper-slide">
+                <div class="container-fluid back-img" 
+                style="background-image: url('{{asset($banner->foto)}}')">
+                </div>
+              </div>  
+              @empty 
+              @endforelse
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+@endempty
 
 
-{{-- Main --}}
-<div class="section-full bg-white content-inner-2 kinder-about-content bg-img-fix" 
+{{-- Paralax --}}
+{{-- <div class="section-full bg-white content-inner-2 kinder-about-content bg-img-fix" 
 style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9ce02c141d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80');">
   <div class="about-overlay-box"></div>
           <div class="container-md">
@@ -37,7 +72,7 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{-- Seberapa bahagia --}}
 <div class="section-full content-inner bg-white">
@@ -282,5 +317,20 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
       </div>
   </div>
 </div> --}}
+
+@push('scripts')
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+@endpush
+
+
+
 
 @endsection

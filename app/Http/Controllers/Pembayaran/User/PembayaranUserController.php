@@ -8,6 +8,7 @@ use App\Models\EnrollEvent;
 use App\Models\KonsultanJadwalJanji;
 use App\Models\MasterSettingProgram;
 use App\Models\Produk;
+use App\Models\SettingFormPendaftaran;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
 
@@ -22,13 +23,14 @@ class PembayaranUserController extends Controller
             $data = $produk;
 
             //Setting form pembayaran dari tabel settings
+            //*Deskripsi transaksi gambar
             $pembayaran = MasterSettingProgram::where('nama','transaksi')->get()->first();
-
+            $ceks = SettingFormPendaftaran::where('id_produk_kategori',$data->id_kategori)->first(); //! Cek apakah ada pertanyaan
 
             return view('pages.pembayaran.pembayaran',compact('data','janji','pembayaran','title'));
         }else{
             switch ($produk->id_kategori) {
-                case 1:
+                case 1:                                             //* Event
                     $enroll = EnrollEvent::create([
                         'id_user' => auth()->user()->id,
                         'id_event' => $produk->id_produk,

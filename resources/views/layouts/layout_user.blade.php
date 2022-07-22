@@ -2,7 +2,6 @@
 <html lang="en">
 
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -42,8 +41,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset($favicon)}}">
+
+    @yield('style')
 
   </head>
 
@@ -64,6 +64,8 @@
 
 
   @include('components.footer.footer_user')
+
+    @stack('scripts')
 
     <script src="{{ asset('js/user/plugin.js') }}"></script>
     <script src="{{ asset('js/user/aos.min.js') }}"></script>

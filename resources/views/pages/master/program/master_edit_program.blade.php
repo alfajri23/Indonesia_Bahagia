@@ -7,7 +7,7 @@
         <div class="card-body">
             <h2 class="fw-bolder mb-3">Program perusahaan</h1>
 
-            <form method="post" action="{{ route('masterStoreProgram')}}"  enctype="multipart/form-data">
+            <form method="post" action="{{ route('masterStoreProgram')}}" enctype="multipart/form-data">
                 @csrf
                 @include('components.error.error_message')
                 <div class="mb-3">

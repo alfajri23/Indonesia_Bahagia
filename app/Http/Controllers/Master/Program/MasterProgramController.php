@@ -22,7 +22,6 @@ class MasterProgramController extends Controller
 
     public function delete($id){
         $data = MasterSettingProgram::find($id)->delete();
-
         return redirect()->back();
     }
 

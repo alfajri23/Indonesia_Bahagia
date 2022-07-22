@@ -94,22 +94,6 @@ Route::prefix('blog')->group(function(){
     });
 });
 
-Route::prefix('master')->group(function(){
-    Route::get('/kontak', [ Controllers\Master\Kontak\KontakController::class,'index'])->name('masterKontak');
-    Route::post('/kontak', [ Controllers\Master\Kontak\KontakController::class,'store'])->name('masterStoreKontak');
-
-    Route::get('/informasi', [ Controllers\Master\Informasi\InformasiController::class,'index'])->name('masterInformasi');
-    Route::get('/informasi/edit', [ Controllers\Master\Informasi\InformasiController::class,'add'])->name('masterAddInformasi');
-    Route::get('/informasi/delete/{id}', [ Controllers\Master\Informasi\InformasiController::class,'delete'])->name('masterDeleteInformasi');
-    Route::post('/informasi/store', [ Controllers\Master\Informasi\InformasiController::class,'store'])->name('masterStoreInformasi');
-
-    Route::get('/program', [ Controllers\Master\Program\MasterProgramController::class,'index'])->name('masterProgram');
-    Route::get('/program/edit', [ Controllers\Master\Program\MasterProgramController::class,'add'])->name('masterAddProgram');
-    Route::get('/program/delete/{id}', [ Controllers\Master\Program\MasterProgramController::class,'delete'])->name('masterDeleteProgram');
-    Route::post('/program/store', [ Controllers\Master\Program\MasterProgramController::class,'store'])->name('masterStoreProgram');
-});
-
-
 
 Route::group(['middleware' => ['auth']], function() {
     
@@ -263,11 +247,40 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
     
     });
 
-
     Route::prefix('testimoni')->group(function(){
         Route::get('/', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'index'])->name('testimoniAdmin');
         Route::get('/aktif', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'aktif'])->name('testimoniAdminAktif');
         Route::get('/nonaktif', [Controllers\Testimoni\Admin\TestimoniAdminController::class,'nonaktif'])->name('testimoniAdminNonaktif');
+    });
+
+    Route::prefix('setting')->group(function(){ 
+        Route::prefix('form')->group(function(){ 
+            Route::get('/', [Controllers\Pendaftaran\Admin\PendaftaranAdminController::class,'index'])->name('formSetting');
+            Route::post('/', [Controllers\Pendaftaran\Admin\PendaftaranAdminController::class,'store'])->name('formSettingStore');
+            Route::get('/add', [Controllers\Pendaftaran\Admin\PendaftaranAdminController::class,'init'])->name('formSettingAdd');
+            Route::get('/delete', [Controllers\Pendaftaran\Admin\PendaftaranAdminController::class,'delete'])->name('formSettingDelete');
+            Route::get('/delete/form/{id}', [Controllers\Pendaftaran\Admin\PendaftaranAdminController::class,'deleteForm'])->name('formSettingDeleteForm');
+        });
+
+        Route::prefix('master')->group(function(){
+            Route::get('/kontak', [ Controllers\Master\Kontak\KontakController::class,'index'])->name('masterKontak');
+            Route::post('/kontak', [ Controllers\Master\Kontak\KontakController::class,'store'])->name('masterStoreKontak');
+        
+            Route::get('/informasi', [ Controllers\Master\Informasi\InformasiController::class,'index'])->name('masterInformasi');
+            Route::get('/informasi/edit', [ Controllers\Master\Informasi\InformasiController::class,'add'])->name('masterAddInformasi');
+            Route::get('/informasi/delete/{id}', [ Controllers\Master\Informasi\InformasiController::class,'delete'])->name('masterDeleteInformasi');
+            Route::post('/informasi/store', [ Controllers\Master\Informasi\InformasiController::class,'store'])->name('masterStoreInformasi');
+        
+            Route::get('/program', [ Controllers\Master\Program\MasterProgramController::class,'index'])->name('masterProgram');
+            Route::get('/program/edit', [ Controllers\Master\Program\MasterProgramController::class,'add'])->name('masterAddProgram');
+            Route::get('/program/delete/{id}', [ Controllers\Master\Program\MasterProgramController::class,'delete'])->name('masterDeleteProgram');
+            Route::post('/program/store', [ Controllers\Master\Program\MasterProgramController::class,'store'])->name('masterStoreProgram');
+        
+            Route::get('/banner', [ Controllers\Master\Banner\BannerController::class,'index'])->name('masterBanner');
+            Route::post('/banner', [ Controllers\Master\Banner\BannerController::class,'store'])->name('masterBannerStore');
+            Route::get('/banner/delete/{id}', [ Controllers\Master\Banner\BannerController::class,'delete'])->name('masterBannerDelete');
+        });
+
     });
 
 });

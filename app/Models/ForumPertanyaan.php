@@ -20,7 +20,7 @@ class ForumPertanyaan extends Model
 
     public function kategori()
     {
-        return $this->belongsTo(ForumKategori::class, 'id_kategori', 'id');
+        return $this->belongsTo(ForumPertanyaanKategori::class, 'id_kategori', 'id');
     }
 
     public function user()

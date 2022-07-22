@@ -1,4 +1,11 @@
 @extends('layouts.layout_user')
+
+@empty(!$data)
+    @section('meta_title', $data->meta_title)
+    @section('meta_keywords', $data->meta_keyword)
+    @section('meta_description', $data->meta_description)
+@endempty
+
 @section('content')
 
 <div class="post-title page-nav pt-lg--7 pt-lg--7 pt-5 pb-5">

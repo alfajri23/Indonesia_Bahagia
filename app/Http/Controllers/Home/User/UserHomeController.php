@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\KonsultasiLayanan;
+use App\Models\MasterBanner;
 use App\Models\ProdukEvent;
 use App\Models\ProdukKelas;
 use App\Models\Testimoni;
@@ -13,9 +14,10 @@ class UserHomeController extends Controller
 {
     public function index(){
         $layanans = KonsultasiLayanan::latest()->get();
-        $testimonis = Testimoni::where('status', 1)->get(); 
+        $testimonis = Testimoni::where('status', 1)->get();
+        $banners = MasterBanner::all(); 
 
-        return view('pages.home.home_user',compact('layanans','testimonis'));
+        return view('pages.home.home_user',compact('layanans','testimonis','banners'));
     }
 
     public function event(){
