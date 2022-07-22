@@ -81,7 +81,7 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
       <div class="col-lg-6 m-b30">
         <div class="section-head m-b20">
           <h2 class="title">
-            Bahagia
+            Bahagia bersama
           </h2>
           <h5 class="title-small">Seberapa bahagiakah kamu hari ini</h5>
           <div class="dlab-separator bg-primary"></div>

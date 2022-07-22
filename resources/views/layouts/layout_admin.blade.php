@@ -215,7 +215,7 @@
                         <span class="nav-text">Setting</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="{{route('formSetting')}}">Form pendaftaran</a></li>
+                        {{-- <li><a href="{{route('formSetting')}}">Form pendaftaran</a></li> --}}
                         <li><a href="{{route('masterBanner')}}">Banner</a></li>
                     </ul>
                 </li>
