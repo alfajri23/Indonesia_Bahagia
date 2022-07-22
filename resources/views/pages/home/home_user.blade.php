@@ -1,11 +1,5 @@
 @extends('layouts.layout_user')
 
-@section('style')
-<link
-rel="stylesheet"
-href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-/>
-@endsection
 
 @section('content')
 
@@ -36,10 +30,9 @@ href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
     <div class="container-fluid">
       <div class="section-full">
         <div class="row">
-          <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
+            <div class="owl-carousel px-0">
               @forelse ($banners as $banner)
-              <div class="swiper-slide">
+              <div class="px-0">
                 <div class="container-fluid back-img" 
                 style="background-image: url('{{asset($banner->foto)}}')">
                 </div>
@@ -47,9 +40,6 @@ href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
               @empty 
               @endforelse
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
         </div>
       </div>
     </div>
@@ -318,17 +308,16 @@ style="background-image:url('https://images.unsplash.com/photo-1527174744973-fc9
   </div>
 </div> --}}
 
-@push('scripts')
-<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
 <script>
-  var swiper = new Swiper(".mySwiper", {
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
+  $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+      center: true,
+    items:1,
+    loop:true,
+    });
   });
 </script>
-@endpush
 
 
 
