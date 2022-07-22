@@ -3,27 +3,27 @@
 
 @section('content')
 
-@empty($banners)
+@if(count($banners)<1)
   <div class="banner-wrapper vh-md-100 layer-after app-shape ">
-    <div class="container-md">
+    <div class="container">
       <div class="section-full">
-        <div class="row">
-            <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
-              <div class="">
-                <h2 class="font-50">Expand Your Knowledge & Acheive Your Goal</h2>
-                <p class="font-16">There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer.</p>
-              </div>
-            </div>
-            <div class="col-xxxl-5 col-xl-4 vh-md-100 align-items-center d-flex order-1 order-sm-2">
-                <div class="card w-100 border-0 bg-transparent text-center d-block">
-                    <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=411&q=80" alt="app-bg" class="w-100 rounded-xl os-init" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="500">    
+          <div class="row py-4">
+              <div class="col-xxxl-7 col-xl-7 vh-md-100 pt-7 pb-7 align-items-center d-flex order-2 order-sm-1">
+                <div class="">
+                  <h2 class="font-50">Expand Your Knowledge & Acheive Your Goal</h2>
+                  <p class="font-16">There are many variations of passages of Lorem Ipsum typesetting industry has been the industry's standard dummy text ever since the been when an unknown printer.</p>
                 </div>
-            </div>
-        </div>
+              </div>
+              <div class="col-xxxl-5 col-xl-4 vh-md-100 align-items-center d-flex order-1 order-sm-2">
+                  <div class="card w-100 border-0 bg-transparent text-center d-block">
+                      <img src="https://images.unsplash.com/photo-1524293568345-75d62c3664f7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=411&q=80" alt="app-bg" class="w-100 rounded-xl os-init" data-aos="zoom-in" data-aos-delay="300" data-aos-duration="500">    
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
-@endempty
+@endif
 
 @empty(!$banners)
   <div class="banner-wrapper vh-md-100 layer-after app-shape mb-4">
