@@ -4,15 +4,10 @@
 
 <div class="container-fluid">
     
-    {{-- <h6>Download</h6> --}}
-    {{-- <div class="my-2">
-        <a href="{{route('downloadEvent',['id'=>2])}}" class="btn btn-primary btn-sm">Beduk</a>
-        <a href="{{route('downloadEvent',['id'=>3])}}" class="btn btn-secondary btn-sm">Webinar</a>
-    </div> --}}
     <div class="card">
         <div class="card-body">
 
-            <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Event</h1>
+            <h1 class="h3 mb-4 fw-bold text-gray-800">Pendaftaran Kelas</h1>
             <div class="table-responsive">
                 <table class="table table-bordered display tablePendaftaran" width="100%" cellspacing="0">
                     <thead>
@@ -42,7 +37,9 @@
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Detail transaksi</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <div class="modal-body">
             <div class="card-body">
@@ -78,7 +75,7 @@
         $('.tablePendaftaran').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('pendaftaranEvent') }}",
+            ajax: "{{ route('pendaftaranKelas') }}",
             columns: [
                 {
                     data: 'DT_RowIndex', 
@@ -192,7 +189,7 @@
                 console.log(data)
                 $.ajax({
                     type : 'GET',
-                    url  : "{{ route('deleteEnrollEvent') }}",
+                    url  : "{{ route('deleteEnrollKelas') }}",
                     data : {
                         id : id_enroll
                     },

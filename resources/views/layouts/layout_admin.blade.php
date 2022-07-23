@@ -195,6 +195,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('pendaftaranEvent')}}">Event</a></li>
                             <li><a href="{{route('pendaftaranKonsultasi')}}">Konsultasi</a></li>
+                            <li><a href="{{route('pendaftaranKelas')}}">Kelas</a></li>
                         </ul>
                     </li>
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">

@@ -199,6 +199,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
         Route::get('event/delete', [Controllers\Event\Admin\EventPendaftaranController::class,'deleteEnrollEvent'])->name('deleteEnrollEvent');
         // Route::get('event/download', [Controllers\Event\Admin\EventPendaftaranController::class,'downloadEvent'])->name('downloadEvent');
         
+        //* KELAS
+        Route::get('kelas', [Controllers\kelas\Admin\KelasPendaftaranController::class,'kelas'])->name('pendaftaranKelas');
+        Route::get('kelas/delete', [Controllers\kelas\Admin\KelasPendaftaranController::class,'deleteEnrollKelas'])->name('deleteEnrollKelas');
 
         //* KONSULTASI
         Route::get('konsultasi', [Controllers\Konsultasi\Pendaftaran\Admin\KonsultasiPendaftaranController::class,'konsultasi'])->name('pendaftaranKonsultasi');
