@@ -44,7 +44,6 @@ class AdminHomeController extends Controller
             foreach ($tr as $trs){
                 $jumlah[$index] = $trs->harga;
             }
-
             $index++;
         }
 

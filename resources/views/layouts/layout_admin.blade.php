@@ -183,7 +183,6 @@
 							<span class="nav-text">Produk</span>
 						</a>
                         <ul aria-expanded="false">
-                            <li><a href="{{route('kelasIndex')}}">Kelas</a></li>
                             <li><a href="{{route('eventAdmin')}}">Event</a></li>
                             <li><a href="{{route('layananKonsultasiAdmin')}}">Layanan konsultasi</a></li>
                         </ul>
@@ -196,6 +195,7 @@
                         <ul aria-expanded="false">
                             <li><a href="{{route('pendaftaranEvent')}}">Event</a></li>
                             <li><a href="{{route('pendaftaranKonsultasi')}}">Konsultasi</a></li>
+                            <li><a href="{{route('pendaftaranKelas')}}">Kelas</a></li>
                         </ul>
                     </li>
 					<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
@@ -216,8 +216,7 @@
                         <span class="nav-text">Setting</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="{{route('settingPembayaranAdmin')}}">Metode pembayaran</a></li>
-                        <li><a href="{{route('formSetting')}}">Form pendaftaran</a></li>
+                        {{-- <li><a href="{{route('formSetting')}}">Form pendaftaran</a></li> --}}
                         <li><a href="{{route('masterBanner')}}">Banner</a></li>
                     </ul>
                 </li>
@@ -282,7 +281,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by Tim dev 2022</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">DexignZone</a> 2022</p>
             </div>
         </div>
         <!--**********************************
@@ -299,8 +298,22 @@
 
 
     </div>
-    
-    @stack('scripts')
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    {{-- <script src="vendor/global/global.min.js"></script>
+	<script src="js/deznav-init.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="vendor/peity/jquery.peity.min.js"></script>
+    <script src="vendor/jquery-sparkline/jquery.sparkline.min.js"></script> --}}
+    {{-- <script src="vendor/svganimation/vivus.min.js"></script>
+    <script src="vendor/svganimation/svg.animation.js"></script> --}}
 
     <script src="{{ asset('vendor/global/global.min.js') }}"></script>
     <script src="{{ asset('js/admin/deznav-init.js') }}"></script>
