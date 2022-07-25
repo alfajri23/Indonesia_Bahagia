@@ -40,7 +40,7 @@
                             <div class="progress mb-2">
                                 <div class="progress-bar progress-animated bg-warning" style="width: {{$user/$user_transaksi*100}}%"></div>
                             </div>
-                            <small>{{$user/$user_transaksi*100}}% user melakukan sudah pernah melakukan transaksi</small>
+                            <small>{{$user/$user_transaksi*100}}% user sudah pernah melakukan transaksi</small>
                         </div>
                     </div>
                 </div>
