@@ -1,9 +1,9 @@
 @extends('layouts.layout_user')
 
-@empty(!$data)
-    @section('meta_title', $data->meta_title)
-    @section('meta_keywords', $data->meta_keyword)
-    @section('meta_description', $data->meta_description)
+@empty(!$blog)
+    @section('meta_title', $blog->meta_title)
+    @section('meta_keywords', $blog->meta_keyword)
+    @section('meta_description', $blog->meta_description)
 @endempty
 
 @section('content')
