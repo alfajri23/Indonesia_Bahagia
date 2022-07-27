@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
                 ProdukKategoriSeeder::class,
                 MasterSettingProgramSeeder::class,
                 SettingPembayaranSeeder::class,
+                AssesmentWLBSeeder::class,
             ]
         );
     }

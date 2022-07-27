@@ -94,6 +94,13 @@ Route::prefix('blog')->group(function(){
     });
 });
 
+Route::prefix('assesment')->group(function(){
+    Route::prefix('work-life-balance')->group(function(){
+        Route::get('/', [ App\Http\Controllers\Assesment\WLB\User\AssesmentWLBController::class,'index'])->name('indexWLB');
+        Route::post('/', [ App\Http\Controllers\Assesment\WLB\User\AssesmentWLBController::class,'done'])->name('doneWLB');
+    });
+});
+
 
 Route::group(['middleware' => ['auth']], function() {
     

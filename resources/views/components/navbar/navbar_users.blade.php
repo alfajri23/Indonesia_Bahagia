@@ -49,6 +49,14 @@
                         </li>
 
                         <li class="">
+                            <a href="javascript:;">Tes Psikologi<i class="fas fa-chevron-down"></i></a>
+                            <ul class="sub-menu right">
+                                <li><a href="{{route('indexWLB')}}">Work Life Balance</a></li>
+                            </ul>
+                        </li>
+
+
+                        <li class="">
                             <a href="javascript:;">Tentang<i class="fas fa-chevron-down"></i></a>
                             <ul class="sub-menu right">
                                 <li><a href="{{route('about')}}">Tentang</a></li>
