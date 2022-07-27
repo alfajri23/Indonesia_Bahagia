@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Event\Admin;
 
 use App\Helpers\UploadFile;
+use App\Helpers\ValidateMessages;
 use App\Http\Controllers\Controller;
 use App\Models\Konsultan;
 use App\Models\Produk;
@@ -73,9 +74,10 @@ class EventAdminController extends Controller
     }
 
     public function eventSave(Request $request){
+        $message = ValidateMessages::messages();
         $this->validate($request, [
             'file' => 'file|image|mimes:jpeg,png,jpg|max:2048',
-        ]);
+        ],$message);
 
         //cari tipe produk
         $tipe = ProdukKategori::find($request->tipe);

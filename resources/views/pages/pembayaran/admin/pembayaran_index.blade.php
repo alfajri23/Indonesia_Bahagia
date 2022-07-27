@@ -179,7 +179,7 @@
                 //asset = window.location.origin;
         
                 //Bukti bayar
-                bukti = `<a class="btn btn-info btn-sm" target="_blank" href="${asset}/${datas.bukti}">Lihat bukti</a>`;
+                bukti = `<a class="btn btn-info btn-sm text-white" target="_blank" href="${asset}/${datas.bukti}">Lihat bukti</a>`;
 
                 //JIka ada file tambahan
                 if(datas.file_tambahan != null && datas.file_tambahan != ""){
@@ -193,10 +193,8 @@
 
                 if(datas.status != 'lunas'){
                     konfirmasi = `
-                    <div class="btn-group" role="group" aria-label="Basic example">
                         <button onclick="tolak(${datas.id})" class="btn btn-danger btn-sm">Tolak</button>
-                        <button onclick="konfirmasi_bank(${datas.id})" class="btn btn-success text-white">Konfirmasi</button>
-                    </div>
+                        <button onclick="konfirmasi_bank(${datas.id})" class="btn btn-success btn-sm text-white">Konfirmasi</button>
                     `;    
                 }else{
                     konfirmasi = `
@@ -253,7 +251,7 @@
                 asset = window.location.origin;
         
                 //Bukti bayar
-                bukti = `<a target="_blank" href="${asset}/${datas.bukti}">Bukti</a>`;
+                bukti = `<a class="btn btn-info btn-sm text-white" target="_blank" href="${asset}/${datas.bukti}">Lihat bukti</a>`;
 
                 //JIka ada file tambahan
                 if(datas.file_tambahan != null && datas.file_tambahan != ""){

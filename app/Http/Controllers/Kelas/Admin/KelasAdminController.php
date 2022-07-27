@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Kelas\Admin;
 
 use App\Helpers\UploadFile;
+use App\Helpers\ValidateMessages;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use App\Models\ProdukKelas;
@@ -68,9 +69,10 @@ class KelasAdminController extends Controller
 
     public function update(Request $request){
 
+        $message = ValidateMessages::messages();
         $this->validate($request, [
-			'poster' => 'image|mimes:jpeg,png,jpg|max:2048',
-		]);
+            'poster' => 'image|mimes:jpeg,png,jpg|max:2048',
+        ],$message);
 
         $datas = [
             'judul' => $request->judul,

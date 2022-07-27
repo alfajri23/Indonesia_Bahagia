@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Blog\Admin;
 
 use App\Helpers\UploadFile;
+use App\Helpers\ValidateMessages;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogKategori;
@@ -82,9 +83,11 @@ class BlogAdminController extends Controller
     }
 
     public function store(Request $request){
+
+        $message = ValidateMessages::messages();
         $this->validate($request, [
-			'gambar' => 'file|image|mimes:jpeg,png,jpg|max:2048',
-		]);
+            'file' => 'file|image|mimes:jpeg,png,jpg|max:2048',
+        ],$message);
 
         $kat = BlogKategori::find($request->id_kategori);
 

@@ -14,7 +14,7 @@
 	<meta property="og:description" content="EduZone - Bootstrap Admin Dashboard" />
 	<meta property="og:image" content="https://eduzone.dexignzone.com/xhtml/social-image.png" />
 	<meta name="format-detection" content="telephone=no">
-    <title>EduZone - Bootstrap Admin Dashboard </title>
+    <title>{{isset($title) ? $title : 'Admin Hallo bahagia';}}</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon1.png">
     {{-- <link rel="stylesheet" href="vendor/jqvmap/css/jqvmap.min.css"> --}}

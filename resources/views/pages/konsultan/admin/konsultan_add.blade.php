@@ -25,39 +25,37 @@
                     <div class="p-3">
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Nama</label>
-                            <input type="text" name="nama" value="" class="form-control">
+                            <input type="text" name="nama" value="{{old('nama')}}" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Email</label>
-                            <input type="text" name="email" class="form-control">
+                            <input type="text" name="email" value="{{old('email')}}" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Telepon</label>
-                            <input type="tel" name="telepon" class="form-control">
+                            <input type="tel" name="telepon" value="{{old('telepon')}}" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">SIPP</label>
-                            <input type="text" name="SIPP" class="form-control">
+                            <input type="text" name="SIPP" value="{{old('SIPP')}}" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">STR</label>
-                            <input type="text" name="STR" class="form-control">
+                            <input type="text" name="STR" value="{{old('STR')}}" class="form-control">
                         </div>
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Password</label>
-                            <input type="password" name="password" class="form-control">
-                            <div class="form-text text-primary">Kosongkan jika tidak ingin menganti password</div>
+                            <input type="password" name="password" value="{{old('password')}}" class="form-control" required>
                         </div>
                         
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Konfirmasi password</label>
-                            <input type="password" name="password_confirmation" class="form-control">
-                            <div class="form-text text-primary">Kosongkan jika tidak ingin menganti password</div>
+                            <input type="password" name="password_confirmation" value="{{old('password_confirmation')}}" class="form-control" required>
                         </div>
 
                         <div class="mb-3">

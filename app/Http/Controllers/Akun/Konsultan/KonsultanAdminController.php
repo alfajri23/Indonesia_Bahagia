@@ -42,6 +42,8 @@ class KonsultanAdminController extends Controller
         ];
 
         $validate = [
+            'nama' => 'required',
+            'email' => 'required',
             'foto' => 'image|mimes:jpeg,png,jpg|max:2048',
             'telepon' => ['required', 'string','regex:/\+?([ -]?\d+)+|\(\d+\)([ -]\d+)/','min:9','max:14']
         ];
@@ -51,10 +53,10 @@ class KonsultanAdminController extends Controller
             $validate['password'] = ['string', 'min:8', 'confirmed'];
         }
         
-
         $messages = [
             'mimes' => ':attribute tipe yang diterima: :values',
-            'max' => 'Ukuran maksimal file 2 Mb'
+            'max' => 'Ukuran maksimal :attribute 2 Mb',
+            'required' => ':attribute tidak boleh kosong'
         ];
 
         $this->validate($request, $validate ,$messages);

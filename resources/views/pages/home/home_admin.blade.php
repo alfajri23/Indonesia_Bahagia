@@ -38,9 +38,9 @@
                             <h4 class="card-title">User</h4>
                             <h3>{{$user}}</h3>
                             <div class="progress mb-2">
-                                <div class="progress-bar progress-animated bg-warning" style="width: {{$user/$user_transaksi*100}}%"></div>
+                                <div class="progress-bar progress-animated bg-warning" style="width: {{$user_transaksi/$user*100}}%"></div>
                             </div>
-                            <small>{{$user/$user_transaksi*100}}% user sudah pernah melakukan transaksi</small>
+                            <small>{{$user_transaksi/$user*100}}% user sudah pernah melakukan transaksi</small>
                         </div>
                     </div>
                 </div>

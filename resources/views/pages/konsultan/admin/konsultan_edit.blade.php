@@ -34,7 +34,7 @@
                             <input type="text" name="email" value="{{$data->email}}" class="form-control">
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Password</label>
                             <input type="password" name="password" class="form-control">
                             <div class="form-text text-primary">Kosongkan jika tidak ingin menganti password</div>
@@ -44,7 +44,7 @@
                             <label class="fw-700 text-grey-800 display2-md-size">Konfirmasi password</label>
                             <input type="password" name="password_confirmation" class="form-control">
                             <div class="form-text text-primary">Kosongkan jika tidak ingin menganti password</div>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3">
                             <label class="fw-700 text-grey-800 display2-md-size">Tentang</label>

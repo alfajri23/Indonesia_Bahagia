@@ -18,7 +18,7 @@
         @forelse ($datas as $dt) 
         <a href="{{route('konsultanAdminDetail',$dt->id)}}" class="card rounded-lg mx-2" style="width: 14rem;">
             <div class="card-image w-100 mb-3">
-                <img src="{{asset($dt->foto)}}" alt="image" class="w-100">
+                <img src="{{ $dt->foto != null ? asset($dt->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" alt="image" class="w-100">
             </div>
             <div class="card-body">
               <p class="fw-bolder card-title">{{$dt->nama}}</p>

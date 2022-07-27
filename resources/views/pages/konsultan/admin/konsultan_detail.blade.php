@@ -6,7 +6,7 @@
     <div class="card shadow mb-4 p-3">
         <div class="row">
             <div class="col-4">
-                <img src="{{asset($data->foto)}}" class="img-fluid rounded-start" alt="...">
+                <img src="{{ $data->foto != null ? asset($data->foto) : 'https://asia.ifoam.bio/wp-content/uploads/2018/06/image-placeholder.jpeg'}}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-8">
                 <button onclick="reset({{$data->id}})" type="button" class="btn btn-warning btn-sm float-end text-white">Reset password</button>
@@ -36,10 +36,6 @@
                         </div>
                     </div>
                     
-                    <p class="text-gray-800 mb-0">STR   : {{$data->STR}}</p>
-                    <p class="text-gray-800 mb-0">SIPP  : {{$data->SIPP}}</p>
-                    <p class="text-gray-800 mb-0">Email : {{$data->email}}</p>
-                    <p class="text-gray-800 mb-0">Tel   :{{$data->telepon}}</p>
                     <p class="card-text">{!!$data->tentang!!}</p>
                 </div>
             </div>
@@ -322,8 +318,8 @@
                     function mapFile(item) {
                         return `
                         <div class="form-check my-1">
-                            <input class="form-check-input" name="id_layanan[]" type="checkbox" value="${item.id}" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" name="id_layanan[]" type="checkbox" value="${item.id}" id="flexCheckDefault${item.id}">
+                            <label class="form-check-label" for="flexCheckDefault${item.id}">
                                 ${item.nama}
                             </label>
                         </div>
@@ -337,9 +333,6 @@
                 $('#layananKonsultan')[0].innerHTML = layanans;
 
                 $('#modalLayanan').modal('show');
-
-
-
 
             }
         });
